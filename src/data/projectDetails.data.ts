@@ -1,20 +1,20 @@
 import myworker01 from '@/assets/img/ProjectDetails/myworker-1.webp';
-import myworker02 from '@/assets/img/projectDetails/myworker-2.webp';
-import myworker03 from '@/assets/img/projectDetails/myworker-3.webp';
-import myworker04_1 from '@/assets/img/projectDetails/myworker-4_1.webp';
-import myworker04_2 from '@/assets/img/projectDetails/myworker-4_2.webp';
-import myworker05 from '@/assets/img/projectDetails/myworker-5.webp';
-import myworker06 from '@/assets/img/projectDetails/myworker-6.webp';
-import myworker07 from '@/assets/img/projectDetails/myworker-7.webp';
-import myworker08 from '@/assets/img/projectDetails/myworker-8.webp';
-import myworker09 from '@/assets/img/projectDetails/myworker-9.webp';
-import myworker10 from '@/assets/img/projectDetails/myworker-10.webp';
-import myworker11 from '@/assets/img/projectDetails/myworker-11.webp';
+import myworker02 from '@/assets/img/ProjectDetails/myworker-2.webp';
+import myworker03 from '@/assets/img/ProjectDetails/myworker-3.webp';
+import myworker04_1 from '@/assets/img/ProjectDetails/myworker-4_1.webp';
+import myworker04_2 from '@/assets/img/ProjectDetails/myworker-4_2.webp';
+import myworker05 from '@/assets/img/ProjectDetails/myworker-5.webp';
+import myworker06 from '@/assets/img/ProjectDetails/myworker-6.webp';
+import myworker07 from '@/assets/img/ProjectDetails/myworker-7.webp';
+import myworker08 from '@/assets/img/ProjectDetails/myworker-8.webp';
+import myworker09 from '@/assets/img/ProjectDetails/myworker-9.webp';
+import myworker10 from '@/assets/img/ProjectDetails/myworker-10.webp';
+import myworker11 from '@/assets/img/ProjectDetails/myworker-11.webp';
 
-import flux01 from '@/assets/img/projectDetails/myworker-11.webp';
-import flux02 from '@/assets/img/projectDetails/myworker-11.webp';
-import flux03 from '@/assets/img/projectDetails/myworker-11.webp';
-import flux04 from '@/assets/img/projectDetails/myworker-11.webp';
+import flux01 from '@/assets/img/ProjectDetails/myworker-11.webp';
+import flux02 from '@/assets/img/ProjectDetails/myworker-11.webp';
+import flux03 from '@/assets/img/ProjectDetails/myworker-11.webp';
+import flux04 from '@/assets/img/ProjectDetails/myworker-11.webp';
 
 // ============================================================
 // TYPES
