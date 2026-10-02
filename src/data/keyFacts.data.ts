@@ -1,8 +1,8 @@
-import partner1 from '@/assets/img/Partner/partner1.svg';
-import partner2 from '@/assets/img/Partner/partner2.svg';
-import partner3 from '@/assets/img/Partner/partner3.svg';
-import partner4 from '@/assets/img/Partner/partner4.svg';
-import partner5 from '@/assets/img/Partner/partner5.svg';
+import partner1 from '@/assets/img/Partner/partner1.png';
+import partner2 from '@/assets/img/Partner/partner2.png';
+import partner3 from '@/assets/img/Partner/partner3.webp';
+import partner4 from '@/assets/img/Partner/partner4.png';
+import partner5 from '@/assets/img/Partner/partner5.png';
 
 import awardsCardVideo from '@/assets/video/awards-card-video_m.mp4';
 import rushi from '@/assets/video/rushi_m.mp4';
@@ -47,30 +47,30 @@ export const MEDIA = {
 
 export const KEY_FACT_CONTENT = {
   awards: {
-    label: 'Featured & Awards',
-    description: 'Featured on top design platforms worldwide.',
-    number: '50',
+    label: 'Years of creative experience',
+    description: 'Building brands, digital experiences, creative content with purpose.',
+    number: '3',
     suffix: '+',
     logo: '/images/thefwa.svg',
   },
 
   projects: {
-    label: 'Projects completed',
-    description: ['90% of our clients seek our', 'services for a second project.'],
-    number: '1.5K',
+    label: 'Brands & projects',
+    description: ['From branding and social content to websites and digital experiences.'],
+    number: '10',
     suffix: '+',
   },
 
   team: {
-    label: 'Our team members',
-    description: ['Different skills.', 'One standard.'],
-    number: '20',
-    suffix: '+',
+    label: 'Commitment to craft',
+    description: ['Every project gets the same attention to detail, clarity, and creative thinking.'],
+    number: '100',
+    suffix: '%',
   },
 
   intro: {
-    title: 'Key facts',
-    description: ['A snapshot of our experience and impact.'],
+    title: 'OUR  JOURNEY',
+    description: ['A snapshot of what we’ve built, what we’ve learned, and where we’re going.'],
   },
 
   partners: {

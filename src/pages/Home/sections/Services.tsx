@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
-import { Layers, Code2, Sparkles, Box, Compass, Camera } from 'lucide-react';
+import { Fingerprint, PenTool, Clapperboard, MonitorSmartphone, Camera, Megaphone } from 'lucide-react';
 import { useRef, useLayoutEffect, useState } from 'react';
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
 
@@ -18,34 +18,34 @@ import stoneImage from '@/assets/img/ashenox_stone.png';
 
 const SERVICES = [
   {
-    icon: Compass,
+    icon: Fingerprint,
     title: 'Brand & Identity',
-    desc: 'Strategic brand systems, visual language, that define how you are remembered.',
+    desc: 'Distinctive visual identities built to make brands recognizable, memorable, and consistent.',
   },
   {
-    icon: Layers,
-    title: 'Web Experiences',
-    desc: 'Immersive, high-performance websites engineered to feel as good as they look.',
+    icon: PenTool,
+    title: 'Graphic Design',
+    desc: 'Purposeful visuals for campaigns, social media, marketing, and digital brand communication.',
   },
   {
-    icon: Code2,
-    title: 'Product Design',
-    desc: 'End-to-end interface design and prototyping for products people love to use.',
+    icon: Clapperboard,
+    title: 'Video & Motion',
+    desc: 'Cinematic video, motion graphics, and creative content designed to capture attention.',
   },
   {
-    icon: Box,
-    title: '3D & Motion',
-    desc: 'Cinematic 3D, motion graphics, and real-time visuals that bring stories to life.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Creative Direction',
-    desc: 'Concept-led direction across campaigns, launches, and digital narratives.',
+    icon: MonitorSmartphone,
+    title: 'Web Design & Development',
+    desc: 'Modern, responsive websites crafted for strong experiences, performance, and growth.',
   },
   {
     icon: Camera,
-    title: 'Content & Film',
-    desc: 'Art-directed photography, film, and visual content built for impact.',
+    title: 'UGC & Model Content',
+    desc: 'Authentic creator-led and model-driven content designed to showcase products, tell stories, and connect with audiences.',
+  },
+  {
+    icon: Megaphone,
+    title: 'Digital Marketing',
+    desc: 'Creative digital strategies and content designed to build visibility, engagement, and brand growth.',
   },
 ];
 
@@ -100,7 +100,7 @@ function ServicesVisual({ mobile = false }: { mobile?: boolean }) {
         src={stoneImage}
         alt=""
         aria-hidden="true"
-        className="absolute left-1/2 top-1/2 z-[1] h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 select-none object-contain md:h-[500px] md:w-[500px] lg:h-[550px] lg:w-[500px]"
+        className="absolute left-1/2 top-1/2 z-[1] h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 select-none object-contain md:h-[500px] md:w-[500px] xl:h-[550px] xl:w-[550px] 2xl:h-[550px] 2xl:w-[500px]"
       />
       {/* ======================================================
           VIDEO
@@ -126,7 +126,7 @@ function ServicesVisual({ mobile = false }: { mobile?: boolean }) {
           mixBlendMode: 'difference',
         }}
       >
-        <h2 className="whitespace-nowrap text-center text-[14px] font-light uppercase leading-none tracking-[-0.02em] text-white md:m-0 md:mt-[250px] xl:mt-[calc(30px_-_((100vw_-_1280px)_/_8))] 2xl:mt-0">
+        <h2 className="whitespace-nowrap text-center text-[14px] font-light uppercase leading-none tracking-[-0.02em] text-white md:m-0 md:mt-[250px] xl:mt-[calc(30px_-_((100vw_-_1580px)_/_8))] 2xl:mt-0">
           Different disciplines. One standard of craft.
         </h2>
       </div>

@@ -11,7 +11,7 @@ import { createCharacterAnimation } from '@/components/animations/CharAnimation'
 import { createWordAnimation } from '@/components/animations/wordAnimation';
 import { MarqueeSection } from '@/components/common/MarqueeSection';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
-
+import { AeroBackground } from '@/pages/Home/sections/AeroBackground';
 const ease = [0.16, 1, 0.3, 1] as const;
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -298,28 +298,28 @@ function OrbitalBackground({ broken = false, marquee = false }: { broken?: boole
 function ExpertiseHero() {
   const ref = useRef<HTMLElement | null>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['start start', 'end start'],
+  // });
 
-  const headingY = useTransform(scrollYProgress, [0, 0.75, 1], ['0%', '-12%', '-30%']);
+  // const headingY = useTransform(scrollYProgress, [0, 0.75, 1], ['0%', '-12%', '-30%']);
 
-  const headingOpacity = useTransform(scrollYProgress, [0, 0.65, 0.95], [1, 1, 0]);
+  // const headingOpacity = useTransform(scrollYProgress, [0, 0.65, 0.95], [1, 1, 0]);
 
-  const orbitScale = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1.05, 0.7]);
+  // const orbitScale = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1.05, 0.7]);
 
   return (
-    <section ref={ref} className="relative h-[120vh] overflow-hidden bg-[#060607] text-white">
+    <section ref={ref} className="relative h-[120vh] overflow-hidden text-white">
       <div className="sticky top-0 flex h-screen items-center justify-center">
-        <motion.div
+        {/* <motion.div
           style={{
             scale: orbitScale,
           }}
           className="absolute inset-0"
         >
           <OrbitalBackground />
-        </motion.div>
+        </motion.div> */}
 
         <motion.div className="relative z-10 text-center">
           <div className="mb-3 flex items-center justify-center gap-1 text-[11px] uppercase tracking-[-0.02em] text-white/75 md:text-[14px]">
@@ -357,16 +357,16 @@ function FocusedDisciplines() {
   const broken = useTransform(scrollYProgress, [0.42, 0.55], [0, 1]);
 
   return (
-    <section className="relative h-[50vh] overflow-hidden bg-[#060607] text-white lg:h-[100vh]">
+    <section className="relative h-[50vh] overflow-hidden text-white lg:h-[100vh]">
       <div className="top-10 overflow-hidden">
-        <motion.div
+        {/* <motion.div
           style={{
             opacity: useTransform(broken, [0, 1], [1, 0]),
           }}
           className="absolute inset-0"
         >
           <OrbitalBackground />
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           style={{
@@ -458,40 +458,22 @@ function DisciplineMarquee() {
 export function Service() {
   return (
     <main className="overflow-x-clip">
-      {/* ======================================================
-          01 — AREA OF EXPERTISE
-      ====================================================== */}
+      <section className="relative">
+        {/* Background */}
+        <div className="pointer-events-none sticky top-0 z-0 h-screen w-full">
+          <AeroBackground />
+        </div>
 
-      <ExpertiseHero />
-
-      {/* ======================================================
-          02 — FOCUSED DISCIPLINES
-      ====================================================== */}
-
-      <FocusedDisciplines />
-
-      {/* ======================================================
-          03 — INFINITE DISCIPLINE MARQUEE
-      ====================================================== */}
-
-      <DisciplineMarquee />
-
-      {/* ======================================================
-          04 — SERVICES
-      ====================================================== */}
+        {/* Content */}
+        <div className="relative z-10 -mt-[100vh]">
+          <ExpertiseHero />
+          <FocusedDisciplines />
+          <DisciplineMarquee />
+        </div>
+      </section>
 
       <ServiceCapabilities />
-
-      {/* ======================================================
-          05 — TECHNOLOGY STACK
-      ====================================================== */}
-
       <TechnologyStack />
-
-      {/* ======================================================
-          06 — HOW IT WORKS
-      ====================================================== */}
-
       <HowItWorks mobileHeight="100vh" />
     </main>
   );

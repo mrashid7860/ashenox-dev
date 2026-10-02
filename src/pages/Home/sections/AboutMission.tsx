@@ -4,6 +4,7 @@ import { MarqueeSection } from '@/components/common/MarqueeSection';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { homeData } from '@/data/home.data';
 import { usePageTransition } from '@/components/common/PageLoader';
+
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const reveal = {
@@ -45,7 +46,7 @@ function DesignStatement() {
   return (
     <motion.div
       {...reveal}
-      className="absolute left-[100px] top-[1%] w-[190px] sm:left-[28px] sm:top-[15%] sm:w-[220px] md:left-[5%] md:top-[20%] md:w-[260px] lg:left-[9.6%] lg:top-[16%] lg:w-[310px]"
+      className="absolute inset-x-0 top-[1%] mx-auto w-[240px] text-center sm:inset-x-auto sm:left-[28px] sm:top-[15%] sm:mx-0 sm:w-[220px] sm:text-left md:left-[5%] md:top-[20%] md:w-[260px] lg:left-[9.6%] lg:top-[16%] lg:w-[310px]"
     >
       <motion.p
         initial="hidden"
@@ -71,7 +72,7 @@ function MissionStatement() {
   return (
     <motion.div
       {...reveal}
-      className="absolute left-[100px] right-auto top-[12%] w-[250px] sm:left-auto sm:right-[28px] sm:top-[15%] sm:w-[270px] md:right-[5%] md:top-[16%] md:w-[315px] lg:right-[9.6%] lg:top-[16%] lg:w-[405px] xl:w-[430px]"
+      className="absolute inset-x-0 top-[25%] mx-auto w-[calc(100%-32px)] max-w-[320px] text-center sm:inset-x-auto sm:right-[28px] sm:top-[15%] sm:mx-0 sm:w-[270px] sm:max-w-none sm:text-left md:right-[5%] md:top-[16%] md:w-[315px] lg:right-[9.6%] lg:top-[16%] lg:w-[405px] xl:w-[430px]"
     >
       <p className="mt-5 text-[15px] font-[200] leading-[1.2] tracking-[-0.02em] text-white/75 sm:text-[12px] md:text-[14px] lg:text-[16px]">{mission}</p>
 
@@ -81,7 +82,7 @@ function MissionStatement() {
         charShift={57}
         onClick={() => go('/about', 'ABOUT')}
         widthClassName="w-[150px] sm:w-[150px] md:w-[150px] lg:w-[150px]"
-        className="mt-[27px] pb-[7px] font-mono text-white/70 sm:mt-[40px] md:mt-[40px] lg:mt-[60px] lg:pb-0"
+        className="mx-auto mt-[27px] pb-[7px] font-mono text-white/70 sm:mx-0 sm:mt-[40px] md:mt-[40px] lg:mt-[60px] lg:pb-0"
       >
         MORE ABOUT US
       </AnimatedButton>
@@ -99,7 +100,7 @@ function FocusedVision() {
         ...reveal.transition,
         delay: 0.25,
       }}
-      className="absolute bottom-[10%] left-[23px] sm:left-[28px] md:bottom-[19%] md:left-[5%] lg:bottom-[20%] lg:left-[9.6%]"
+      className="absolute inset-x-0 bottom-[10%] mx-auto w-fit text-center sm:inset-x-auto sm:left-[28px] sm:mx-0 sm:text-left md:bottom-[19%] md:left-[5%] lg:bottom-[20%] lg:left-[9.6%]"
     >
       <motion.p
         initial="hidden"
@@ -121,12 +122,12 @@ function FocusedVision() {
 export function AboutMission() {
   return (
     <>
-      <section id="mission" className="relative h-[480px] min-h-0 w-full overflow-hidden bg-[#080808] sm:h-[480px] md:h-[50vh] lg:h-[75vh] xl:h-[76vh]">
+      <section id="mission" className="relative h-[480px] min-h-0 w-full overflow-hidden sm:h-[480px] md:h-[50vh] lg:h-[75vh] xl:h-[76vh]">
         <div className="noise-overlay pointer-events-none absolute inset-0 z-[1]" />
 
         <div className="absolute left-0 right-0 top-0 z-30 h-px" />
 
-        <div className="relative z-20 mx-auto h-full w-full max-w-[1920px] px-[23px] sm:px-[28px] md:px-[5%] lg:px-[9.6%]">
+        <div className="relative z-20 mx-auto h-full w-full max-w-[1920px] px-0 sm:px-[28px] md:px-[5%] lg:px-[9.6%]">
           <DesignStatement />
           <MissionStatement />
           <FocusedVision />

@@ -37,7 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const NAV_CONTACT = {
   email: 'info@ashenox.com',
-  phone: '+919824182099',
+  phone: '+917205044122',
 } as const;
 
 // ============================================================
@@ -47,19 +47,19 @@ export const NAV_CONTACT = {
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'Linkedin',
-    url: 'https://www.linkedin.com/',
-  },
-  {
-    name: 'Facebook',
-    url: 'https://www.facebook.com/',
-  },
-  {
-    name: 'Dribbble',
-    url: 'https://dribbble.com/',
+    url: 'https://www.linkedin.com/company/ashenox',
   },
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com/',
+    url: 'https://www.instagram.com/ashenox.creative/',
+  },
+  {
+    name: 'Behance',
+    url: 'https://www.behance.net/ashishbehera10',
+  },
+  {
+    name: 'YouTube',
+    url: 'https://www.youtube.com/@Ashenox07',
   },
 ];
 

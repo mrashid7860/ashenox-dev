@@ -47,6 +47,7 @@ error.log
 .env.*
 !.env.example
 !.env.local.example
+.env.local
 
 
 # ============================================================
@@ -182,3 +183,5 @@ blob-report/
 *.swp
 *.swo
 *~
+.vercel
+.env*

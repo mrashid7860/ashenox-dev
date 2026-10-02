@@ -75,7 +75,7 @@ function KeyFactNumber({ number, suffix, color = 'text-white' }: KeyFactNumberPr
     <div className={`flex items-start tabular-nums ${color}`}>
       <span className="text-[40px] font-normal leading-none tracking-[-0.07em] md:text-[48px] lg:text-[50px] xl:text-[52px]">{number}</span>
 
-      <span className="ml-1 text-[28px] leading-none tracking-[-0.06em] md:text-[32px] lg:text-[34px]">{suffix}</span>
+      <span className="ml-1 text-[28px] tracking-[-0.06em] md:text-[32px] lg:text-[34px]">{suffix}</span>
     </div>
   );
 }
@@ -111,13 +111,17 @@ function AwardsCard() {
 
       <div className="absolute inset-0 bg-black/10" />
 
-      <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-8 lg:p-10">
+      <div className="relative z-10 flex h-full flex-col justify-between p-4 md:p-8 lg:p-8">
         <span className="block text-[13px] uppercase tracking-[-0.02em] text-white/90 md:text-[14px]">{content.label}</span>
 
         <div>
-          <div className="relative mb-3 flex h-10 w-[30%] items-end justify-start md:h-12 lg:w-[35%]">
-            <img src={content.logo} alt="The FWA" className="h-full w-auto max-w-[110px] object-contain object-left brightness-0 invert" />
-          </div>
+          {/* <div className="relative mb-3 flex h-10 w-[30%] items-end justify-start md:h-12 lg:w-[35%]">
+            <img
+              src={content.logo}
+              alt="The FWA"
+              className="h-full w-auto max-w-[110px] object-contain object-left brightness-0 invert"
+            />
+          </div> */}
 
           <div className="flex items-end justify-between gap-5">
             <p className="max-w-[68%] text-[13px] leading-[1.25] text-white/80 md:text-[14px] lg:max-w-[65%]">{content.description}</p>
@@ -138,7 +142,7 @@ function ProjectsCard() {
   const content = KEY_FACT_CONTENT.projects;
 
   return (
-    <CardWrapper className="h-[350px] bg-[#e7e5e3] p-6 text-center text-[#343434] md:h-[365px] md:p-8 lg:p-10">
+    <CardWrapper className="h-[350px] bg-[#e7e5e3] p-4 text-center text-[#343434] md:h-[365px] md:p-8 lg:p-8">
       <div className="flex h-full flex-col justify-between">
         <span className="block text-[13px] uppercase tracking-[-0.02em] md:text-[14px]">{content.label}</span>
 
@@ -150,7 +154,7 @@ function ProjectsCard() {
           </div>
         </div>
 
-        <p className="text-left text-[13px] leading-[1.35] text-[#343434]/70 md:text-[14px]">
+        <p className="text-center text-[13px] leading-[1.35] text-[#343434]/70 md:text-[14px]">
           {content.description.map((line) => (
             <span key={line} className="block">
               {line}
@@ -171,7 +175,7 @@ function TeamCard() {
 
   return (
     <CardWrapper className="h-[350px] bg-[#2f3135] text-white md:h-[365px]">
-      <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-8 lg:p-10">
+      <div className="relative z-10 flex h-full flex-col justify-between p-4 md:p-8 lg:p-8">
         <span className="block text-right text-[13px] uppercase tracking-[-0.02em] md:text-[14px]">{content.label}</span>
 
         <div className="flex flex-1 items-center overflow-hidden rounded-sm py-5 md:py-8">
@@ -179,15 +183,15 @@ function TeamCard() {
         </div>
 
         <div className="flex items-end justify-between">
-          <p className="text-[13px] leading-[1.3] text-white/60 md:text-[14px]">
+          <KeyFactNumber number={content.number} suffix={content.suffix} />
+
+          <p className="text-right text-[13px] leading-[1.3] text-white/60 md:text-[14px]">
             {content.description.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
             ))}
           </p>
-
-          <KeyFactNumber number={content.number} suffix={content.suffix} />
         </div>
       </div>
     </CardWrapper>
@@ -239,10 +243,6 @@ function DesktopCard({ fact, index, progress }: { fact: KeyFact; index: number; 
 
   // ----------------------------------------------------------
   // OPACITY
-  //
-  // The card is already visible before the hinge begins.
-  // This makes it feel like a physical card unfolding,
-  // rather than fading in like a normal animation.
   // ----------------------------------------------------------
 
   const midpoint = start + CARD_DURATION * 0.5;
@@ -294,9 +294,9 @@ function MobileCard({ fact }: { fact: KeyFact }) {
 // ============================================================
 
 function PartnerLogo({ logo, index, mobile = false }: { logo: string; index: number; mobile?: boolean }) {
-  const desktopWidths = ['w-[4rem]', 'w-[4.75rem]', 'w-[4.5rem]', 'w-[5rem]', 'w-[4rem]'];
+  const desktopWidths = ['w-[5rem]', 'w-[6rem]', 'w-[7.5rem]', 'w-[7rem]', 'w-[4.5rem]'];
 
-  const mobileWidths = ['w-[4.5rem]', 'w-[5.75rem]', 'w-[5.5rem]', 'w-[5.75rem]', 'w-[4.625rem]'];
+  const mobileWidths = ['w-[4.5rem]', 'w-[5.75rem]', 'w-[5.5rem]', 'w-[5.75rem]', 'w-[4rem]'];
 
   const widthClass = mobile ? mobileWidths[index] : desktopWidths[index];
 
@@ -428,13 +428,13 @@ export function KeyFacts() {
           DESKTOP / TABLET / MOBILE
       ====================================================== */}
 
-      <div className="sticky top-0 h-[100svh] w-full overflow-hidden md:static md:h-auto">
-        <div className="relative flex w-full flex-col items-center">
+      <div className="hscreen sticky top-0 w-full overflow-hidden md:static md:h-auto">
+        <div className="relative flex min-h-screen w-full flex-col items-center justify-center md:min-h-0 md:justify-start">
           {/* ==================================================
               TITLE
           ================================================== */}
 
-          <div className="relative z-20 w-full flex-shrink-0 px-6 pt-[8vh] text-center md:mb-10 md:pt-[12vh] lg:mb-8 lg:pt-[10vh]">
+          <div className="relative z-20 w-full flex-shrink-0 px-6 pt-[calc(9dvh)] text-center md:mb-10 md:pt-[12vh] lg:mb-8 lg:pt-[10vh]">
             <motion.h2
               style={{
                 y: headingY,
@@ -448,7 +448,7 @@ export function KeyFacts() {
               style={{
                 y: headingY,
               }}
-              className="mx-auto mt-3 max-w-[150px] text-sm leading-[1.2] tracking-[-0.01em] text-[#000]/65 md:max-w-[150px] lg:text-[13px] lg:leading-[1.25]"
+              className="mx-auto mt-3 max-w-[150px] text-sm leading-[1.2] tracking-[-0.01em] text-[#000]/65 md:max-w-[210px] lg:text-[13px] lg:leading-[1.25]"
             >
               <span className="block">{KEY_FACT_CONTENT.intro.description}</span>
             </motion.p>
@@ -456,7 +456,7 @@ export function KeyFacts() {
 
           {/* ==================================================
               MOBILE
-              
+
               ORIGINAL MOBILE IMPLEMENTATION — UNCHANGED
           ================================================== */}
 
@@ -490,6 +490,7 @@ export function KeyFacts() {
               }}
             >
               {/* TABLET */}
+
               <div
                 className="mx-auto grid w-fit grid-cols-2 gap-4 lg:hidden"
                 style={{
@@ -506,6 +507,7 @@ export function KeyFacts() {
               </div>
 
               {/* DESKTOP — ALL 3 IN ONE ROW */}
+
               <div
                 className="mx-auto hidden w-full max-w-[1050px] items-start justify-center gap-4 lg:flex"
                 style={{
@@ -523,7 +525,7 @@ export function KeyFacts() {
               PARTNERS
           ================================================== */}
 
-          <div className="w-full flex-shrink-0 overflow-hidden px-6 md:mb-10 md:mt-0 md:pb-[3vh] lg:mt-1">
+          <div className="w-full flex-shrink-0 overflow-hidden px-6 pb-[clamp(16px,3dvh,32px)] md:mb-10 md:mt-0 md:pb-[3vh] lg:mt-1">
             <PartnersBlock />
           </div>
         </div>

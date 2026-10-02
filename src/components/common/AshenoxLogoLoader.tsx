@@ -497,10 +497,10 @@ const GEOMETRY_LOWER_RIGHT: ShapeGeometry = {
 /* ============================================================
    LOGO
    ============================================================ */
-interface TrionnLogoProps {
+interface AshenoxLogoLoaderProps {
   progress: MotionValue<number>;
 }
-const TrionnLogo = ({ progress }: TrionnLogoProps) => {
+const AshenoxLogoLoader = ({ progress }: AshenoxLogoLoaderProps) => {
   const mainAProgress = useTransform(progress, [0, 1], [0, 1]); // was [0, 0.78]
   const lowerRightProgress = useTransform(progress, [0.1, 1], [0, 1]); // was [0.2, 1]
 
@@ -607,4 +607,4 @@ const TrionnLogo = ({ progress }: TrionnLogoProps) => {
   );
 };
 
-export default TrionnLogo;
+export default AshenoxLogoLoader;

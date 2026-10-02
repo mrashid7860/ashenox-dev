@@ -18,21 +18,22 @@ export const homeData = {
     },
 
     experience: {
-      established: 'EST. 2025',
-      years: '5+ Years Shaping Digital Direction',
-      description: 'Websites, AI products, brands, and systems built for clarity, scale and impact.',
+      established: 'EST. 2024',
+      years: '3+ Years Shaping Digital Direction',
+      description: 'Websites, brands, digital experiences, and creative solutions built for clarity, growth, and lasting impact.',
     },
   },
   about: {
     label: 'About',
 
-    paragraph: 'Trionn is an independent digital studio crafting meaningful brand experiences through strategy, design, and technology.',
+    paragraph: 'Ashenox is a creative digital studio building bold brands,  experiences, websites, and content through design, development, video, UGC, and digital marketing.',
   },
   aboutMisson: {
-    design: ['WE DESIGN FOR LONGEVITY.', 'CLARITY FIRST, CRAFT ALWAYS.', 'BUILT TO SCALE.'],
-    mission: 'Our mission is to make technology feel human by designing digital products that are intuitive, purposeful, and meaningful to people.',
+    design: ['WE CREATE WITH PURPOSE.', 'CLARITY FIRST, IMPACT ALWAYS.', 'BUILT TO INSPIRE. DESIGNED TO LAST.'],
+    mission:
+      'Our mission at Ashenox is to transform bold ideas into distinctive brands and meaningful digital experiences. From brand identity and graphic design to website design, UI/UX, video content, and digital marketing, we combine creativity, strategy, and technology to help businesses build memorable brands and connect with their audience.',
     vision: ['FOCUSED VISION.', 'MEASURED EXECUTION.'],
-    marquee: ['INNOVATE', 'IMPACT', 'INSPIRE'],
+    marquee: ['CREATE', 'INSPIRE', 'IMPACT'],
     marqueeCaption: 'FROM IDEA TO OUTCOME.',
   },
   journey: {

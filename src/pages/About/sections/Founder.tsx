@@ -286,7 +286,7 @@ export function Founder() {
 
           <div className="w-[260px] md:max-w-60">
             <p ref={bioRef} className="leading-[1.1] text-[#F5F1E8]/90 md:text-[14px] lg:text-[15px]">
-              Award-winning designer &amp; Founder of Trionn® with 27+ yrs of experience in UI/UX, web, and brand systems.
+              Award-winning designer &amp; Founder of Ashenox® with 27+ yrs of experience in UI/UX, web, and brand systems.
             </p>
           </div>
         </div>

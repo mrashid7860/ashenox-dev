@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { PROJECT_IMAGES } from '@/data/projects.data';
 import { WireJourney } from '@/pages/Portfolio/sections/WireJourney';
-import TrionnLogo from '@/components/common/TrionnLogo';
+import AshenoxLogo from '@/components/common/AshenoxLogo';
 import FloatingProjectCard from '@/pages/Portfolio/sections/FloatingProjectCard';
 import { TOTAL_CARDS, MOBILE_CARD_COUNT } from '@/utils/floatingMotion';
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
@@ -94,7 +94,7 @@ export function Portfolio() {
               className="mb-6 flex justify-center md:mb-8"
             >
               <div className="w-[150px] md:w-[210px]">
-                <TrionnLogo progress={scrollYProgress} />
+                <AshenoxLogo progress={scrollYProgress} />
               </div>
             </motion.div>
 

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { animate, motion, useMotionValue, useTransform, type MotionValue } from 'framer-motion';
 
-import TrionnLogo from '@/components/common/TrionnLogoLoader';
+import AshenoxLogoLoader from '@/components/common/AshenoxLogoLoader';
 import { Plus } from 'lucide-react';
 
 // ============================================================
@@ -615,7 +615,7 @@ export function Loader({ onComplete }: { onComplete: () => void }) {
 
           <div className="absolute inset-0 mt-16 flex items-center justify-center">
             <div className="w-[50%]">
-              <TrionnLogo progress={progress} />
+              <AshenoxLogoLoader progress={progress} />
             </div>
           </div>
         </div>

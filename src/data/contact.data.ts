@@ -20,31 +20,33 @@ export interface ContactBudget {
 export const CONTACT_FAQ: FAQItem[] = [
   {
     question: 'What kind of work do you take on?',
-    answer: 'We partner on branding, websites, digital products, and digital systems where clarity, craft, and execution matter.',
+    answer:
+      'We work across branding, graphic design, websites, video and motion, UGC & model content, and digital marketing. We partner with brands that value clear ideas, strong design, and meaningful digital experiences.',
   },
   {
     question: 'Who do you usually work with?',
-    answer: 'We work with ambitious companies, founders, teams, and agencies looking for thoughtful digital design and development.',
+    answer: 'We work with startups, businesses, creators, and growing brands looking to build or strengthen their visual identity and digital presence.',
   },
   {
     question: 'How do projects typically begin?',
-    answer: 'Projects usually begin with a short conversation about your goals, timeline, requirements, and the kind of outcome you are looking for.',
+    answer: 'Every project starts with a conversation. We understand your goals, audience, requirements, and vision before defining the right creative direction, scope, timeline, and deliverables.',
   },
   {
     question: 'Do you partner with agencies long-term?',
-    answer: 'Yes. We can work as an extended design and development partner for agencies that need reliable long-term support.',
+    answer: 'Yes. We collaborate with agencies and creative teams on ongoing design, content, branding, and digital projects, either as an extended creative team or on a project basis.',
   },
   {
     question: 'Can we sign an NDA before starting?',
-    answer: 'Yes. An NDA can be arranged before sharing confidential project information.',
+    answer: 'Absolutely. We can work under an NDA when a project involves confidential information, unreleased products, business strategies, or proprietary ideas.',
   },
   {
     question: 'How are projects priced and paid for?',
-    answer: 'Pricing depends on the scope, complexity, timeline, and level of involvement required. We discuss the engagement and payment structure before starting.',
+    answer:
+      'Pricing depends on the scope, complexity, deliverables, and timeline of each project. Once we understand your requirements, we provide a clear proposal with the project scope, pricing, and payment terms.',
   },
   {
     question: 'Are you currently taking on new work?',
-    answer: 'We are open to selected new projects. Send us a short note about your requirements and we will get back to you.',
+    answer: "Yes. We're open to selected projects and collaborations. If you have a project in mind, get in touch with us at info@ashenox.com, and let's discuss it.",
   },
 ];
 
@@ -96,7 +98,7 @@ export const CONTACT_LOCATION = {
 };
 
 export const CONTACT_EMAILS = {
-  general: 'hello@ashenox.com',
+  general: 'info@ashenox.com',
   careers: 'info@ashenox.com',
 };
 

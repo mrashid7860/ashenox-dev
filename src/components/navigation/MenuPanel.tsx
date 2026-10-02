@@ -114,7 +114,7 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
             </nav>
 
             {/* ==================================================
-                THE TRIONN NAME STORY — pill button
+                THE Ashenox NAME STORY — pill button
             ================================================== */}
 
             <motion.div
@@ -133,7 +133,7 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-[13px] uppercase tracking-[0.05em] text-white/70 transition-colors hover:border-white/40 hover:text-white md:border-black/15 md:text-black/60 md:hover:border-black/30 md:hover:text-black"
               >
                 <Sparkles className="h-3 w-3" />
-                <SplitTextHover text="The Trionn Name Story" />
+                <SplitTextHover text="The Ashenox Name Story" />
               </button>
             </motion.div>
 

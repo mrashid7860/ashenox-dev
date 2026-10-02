@@ -28,8 +28,8 @@ export function HomeAbout() {
   const words = about.paragraph.split(' ');
 
   return (
-    <section id="about" ref={ref} className="relative h-[62svh] w-full overflow-hidden bg-[#080808] sm:h-[70svh] md:h-[65svh] lg:h-[80svh]">
-      <div className="absolute inset-0 bg-[#080808]" />
+    <section id="about" ref={ref} className="relative h-[62svh] w-full overflow-hidden sm:h-[70svh] md:h-[65svh] lg:h-[80svh]">
+      <div className="absolute inset-0" />
 
       <div className="relative z-10 flex h-full w-full items-center px-[14px] sm:px-[24px] md:px-[32px] lg:px-[24px]">
         <div className="grid w-full min-w-0 grid-cols-1 sm:grid-cols-[80px_minmax(0,1fr)] md:grid-cols-[110px_minmax(0,1fr)] lg:grid-cols-[105px_minmax(0,1fr)] xl:grid-cols-[110px_minmax(0,1fr)] 2xl:grid-cols-[110px_minmax(0,1fr)]">
@@ -39,7 +39,7 @@ export function HomeAbout() {
           </div>
 
           {/* Content */}
-          <div className="w-full min-w-0">
+          <div className="mx-auto w-full min-w-0 max-w-[500px] text-justify md:max-w-full">
             <h3 className="m-0 w-full max-w-full break-words text-[28px] leading-[0.91] tracking-[-0.06em] [word-spacing:2px] sm:text-[35px] sm:leading-[0.92] md:text-[52px] md:leading-[0.93] md:[word-spacing:2px] lg:text-[clamp(4.2rem,4.15vw,5.3rem)] lg:leading-[0.94]">
               {words.map((word, index) => (
                 <span key={`${word}-${index}`} className={index === 0 ? 'ml-[45px] inline sm:ml-[25px] md:ml-[45px] lg:ml-[150px] xl:ml-[110px] 2xl:ml-[150px]' : 'inline'}>
@@ -57,8 +57,8 @@ export function HomeAbout() {
                   lineOpacity={0.2}
                   lineHeight={1}
                   lineWidth="100%"
-                  lineOrigin="left"
-                  plusPosition="22%"
+                  lineOrigin="center"
+                  plusPosition="48.5%"
                   plusSize={14}
                   plusStrokeWidth={2.5}
                   plusColor="#D8D8D8"

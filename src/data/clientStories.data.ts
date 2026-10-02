@@ -57,6 +57,6 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const CLIENT_STORIES_CONTENT = {
   heading: 'Client stories',
-  description: "Great work is built through partnership. Here's what our clients say.",
+  description: 'Great work starts with great collaboration. Here’s what our clients say about working with Ashenox.',
   cta: 'Become a Client',
 };

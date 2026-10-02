@@ -11,6 +11,7 @@ import work05 from '@/assets/img/orbit-05.jpg';
 import work06 from '@/assets/img/orbit-06.jpg';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
+import { usePageTransition } from '@/components/common/PageLoader';
 // ============================================================
 // TYPES
 // ============================================================
@@ -894,7 +895,7 @@ function IntroText({ introProgress, bp }: { introProgress: MotionValue<number>; 
 
   const base = 'pointer-events-none absolute select-none whitespace-nowrap font-medium uppercase leading-[0.8] tracking-[-0.06em] will-change-transform';
   const size = { fontSize: `${cfg.fontVw}vw`, color: INTRO.color };
-
+  const go = usePageTransition();
   return (
     <>
       <motion.div className={`${base} left-0`} style={{ ...size, top: `calc(${cfg.left.y}% - 0.4em)`, transform: leftX }}>
@@ -913,6 +914,7 @@ function IntroText({ introProgress, bp }: { introProgress: MotionValue<number>; 
         Concepts, explorations, and interface experiments shared openly as part of our creative process.
       </motion.p>
       <AnimatedButton
+        onClick={() => go('/portfolio', 'WORK')}
         variant="animated"
         textColor="#4A4A4A"
         hoverTextColor="#000"

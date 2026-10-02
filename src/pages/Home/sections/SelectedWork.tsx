@@ -6,9 +6,9 @@ import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
 import { PROJECTS } from '@/data/projects.data';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
+import { usePageTransition } from '@/components/common/PageLoader';
 
 const SELECTED_PROJECT_SLUGS = ['pc-secure', 'fitanaz', 'kao'];
-
 const SELECTED_PROJECTS = PROJECTS.filter((project) => SELECTED_PROJECT_SLUGS.includes(project.slug));
 
 type Project = (typeof PROJECTS)[number];
@@ -89,7 +89,7 @@ function ProjectCard({
             <div>
               <h2 className="text-[28px] font-light leading-none tracking-[-0.05em] text-[#4A4A4A]">{project.title}</h2>
 
-              <p className="mt-4 w-[250px] max-w-xs text-[14px] leading-[1.2] text-neutral-500">{project.description}</p>
+              <p className="mt-4 w-[280px] max-w-xs text-[14px] leading-[1.2] text-neutral-500">{project.description}</p>
             </div>
 
             <AnimatedButton
@@ -200,7 +200,7 @@ function MobileServicesTransition() {
   const servicesScale = useTransform(scrollYProgress, [0, 0.5], [0.985, 1]);
 
   const servicesBackground = useTransform(scrollYProgress, [0, 0.25, 0.5], ['#7b7b77', '#f5f5f5', '#ffffff']);
-
+  const go = usePageTransition();
   return (
     <section ref={transitionRef} className="relative h-[200svh] w-full overflow-visible bg-white">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -224,6 +224,7 @@ function MobileServicesTransition() {
           <p className="absolute bottom-[150px] text-[14px] font-normal uppercase tracking-[-0.01em] text-black">✦ DESIGN WITH INTENT. BUILT TO WORK.</p>
 
           <AnimatedButton
+            onClick={() => go('/services', 'SERVICES')}
             variant="animated"
             textColor="#4A4A4A"
             hoverTextColor="#000"
@@ -260,6 +261,7 @@ function MobileServicesTransition() {
             </button> */}
 
             <AnimatedButton
+              onClick={() => go('/portfolio', 'WORK')}
               variant="animated"
               textColor="#4A4A4A"
               hoverTextColor="#000"
@@ -345,7 +347,7 @@ export function SelectedWork() {
   const servicesScale = useTransform(scrollYProgress, [0.72, 1], [0.985, 1]);
 
   const servicesBg = useTransform(scrollYProgress, [0.92, 1], ['#7b7b77', '#ffffff']);
-
+  const go = usePageTransition();
   return (
     <>
       {/* Mobile */}
@@ -485,6 +487,7 @@ export function SelectedWork() {
               <p className="absolute bottom-14 text-[13px] font-bold tracking-[-0.01em] md:left-10 lg:left-auto">DESIGN WITH INTENT. BUILT TO WORK.</p>
 
               <AnimatedButton
+                onClick={() => go('/services', 'SERVICES')}
                 variant="animated"
                 textColor="#4A4A4A"
                 hoverTextColor="#000"
@@ -538,6 +541,7 @@ export function SelectedWork() {
                   </motion.h2>
 
                   <AnimatedButton
+                    onClick={() => go('/portfolio', 'WORK')}
                     variant="animated"
                     textColor="#4A4A4A"
                     hoverTextColor="#000"
@@ -568,6 +572,7 @@ export function SelectedWork() {
                   <h2 className="text-[2vw] font-light leading-tight md:mr-2 md:text-[3vw] lg:text-[2vw]">Discover our complete collection of digital experiences, brands and platforms.</h2>
 
                   <AnimatedButton
+                    onClick={() => go('/portfolio', 'WORK')}
                     variant="animated"
                     textColor="#4A4A4A"
                     hoverTextColor="#000000"

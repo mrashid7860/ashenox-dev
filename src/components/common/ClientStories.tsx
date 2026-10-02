@@ -102,7 +102,7 @@ export function ClientStories() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.8 }}
-            className="max-w-[240px] text-[14px] leading-[1.25] tracking-[-0.04em] text-neutral-600 md:max-w-[140px] md:text-[13px]"
+            className="max-w-[240px] text-[14px] leading-[1.25] tracking-[-0.04em] text-neutral-600 md:max-w-[220px] md:text-[13px]"
           >
             {CLIENT_STORIES_CONTENT.description}
           </motion.p>

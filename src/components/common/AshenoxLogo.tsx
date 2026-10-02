@@ -497,10 +497,10 @@ const GEOMETRY_LOWER_RIGHT: ShapeGeometry = {
 /* ============================================================
    LOGO
    ============================================================ */
-interface TrionnLogoProps {
+interface AshenoxLogoProps {
   progress: MotionValue<number>;
 }
-const TrionnLogo = ({ progress }: TrionnLogoProps) => {
+const AshenoxLogo = ({ progress }: AshenoxLogoProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   /* ==========================================================
@@ -654,4 +654,4 @@ const TrionnLogo = ({ progress }: TrionnLogoProps) => {
   );
 };
 
-export default TrionnLogo;
+export default AshenoxLogo;

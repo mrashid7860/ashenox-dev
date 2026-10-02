@@ -34,7 +34,7 @@ export const PROJECTS = [
     slug: 'pc-secure',
     image: pc_secure,
     title: 'PC Secure',
-    description: 'A modern digital product designed for clarity and usability.',
+    description: 'A smarter cybersecurity platform providing reliable antivirus protection and safer digital experiences for individuals and businesses.',
   },
 
   {
@@ -48,42 +48,42 @@ export const PROJECTS = [
     slug: 'curries-of-coast',
     image: curries_of_coast,
     title: 'Curries of Coast',
-    description: 'A distinctive digital experience for a contemporary food brand.',
+    description: 'A vibrant digital experience crafted for a contemporary coastal seafood restaurant.',
   },
 
   {
     slug: 'kao',
     image: kao,
     title: 'Kao',
-    description: 'A modern brand experience connecting people and technology.',
+    description: 'creating vibrant event experiences that bring people together through culture, music, and unforgettable moments.',
   },
 
   {
     slug: 'fitanaz',
     image: fitanaz,
     title: 'Fitanaz',
-    description: 'A modern wellness-focused digital experience.',
+    description: 'building a premium performance nutrition brand through bold identity, strategic content, and digital experiences.',
   },
 
   {
     slug: 'captiva-containers',
     image: captiva_containers,
     title: 'Captiva Containers',
-    description: 'A clean digital platform built around an industrial brand.',
+    description: 'A clean digital experience crafted for an innovative packaging brand specializing in BPA-free and HPP-compliant containers.',
   },
 
   {
     slug: 'sylvi',
     image: sylvi,
     title: 'Sylvi',
-    description: 'A polished digital experience with a refined visual direction.',
+    description: 'A refined digital experience crafted for a contemporary watch brand, blending premium aesthetics with a distinctive visual direction..',
   },
 
   {
     slug: 'bytewise-consultant',
     image: bytewise_consultant,
     title: 'Bytewise Consultant',
-    description: 'A technology-focused digital experience built for businesses.',
+    description: 'A distinctive brand identity and logo system crafted for a technology-focused consulting company.',
   },
 
   {
