@@ -3,9 +3,9 @@
 import { motion, MotionValue, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import work01 from '@/assets/img/orbit-01.jpg';
-import work02 from '@/assets/img/orbit-02.jpg';
-import work03 from '@/assets/img/orbit-03.jpg';
+import work01 from '@/assets/img/Civil Architecture_ Built for Tomorrow.png';
+import work02 from '@/assets/img/Futuristic PC Security Product Banner.png';
+import work03 from '@/assets/img/FabrioX_ Design, Build, Deliver.png';
 import work04 from '@/assets/img/orbit-04.jpg';
 import work05 from '@/assets/img/orbit-05.jpg';
 import work06 from '@/assets/img/orbit-06.jpg';

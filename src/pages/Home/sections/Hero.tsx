@@ -150,7 +150,7 @@ export function Hero() {
         </div>
 
         {/* Bottom controls */}
-        <div className="absolute bottom-8 left-0 right-0 z-20 px-6 sm:px-12 lg:px-20">
+        <div className="absolute bottom-16 left-0 right-0 z-20 px-6 sm:px-12 lg:px-20">
           <motion.div
             initial={{
               opacity: 0,
