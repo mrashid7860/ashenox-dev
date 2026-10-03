@@ -62,7 +62,7 @@ function AboutHero() {
           duration: 0.8,
           delay: 0.35,
         }}
-        className="absolute top-[calc(92vh)] z-40 w-[220px] text-center text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white md:top-[450px] md:w-[180px] md:w-[270px] md:text-[15px] lg:top-[360px] lg:w-[250px] lg:text-[14px]"
+        className="absolute top-[calc(90vh)] z-40 w-[220px] text-center text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white md:top-[450px] md:w-[180px] md:w-[270px] md:text-[15px] lg:top-[360px] lg:w-[250px] lg:text-[14px]"
       >
         AT THE INTERSECTION OF STRATEGY, DESIGN, AND TECHNOLOGY.
       </motion.div>
@@ -147,7 +147,7 @@ function AboutHero() {
         style={{
           opacity: scrollIndicatorOpacity,
         }}
-        className="pointer-events-none absolute left-[2%] top-[calc(93.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:left-[49%] md:top-[75%] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-32px)] 2xl:top-[47%]"
+        className="pointer-events-none absolute left-[3%] top-[calc(91.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:left-[49%] md:top-[75%] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-32px)] 2xl:top-[47%]"
       >
         <motion.div
           animate={{
@@ -366,18 +366,18 @@ function AboutIntro() {
             transition={{
               duration: 0.8,
             }}
-            className="col-span-12 mx-auto md:col-span-4 md:col-start-2 md:mx-0"
+            className="col-span-12 mx-auto mt-1 md:col-span-4 md:col-start-2 md:mx-0"
           >
             <div className="flex h-[62px] max-w-[215px] overflow-hidden rounded border border-[#272727]">
               <div className="flex min-w-[75px] flex-col items-center justify-center gap-2 bg-[#3d3d3d] px-4 text-center text-white">
                 <Globe2 size={27} strokeWidth={1.2} className="text-white" />
 
-                <span className="text-[8px] uppercase tracking-[0.08em]">EST. 2012</span>
+                <span className="text-[8px] uppercase tracking-[0.08em]">EST. 2024</span>
               </div>
 
               <div className="flex flex-1 items-center px-5 py-5">
                 <span className="text-[10px] uppercase leading-[1.25] tracking-[-0.01em] text-[#444] md:text-[11px]">
-                  14+ YEARS SHAPING
+                  3+ YEARS SHAPING
                   <br />
                   DIGITAL DIRECTION
                 </span>

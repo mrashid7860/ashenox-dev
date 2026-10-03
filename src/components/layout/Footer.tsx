@@ -78,7 +78,6 @@ function FooterLink({ children, href, onClick }: { children: React.ReactNode; hr
 
 export function Footer() {
   const currentTime = useCurrentTime();
-  const navigate = useNavigate();
 
   const [contactOpen, setContactOpen] = useState(false);
 

@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     // 1. VALIDATE FORM
     // --------------------------------------------------
 
-    if (!name || !email || !message) {
+    if (!name || !email || !company || !service || !budget) {
       return res.status(400).json({
         success: false,
         message: 'Name, email and message are required.',

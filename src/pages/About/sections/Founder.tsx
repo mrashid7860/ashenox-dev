@@ -408,7 +408,7 @@ export function Founder() {
           QUOTE
           =================================================== */}
 
-        <div className="absolute top-[135vh] grid grid-cols-12 gap-x-6 px-3 md:left-[4%] md:right-[4%] md:top-[64vh] md:px-0 lg:left-[1%] lg:right-0 lg:top-[124vh] lg:px-0 xl:top-[134vh] 2xl:top-[124vh]">
+        <div className="absolute top-[135vh] grid grid-cols-12 gap-x-6 px-3 px-4 md:left-[4%] md:right-[4%] md:top-[64vh] md:px-0 lg:left-[1%] lg:right-0 lg:top-[124vh] lg:px-0 xl:top-[134vh] 2xl:top-[124vh]">
           <div className="col-span-12 lg:col-span-10 lg:col-start-2">
             <div className="md:mb-25 mb-20 flex items-start justify-between gap-6">
               <h2

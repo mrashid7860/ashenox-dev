@@ -61,7 +61,7 @@ const BRANDS: BrandItem[] = [
 ];
 
 const PARTNER_COLUMNS = [
-  ['Fiare Oy', 'Nettiauto', 'Budo Law', 'DAC Recruiting', 'Globalstar Interactive'],
+  ['Fiare Oy', 'Nettiauto', 'Budo Law', 'DAC Recruiting', 'Globalstar'],
   ['RevNet', 'ROI High', 'Flow Row', 'Vendep Oy', 'Billionaire Suit'],
   ['Berkley', 'Re.Events', 'Cirgo Bike', 'Julia Daviy', 'FieldBridge LLC'],
   ['Vendep Oy', 'SoundBoard AI', 'Mizuno CGI', 'Joonko', 'Many more...'],
@@ -207,9 +207,9 @@ export function BrandsSection() {
 
             ONE VERTICAL LINE IN CENTER
         ======================================= */}
-        {/* MOBILE — 4 COLUMNS COMBINED INTO 2 */}
-        <div className="mx-auto grid w-[88%] grid-cols-2 md:hidden">
-          {/* LEFT = COLUMN 1 + COLUMN 2 */}
+        {/* MOBILE — 2 CENTERED COLUMNS */}
+        <div className="mx-auto grid w-fit grid-cols-2 md:hidden">
+          {/* LEFT */}
           <div className="flex flex-col items-start pr-6 text-left">
             {PARTNER_COLUMNS[0].map((name) => (
               <span key={`mobile-col-1-${name}`} className="text-[16px] leading-[1.6] text-neutral-400">
@@ -224,7 +224,7 @@ export function BrandsSection() {
             ))}
           </div>
 
-          {/* RIGHT = COLUMN 3 + COLUMN 4 */}
+          {/* RIGHT */}
           <div className="flex flex-col items-start border-l border-neutral-200 pl-6 text-left">
             {PARTNER_COLUMNS[2].map((name) => (
               <span key={`mobile-col-3-${name}`} className="text-[16px] leading-[1.6] text-neutral-400">

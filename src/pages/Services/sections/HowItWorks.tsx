@@ -332,14 +332,13 @@ function HowItWorks({ theme = 'light', mobileSticky = true, mobileHeight = '300v
     <section ref={holdRef} className={`relative w-full ${colors.background} ${colors.primary}`}>
       {/* =====================================================
           MOBILE
-      ===================================================== */}
+        ===================================================== */}
 
       <div className="block md:hidden">
         <div className="relative w-full" style={{ height: mobileSticky ? mobileHeight : 'auto' }}>
           <div className={mobileSticky ? 'sticky top-0 h-screen w-full overflow-hidden' : 'relative w-full'}>
-            <div className="relative h-full w-full">
+            <div className="flex h-full min-h-screen w-full flex-col items-center justify-center px-5">
               {/* MOBILE HEADER */}
-
               <motion.div
                 initial={{
                   opacity: 0,
@@ -357,13 +356,13 @@ function HowItWorks({ theme = 'light', mobileSticky = true, mobileHeight = '300v
                   duration: 0.7,
                   ease,
                 }}
-                className="absolute left-0 top-0 z-20 w-full px-5 pt-[12vh] text-left"
+                className="relative z-20 w-full"
               >
-                <div className={`text-left text-[13px] font-normal leading-none tracking-[-0.025em] ${colors.muted}`}>OUR PROCESS</div>
+                <div className={`mt-5 text-center text-[13px] font-normal leading-none tracking-[-0.025em] ${colors.muted}`}>OUR PROCESS</div>
 
-                <h2 className={`mt-5 text-left text-[clamp(2rem,1vw,1rem)] font-light leading-[0.88] tracking-[-0.075em] md:text-[clamp(3rem,13vw,5rem)] ${colors.primary}`}>How we work</h2>
+                <h2 className={`mt-5 text-center text-[clamp(2rem,1vw,1rem)] font-light leading-[0.88] tracking-[-0.075em] ${colors.primary}`}>How we work</h2>
 
-                <p className={`mt-[15px] max-w-[380px] text-[14px] leading-[1.2] tracking-[-0.025em] md:mt-[18px] ${colors.secondary}`}>
+                <p className={`mt-[15px] max-w-[380px] text-center text-[14px] leading-[1.2] tracking-[-0.025em] ${colors.secondary}`}>
                   A repeatable method applied
                   <br />
                   across every engagement.
@@ -371,8 +370,7 @@ function HowItWorks({ theme = 'light', mobileSticky = true, mobileHeight = '300v
               </motion.div>
 
               {/* MOBILE PROCESS */}
-
-              <div className="absolute left-0 top-[30%] w-full px-5">
+              <div className="relative mt-[5vh] w-full">
                 {processSteps.map((step, index) => (
                   <div key={step.number} ref={mobileStepRefs[index]}>
                     <MobileProcessStep
@@ -467,7 +465,7 @@ function HowItWorks({ theme = 'light', mobileSticky = true, mobileHeight = '300v
                   PROCESS TIMELINE
               ================================================= */}
 
-              <div className="absolute left-[5%] right-[5%] top-[43vh] md:left-1/2 md:right-auto md:w-[86%] md:-translate-x-1/2 lg:left-[17.8vw] lg:right-[14vw] lg:top-[43vh] lg:w-auto lg:translate-x-0">
+              <div className="absolute left-[5%] right-[5%] top-[43vh] md:left-1/2 md:right-auto md:w-[86%] md:-translate-x-1/2 lg:left-[17.8vw] lg:right-[14vw] lg:top-[50vh] lg:w-auto lg:translate-x-0">
                 {/* STEP CONTENT */}
 
                 <div className="relative grid grid-cols-3">

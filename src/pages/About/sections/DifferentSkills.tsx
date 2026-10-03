@@ -1,57 +1,21 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Plus } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
 import { createWordAnimation } from '@/components/animations/wordAnimation';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
+
 function DifferentSkills() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const lineRef = useRef<HTMLDivElement | null>(null);
-
-  const { scrollYProgress: lineProgress } = useScroll({
-    target: lineRef,
-    offset: ['start 100%', 'start 40%'],
-  });
-
-  /*
-   * =========================================================
-   * LINE
-   *
-   * Center -> both sides
-   * =========================================================
-   */
-
-  const lineScale = useTransform(lineProgress, [0, 1], [0, 1]);
-
-  /*
-   * =========================================================
-   * PLUS
-   *
-   * 0 -> 360 degrees
-   *
-   * At 360deg it visually becomes a normal +
-   * =========================================================
-   */
-
-  const plusRotate = useTransform(lineProgress, [0, 1], [0, 360]);
-
-  /*
-   * =========================================================
-   * PLUS OPACITY
-   * =========================================================
-   */
-
-  const plusOpacity = useTransform(lineProgress, [0, 0.05], [0, 1]);
 
   return (
-    <section ref={sectionRef} className="relative isolate z-[40] w-full overflow-visible bg-[#050609] text-[#D8D8D8] md:h-[63vh] lg:min-h-screen">
+    <section ref={sectionRef} className="relative isolate z-[40] w-full overflow-visible bg-[#050609] px-4 text-[#D8D8D8] md:h-[63vh] lg:min-h-screen">
       {/* =====================================================
           STICKY SCREEN
-          ===================================================== */}
-
-      <div className="sticky top-0 z-[60] mt-0 h-screen w-full overflow-hidden md:mt-[-250px] lg:mt-[0px]">
-        <div className="absolute left-[calc(50%_-_47vw)] top-0 h-full w-[100vw] md:left-[calc(50%_-_50vw)] lg:left-[calc(50%_-_50vw)] xl:left-[calc(50%_-_50vw)] 2xl:left-[calc(50%_-_50vw)]">
+      ===================================================== */}
+      <div className="sticky top-0 z-[60] mt-0 flex h-screen w-full justify-center overflow-hidden md:mt-[-250px] lg:mt-0">
+        {/* CENTERED CONTENT WRAPPER */}
+        <div className="relative h-full w-full max-w-[1600px]">
           {/* DIFFERENT */}
           <motion.h2
             initial="hidden"
@@ -94,14 +58,7 @@ function DifferentSkills() {
 
         {/* =====================================================
             DESCRIPTION
-            ===================================================== */}
-
-        {/* <p className="absolute left-1/2 top-[48vh] m-0 w-[220px] -translate-x-1/2 text-center text-[14px] font-medium uppercase leading-[0.98] tracking-[-0.035em] text-[#D8D8D8] md:left-1/2 md:top-[22vh] md:max-w-[250px] md:-translate-x-1/2 md:text-center lg:left-[26vw] lg:top-[54vh] lg:translate-x-0 lg:text-left">
-          A COLLECTIVE SHAPED BY SHARED
-          <br />
-          STANDARDS, NOT JOB TITLES.
-        </p> */}
-
+        ===================================================== */}
         <motion.p
           initial="hidden"
           whileInView="visible"
@@ -115,6 +72,10 @@ function DifferentSkills() {
           <br />
           {createWordAnimation('STANDARDS, NOT JOB TITLES.')}
         </motion.p>
+
+        {/* =====================================================
+            CONTACT BUTTON
+        ===================================================== */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -129,7 +90,7 @@ function DifferentSkills() {
             charShift={78}
             charStagger={0.025}
             charDuration={0.75}
-            widthClassName="w-[150px] sm:w-[150px] md:w-[150px] lg:w-[150px] "
+            widthClassName="w-[150px] sm:w-[150px] md:w-[150px] lg:w-[150px]"
             className="tems-center mx-auto flex justify-between font-mono uppercase tracking-[-0.01em]"
           >
             Contact Us
@@ -138,8 +99,7 @@ function DifferentSkills() {
 
         {/* =====================================================
             LINE
-            ===================================================== */}
-
+        ===================================================== */}
         <div className="absolute bottom-[10vh] w-full px-6 md:bottom-[50vh] lg:bottom-[10vh]">
           <div className="w-full">
             {/* Mobile */}

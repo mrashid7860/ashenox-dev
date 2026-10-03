@@ -113,7 +113,7 @@ export function Hero() {
         <div className="noise-overlay absolute inset-0 z-[6]" />
 
         {/* Main content */}
-        <div className="lg:px-15 relative z-10 mt-10 h-full flex-col justify-center px-6 py-10 sm:px-12">
+        <div className="relative z-10 mt-10 h-full flex-col justify-center px-3 py-10 sm:px-6 lg:px-6">
           <div className="mt-0 w-full">
             <Heading />
 
@@ -150,7 +150,7 @@ export function Hero() {
         </div>
 
         {/* Bottom controls */}
-        <div className="absolute bottom-16 left-0 right-0 z-20 px-6 sm:px-12 lg:px-20">
+        <div className="absolute bottom-16 left-0 right-0 z-20 px-6">
           <motion.div
             initial={{
               opacity: 0,
@@ -168,7 +168,7 @@ export function Hero() {
             style={{
               opacity: scrollIndicatorOpacity,
             }}
-            className="pointer-events-none absolute left-[2.5%] top-[calc(93.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white/35 md:top-[75%] lg:top-[41%] xl:top-[51%] 2xl:top-[47%]"
+            className="pointer-events-none absolute left-[1.5%] top-[calc(93.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white/35 md:top-[75%] lg:top-[41%] xl:top-[51%] 2xl:top-[67%]"
           >
             <motion.div
               animate={{
@@ -202,7 +202,7 @@ export function Hero() {
             }}
             className="pointer-events-none absolute inset-x-4 bottom-0 z-30 flex h-10 w-full items-center justify-start text-left md:justify-center md:text-center"
           >
-            <p className="text-[11px] uppercase leading-[1.4] text-white/35">
+            <p className="text-[11px] uppercase leading-[1.4] text-white/35 md:mt-8">
               <span className="md:hidden">
                 TAP ONCE ✦ SEE
                 <br />
@@ -226,7 +226,7 @@ export function Hero() {
             transition={{
               delay: HERO_CONFIG.experience.fadeInDelay,
             }}
-            className="absolute bottom-0 right-[8px] flex w-[190px] flex-col items-end md:right-[20px]"
+            className="absolute bottom-0 right-[8px] flex w-[190px] flex-col items-end px-1 md:right-[20px]"
           >
             {/* EXPERIENCE BOX */}
             <div className="flex w-full overflow-hidden border border-white/10">

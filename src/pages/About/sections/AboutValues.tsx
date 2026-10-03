@@ -227,17 +227,17 @@ export function AboutValues() {
         <div className="grid grid-cols-12 gap-x-6">
           {/* ================= LEFT ================= */}
 
-          <div className="col-span-12 md:col-span-11 md:px-1 lg:col-span-3 xl:col-span-4 2xl:col-span-3">
+          <div className="col-span-12 md:col-span-11 lg:col-span-3 xl:col-span-4 2xl:col-span-3">
             <div className="relative lg:min-h-[120vh] xl:min-h-[110vh] 2xl:min-h-[120vh]">
               <div className="relative z-[50] mb-[20px] mt-[60px] md:mb-[0px] md:mt-[50px] lg:sticky lg:top-[20vh] lg:mb-[180px] lg:mt-[120px]">
-                <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+                <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between">
                   {/* LEFT — OUR VALUES */}
-                  <h2 className="text-[clamp(1.8rem,4vw,5rem)] leading-[0.86] tracking-[-0.05em] text-black/70 md:text-[clamp(3rem,4vw,5rem)] lg:text-[clamp(4rem,4vw,5rem)]">
+                  <h2 className="text-center text-[clamp(1.8rem,4vw,5rem)] leading-[0.86] tracking-[-0.05em] text-black/70 md:text-left md:text-[clamp(3rem,4vw,5rem)] lg:text-[clamp(4rem,4vw,5rem)]">
                     {createCharacterAnimation('Our Values')}
                   </h2>
 
                   {/* RIGHT — INTRO */}
-                  <p className="max-w-[280px] text-[14px] leading-[1.3] text-black/70 md:max-w-[270px] md:text-[13px] lg:hidden">
+                  <p className="max-w-[280px] text-center text-[14px] leading-[1.3] text-black/70 md:max-w-[270px] md:text-left md:text-[13px] lg:hidden">
                     We're proud to be one of India's most creative and recognized web design studios, driven by purpose, aesthetics, and bold ideas.
                   </p>
                 </div>
@@ -247,7 +247,7 @@ export function AboutValues() {
 
           {/* ================= RIGHT ================= */}
 
-          <div className="col-span-12 min-h-[140vh] md:col-span-12 md:min-h-full lg:col-span-9 lg:min-h-[140vh] lg:pl-24 xl:col-span-8 xl:min-h-[90vh] 2xl:col-span-9 2xl:min-h-[140vh]">
+          <div className="col-span-12 md:col-span-12 lg:col-span-9 lg:pl-24 xl:col-span-8 2xl:col-span-9">
             <div className="relative lg:pt-[20vh] xl:pt-[17vh] 2xl:pt-[19vh]">
               {/* ================= INTRO ================= */}
 
@@ -258,7 +258,7 @@ export function AboutValues() {
               {/* ================= CARDS ================= */}
 
               <div
-                className="relative mt-10 h-[700px] w-full md:mt-16 lg:h-[550px] xl:h-[550px] 2xl:h-[550px]"
+                className="relative mt-10 h-[820px] w-full md:mt-16 md:h-[580px] lg:h-[620px] xl:h-[620px] 2xl:h-[620px]"
                 style={{
                   perspective: '1600px',
                   perspectiveOrigin: 'center top',
@@ -271,8 +271,6 @@ export function AboutValues() {
 
               {/* ================= TEXT BELOW ================= */}
 
-              {/* <p className="absolute top-[113vh] mb-28 mt-1 text-[14px] leading-[1.3] text-black/60 md:top-[56vh] md:mb-28 lg:top-[125vh] lg:mb-28 xl:top-[115vh] xl:mb-8 2xl:top-[125vh] 2xl:mb-28"></p> */}
-
               <motion.p
                 initial="hidden"
                 whileInView="visible"
@@ -280,7 +278,7 @@ export function AboutValues() {
                   once: true,
                   amount: 0.4,
                 }}
-                className="absolute top-[125vh] mb-28 mt-1 text-[14px] leading-[1.3] text-black/60 md:top-[56vh] md:mb-28 lg:top-[125vh] lg:mb-28 xl:top-[clamp(115vh,120vh,125vh)] xl:mb-8 2xl:top-[125vh] 2xl:mb-28"
+                className="mb-10 mt-8 text-center text-[14px] leading-[1.3] text-black/60 md:mt-16 md:text-left lg:mt-0"
               >
                 {createWordAnimation('✦ What we believe shapes better work.')}
               </motion.p>

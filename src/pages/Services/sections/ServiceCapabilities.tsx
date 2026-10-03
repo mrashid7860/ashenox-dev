@@ -417,11 +417,11 @@ export function ServiceCapabilities() {
             >
               <ServiceVisual service={service} />
 
-              <div className="absolute bottom-7 left-6 z-40">
+              {/* <div className="absolute bottom-5 left-6 z-40">
                 <div className={cn('text-[10px] uppercase', service.theme === 'dark' ? 'text-white/40' : 'text-black/40')}>
                   {service.number} / {String(services.length).padStart(2, '0')}
                 </div>
-              </div>
+              </div> */}
             </motion.div>
 
             <div className="px-5 pb-20 pt-6">

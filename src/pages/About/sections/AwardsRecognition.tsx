@@ -280,21 +280,13 @@ function AwardsRecognition() {
             =================================================== */}
 
         <motion.div
-          className="absolute left-[3.5vw] top-[12vh] z-30 max-w-[220px] md:left-[3.3vw] md:top-[15vh]"
+          className="absolute top-[12vh] z-30 max-w-[220px] px-4 md:left-[3.3vw] md:top-[15vh] xl:left-[0.5vw] xl:top-[16vh] 2xl:left-[0.5vw] 2xl:top-[16dvh]"
           style={{
             mixBlendMode: 'difference',
             color: '#ffffff',
             isolation: 'isolate',
           }}
         >
-          {/* <p className="m-0 text-[14px] uppercase leading-[1.05] tracking-[-0.04em]">
-            RESULTS MATTER MOST.
-            <br />
-            AWARDS ADD RECOGNITION
-            <br />
-            AND VALUE.
-          </p> */}
-
           <motion.p
             initial="hidden"
             whileInView="visible"
@@ -312,24 +304,6 @@ function AwardsRecognition() {
           </motion.p>
         </motion.div>
 
-        {/* ===================================================
-            TOP RIGHT CTA
-            =================================================== */}
-
-        {/* <motion.a
-          href="#contact"
-          className="absolute right-[5vw] top-[88vh] z-30 flex w-[140px] items-center justify-between border-b pb-1 text-[12px] uppercase tracking-[-0.03em] transition-opacity duration-300 [word-spacing:3px] hover:opacity-60 md:right-[3.5vw] md:top-[88vh] lg:top-[18vh]"
-          style={{
-            mixBlendMode: 'difference',
-            color: '#ffffff',
-            isolation: 'isolate',
-          }}
-        >
-          <span>WIN AN AWARD?</span>
-
-          <ArrowRight size={11} strokeWidth={2} />
-        </motion.a> */}
-
         <AnimatedButton
           variant="animated"
           href="#contact"
@@ -339,7 +313,7 @@ function AwardsRecognition() {
           charStagger={0.025}
           charDuration={0.75}
           widthClassName="w-[150px] sm:w-[150px] md:w-[150px] lg:w-[150px]"
-          className="absolute left-[55%] top-[17vh] z-30 flex w-[140px] items-center justify-between font-mono uppercase md:left-[79%] lg:left-[87%]"
+          className="absolute left-[58%] top-[88vh] z-30 flex w-[140px] items-center justify-between font-mono uppercase md:left-[79%] md:top-[95vh] lg:left-[87%] lg:top-[17vh] xl:left-[86%] xl:top-[17vh] 2xl:left-[88%] 2xl:top-[17vh]"
         >
           WIN AN AWARD?
         </AnimatedButton>
