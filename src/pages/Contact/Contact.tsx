@@ -24,6 +24,7 @@ export function Contact() {
         {/* Contact Hero scrolls over the background */}
         <div className="relative z-10">
           <ContactHero />
+          <ContactForm />
         </div>
       </section>
 
@@ -31,7 +32,6 @@ export function Contact() {
           REST OF CONTACT PAGE
       ===================================================== */}
       <section className="relative z-20 bg-white">
-        <ContactForm />
         <LocationJoin />
         <FAQ />
       </section>

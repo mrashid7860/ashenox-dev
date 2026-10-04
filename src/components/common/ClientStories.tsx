@@ -291,7 +291,7 @@ export function ClientStories() {
                 className="mt-10 flex items-center sm:mt-12 md:mt-6 lg:mt-16"
               >
                 <div className="flex items-center gap-4 sm:gap-5 md:gap-6">
-                  <img src={activeStory.image} alt={activeStory.name} className="h-14 w-14 shrink-0 rounded-md object-cover sm:h-16 sm:w-16" />
+                  <img src={activeStory.image} alt={activeStory.name} className="h-14 w-14 shrink-0 rounded-md object-cover object-top sm:h-16 sm:w-16" />
 
                   <div>
                     <h4 className="text-[14px] font-light leading-none tracking-[-0.03em] text-[#3b3b3b] sm:text-[15px]">{activeStory.name}</h4>

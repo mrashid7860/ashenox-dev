@@ -206,7 +206,7 @@ export function AboutValues() {
                   lineHeight={1}
                   lineWidth="100%"
                   lineOrigin="left"
-                  plusPosition="clamp(68.3%, calc(49% + (100vw - 1536px) * 0.035), 59%)"
+                  plusPosition="clamp(30%, calc(33% + (100vw - 1536px) * 0.035), 59%)"
                   plusSize={14}
                   plusStrokeWidth={2.5}
                   plusColor="#4A4A4A"
@@ -232,7 +232,7 @@ export function AboutValues() {
               <div className="relative z-[50] mb-[20px] mt-[60px] md:mb-[0px] md:mt-[50px] lg:sticky lg:top-[20vh] lg:mb-[180px] lg:mt-[120px]">
                 <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between">
                   {/* LEFT — OUR VALUES */}
-                  <h2 className="text-center text-[clamp(1.8rem,4vw,5rem)] leading-[0.86] tracking-[-0.05em] text-black/70 md:text-left md:text-[clamp(3rem,4vw,5rem)] lg:text-[clamp(4rem,4vw,5rem)]">
+                  <h2 className="text-center text-[clamp(1.8rem,4vw,5rem)] leading-[0.86] tracking-[-0.05em] text-black/70 md:text-left md:text-[clamp(3rem,4vw,5rem)] lg:text-[clamp(3rem,4vw,5rem)]">
                     {createCharacterAnimation('Our Values')}
                   </h2>
 

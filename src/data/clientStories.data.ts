@@ -9,49 +9,53 @@ export type Testimonial = {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    company: 'LUXURY PRESENCE',
-    title: 'Sunny and his award winning team are second to none when it comes to responsive web design.',
+    company: 'FABRIOX',
+    title: 'Ashenox turned our vision into a digital experience that feels as refined as our brand.',
     review:
-      'Their ability to take an idea and transform it into an exceptional digital experience has always impressed us. Every interaction felt collaborative, every detail intentional, and every launch exceeded expectations.',
-    name: 'Doug Petrie',
-    role: 'Founder & CEO · USA',
+      'The team understood our direction from the beginning and translated it into a polished, premium experience. From the visual identity to the smallest interactions, everything felt intentional and well executed.',
+    name: 'Rohan Mehta',
+    role: 'Founder & CEO · India',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
   },
+
   {
-    company: 'CREDIBLE',
-    title: 'Working with the team felt like extending our own product organization.',
+    company: 'PC SECURE',
+    title: 'They made a complex cybersecurity product feel simple, clear, and trustworthy.',
     review:
-      'Their ability to take an idea and transform it into an exceptional digital experience has always impressed us. Every interaction felt collaborative, every detail intentional, and every launch exceeded expectations.',
-    name: 'Sarah Williams',
-    role: 'Head of Product',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
-  },
-  {
-    company: 'FAST RESUME',
-    title: 'The redesign dramatically improved our brand perception.',
-    review:
-      'Their ability to take an idea and transform it into an exceptional digital experience has always impressed us. Every interaction felt collaborative, every detail intentional, and every launch exceeded expectations.',
-    name: 'Michael Ross',
-    role: 'Founder',
+      'Ashenox helped us communicate our product in a much more approachable way. The new digital experience gives our customers confidence while keeping the interface clean and easy to understand.',
+    name: 'Amit Sharma',
+    role: 'Founder & Director · India',
     image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80',
   },
+
   {
-    company: 'TECHNIS',
-    title: 'Creative, reliable and incredibly detail-oriented.',
+    company: 'CURRIES OF COAST',
+    title: 'They captured the personality of our brand and brought it beautifully into the digital space.',
     review:
-      'Their ability to take an idea and transform it into an exceptional digital experience has always impressed us. Every interaction felt collaborative, every detail intentional, and every launch exceeded expectations.',
-    name: 'Emma Johnson',
-    role: 'Creative Director',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
+      'Ashenox created an experience that feels vibrant, contemporary, and true to our identity. The attention to imagery, typography, and interaction made a real difference to how our brand is presented online.',
+    name: 'Neha Nair',
+    role: 'Founder · India',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
   },
+
   {
-    company: 'VENTIGENCE',
-    title: 'A world-class digital partner that truly understands storytelling.',
+    company: 'KAO',
+    title: 'Ashenox understood how to turn the energy of our events into a digital experience.',
     review:
-      'Their ability to take an idea and transform it into an exceptional digital experience has always impressed us. Every interaction felt collaborative, every detail intentional, and every launch exceeded expectations.',
-    name: 'David Chen',
-    role: 'CEO',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
+      'The creative direction felt bold without becoming overwhelming. They captured the culture, music, and energy behind Kao and translated it into a digital presence that feels memorable and distinctive.',
+    name: 'Aditya Verma',
+    role: 'Creative Director · India',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
+  },
+
+  {
+    company: 'FITANAZ',
+    title: 'They gave our performance nutrition brand the premium presence we were looking for.',
+    review:
+      'From the visual direction to the digital experience, the team helped us build a stronger and more confident brand. Everything feels sharper, more premium, and much closer to where we want to take Fitanaz.',
+    name: 'Karan Malhotra',
+    role: 'Founder & CEO · India',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80',
   },
 ];
 

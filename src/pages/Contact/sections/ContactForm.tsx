@@ -277,18 +277,18 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="relative overflow-hidden bg-[#090a0b] px-4 py-20 text-white md:px-10 md:py-28">
+    <section id="contact-form" className="relative overflow-hidden px-4 py-20 text-white md:px-10 md:py-28">
       {/* ==================================================
           BACKGROUND VIDEO
       ================================================== */}
-
+      {/* 
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <video src={formBackgroundVideo} autoPlay muted loop playsInline preload="auto" controls={false} className="h-full w-full object-cover" />
 
         <div className="absolute inset-0 bg-black/65" />
 
         <div className="absolute left-1/2 top-[35%] h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-white/[0.025] blur-[130px]" />
-      </div>
+      </div> */}
 
       {/* ==================================================
           CONTENT
