@@ -4,10 +4,10 @@ import { createCharacterAnimation } from '@/components/animations/CharAnimation'
 import { createWordAnimation } from '@/components/animations/wordAnimation';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
-
+import { usePageTransition } from '@/components/common/PageLoader';
 function DifferentSkills() {
   const sectionRef = useRef<HTMLElement | null>(null);
-
+  const go = usePageTransition();
   return (
     <section ref={sectionRef} className="relative isolate z-[40] w-full overflow-visible bg-[#050609] px-4 text-[#D8D8D8] md:h-[63vh] lg:min-h-screen">
       {/* =====================================================
@@ -68,9 +68,9 @@ function DifferentSkills() {
           }}
           className="absolute left-1/2 top-[48vh] m-0 w-[220px] -translate-x-1/2 text-center text-[14px] font-medium uppercase leading-[0.98] tracking-[-0.035em] text-[#D8D8D8] md:left-1/2 md:top-[22vh] md:max-w-[250px] md:-translate-x-1/2 md:text-center lg:left-[26vw] lg:top-[54vh] lg:translate-x-0 lg:text-left"
         >
-          {createWordAnimation('A COLLECTIVE SHAPED BY SHARED')}
+          {createWordAnimation('CREATIVITY IN MANY FORMS.')}
           <br />
-          {createWordAnimation('STANDARDS, NOT JOB TITLES.')}
+          {createWordAnimation('ONE SHARED VISION.')}
         </motion.p>
 
         {/* =====================================================
@@ -84,7 +84,7 @@ function DifferentSkills() {
         >
           <AnimatedButton
             variant="animated"
-            href="mailto:info@ashenox.com"
+            onClick={() => go('/contact', 'CONTACT')}
             borderColor="rgba(255, 255, 255, 0.8)"
             icon="right"
             charShift={78}

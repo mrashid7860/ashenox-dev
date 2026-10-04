@@ -1,6 +1,6 @@
 'use client';
 
-import AeroShards from '@/pages/Home/sections/AeroShards';
+import AeroShards from '@/components/common/AeroShards';
 
 export function AeroBackground() {
   return (

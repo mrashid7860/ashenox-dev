@@ -7,7 +7,7 @@ import { Services } from './sections/Services';
 import { Process } from './sections/Process';
 import { ClientStories } from '../../components/common/ClientStories';
 import HomeCard from '@/pages/Home/sections/HomeCard';
-import { AeroBackground } from '@/pages/Home/sections/AeroBackground';
+import { AeroBackground } from '@/components/common/AeroBackground';
 
 export function Home() {
   return (

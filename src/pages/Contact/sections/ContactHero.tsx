@@ -1,9 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 
-import hangingLion from '@/assets/video/Sequence 06_2.mp4';
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
 import { CONTACT_COPY } from '@/data/contact.data';
 
@@ -14,10 +13,14 @@ import { CONTACT_COPY } from '@/data/contact.data';
  */
 
 function CharacterHeading({ children, className = '', as = 'h2' }: { children: string; className?: string; as?: 'h1' | 'h2' }) {
-  const Tag = motion[as];
+  const { scrollY } = useScroll();
+
+  const scrollIndicatorOpacity = useTransform(scrollY, [0, 180], [1, 0]);
+
+  const Heading = as === 'h1' ? motion.h1 : motion.h2;
 
   return (
-    <Tag
+    <Heading
       initial="hidden"
       whileInView="visible"
       viewport={{
@@ -27,51 +30,24 @@ function CharacterHeading({ children, className = '', as = 'h2' }: { children: s
       className={className}
     >
       {createCharacterAnimation(children)}
-    </Tag>
+    </Heading>
   );
 }
 
 export function ContactHero() {
+  const { scrollY } = useScroll();
+
+  const scrollIndicatorOpacity = useTransform(scrollY, [0, 180], [1, 0]);
+
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#d7d7d7] text-[#454545]">
-      {/* ==================================================
-          LION VIDEO — full-screen, behind all text
-      ================================================== */}
-
-      <motion.div
-        initial={{
-          y: -180,
-          opacity: 0,
-          scale: 0.96,
-        }}
-        animate={{
-          y: 0,
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{
-          duration: 1.25,
-          delay: 0.15,
-          ease: [0.16, 1, 0.3, 1],
-        }}
-        className="absolute inset-0 z-0 mix-blend-darken"
-      >
-        <video src={hangingLion} autoPlay muted loop playsInline preload="auto" controls={false} className="h-full w-full select-none object-cover object-top" />
-      </motion.div>
-
-      {/* ==================================================
-          CONTENT — sits above the video
-      ================================================== */}
-
+    <section className="relative min-h-screen overflow-hidden text-[#454545]">
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1500px] flex-col items-center justify-center px-5 pb-16 pt-0 text-center md:px-10">
         {/* TITLE */}
-
         <CharacterHeading as="h1" className="relative z-20 max-w-[1100px] text-[clamp(2.5rem,5.2vw,5rem)] font-normal leading-[0.9] tracking-[-0.075em] text-[#fff]">
           {CONTACT_COPY.heroTitle}
         </CharacterHeading>
 
         {/* DESCRIPTION */}
-
         <motion.p
           initial={{
             opacity: 0,
@@ -98,30 +74,38 @@ export function ContactHero() {
         </motion.p>
 
         {/* SCROLL INDICATOR */}
-
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.7,
-            delay: 1,
+          initial={{
+            opacity: 0,
+            scale: 0.8,
           }}
-          className="absolute bottom-10 left-1/2 flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-[#707070]/70"
+          animate={{
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{
+            duration: 1.2,
+            delay: 1,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          style={{
+            opacity: scrollIndicatorOpacity,
+          }}
+          className="pointer-events-none absolute left-1/2 top-[calc(91.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:top-[calc(92vh)] lg:top-[41%] xl:top-[calc(100dvh-32px)] 2xl:top-[calc(100dvh-45px)]"
         >
           <motion.div
             animate={{
-              y: ['-180%', '0%', '0%', '180%'],
-              opacity: [0, 1, 1, 0],
+              y: ['-250%', '0%', '0%', '250%'],
             }}
             transition={{
-              duration: 1.6,
-              times: [0, 0.4, 0.65, 1],
+              duration: 1.8,
+              times: [0, 0.32, 0.38, 1],
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="absolute flex items-center justify-center"
+            className="absolute left-[2px] flex items-center justify-center"
           >
-            <ArrowDown size={10} strokeWidth={1.2} className="shrink-0 text-[#707070]" />
+            <ArrowDown size={10} strokeWidth={1.2} className="shrink-0 text-white" />
           </motion.div>
         </motion.div>
       </div>

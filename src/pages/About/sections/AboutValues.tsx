@@ -7,33 +7,33 @@ import { LinePlusBlock } from '@/components/common/LinePlusBlock';
 const VALUES = [
   {
     number: '01',
-    title: 'Driven by excellence',
-    description: 'Our work is shaped by high standards, continuous learning, and deep respect for craft, pushing every project beyond the expected.',
+    title: 'Driven by Craft',
+    description: 'We hold ourselves to high creative standards, combining thoughtful design, strong execution, and attention to detail in everything we create.',
   },
   {
     number: '02',
-    title: 'Honesty and authenticity',
-    description: 'In an industry full of noise and inflated promises, we focus on clarity, transparency, and results we are proud to stand behind.pushing every project beyond the expected. ',
+    title: 'Honesty & Transparency',
+    description: 'We believe good partnerships start with clear communication, realistic expectations, and work we can genuinely stand behind.',
   },
   {
     number: '03',
-    title: 'Designs that last',
-    description: 'We design systems, products, and brands built to endure, balancing creativity, technology, and purpose for long-term impact. pushing every project beyond the expected',
+    title: 'Built to Last',
+    description: 'We create brands, websites, and digital experiences designed to stay relevant, perform well, and grow with the people behind them.',
   },
   {
     number: '04',
-    title: 'Purposeful decisions',
-    description: 'We are an independent studio of design and coding experts, prioritizing quality and emotional value.pushing every project beyond the expected.  ',
+    title: 'Purpose Over Noise',
+    description: 'Every creative decision has a reason. We focus on ideas that solve problems, communicate clearly, and create meaningful impact.',
   },
   {
     number: '05',
-    title: 'Built around people',
-    description: 'We believe the best digital experiences begin with understanding people, their needs, behaviors, and ambitions. pushing every project beyond the expected',
+    title: 'People First',
+    description: 'Great work starts with understanding people—their needs, behaviors, ambitions, and the way they connect with brands.',
   },
   {
     number: '06',
     title: 'Always evolving',
-    description: 'Technology never stands still, and neither do we. We continuously explore new ideas, tools, and ways of working. pushing every project beyond the expected',
+    description: 'We keep learning, experimenting, and exploring new technologies, creative trends, and ways to make our work better.',
   },
 ];
 
@@ -238,7 +238,7 @@ export function AboutValues() {
 
                   {/* RIGHT — INTRO */}
                   <p className="max-w-[280px] text-center text-[14px] leading-[1.3] text-black/70 md:max-w-[270px] md:text-left md:text-[13px] lg:hidden">
-                    We're proud to be one of India's most creative and recognized web design studios, driven by purpose, aesthetics, and bold ideas.
+                    We're driven by bold ideas, thoughtful design, and purposeful creativity—creating work that brings clarity, builds connection, and makes a lasting impact
                   </p>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export function AboutValues() {
               {/* ================= INTRO ================= */}
 
               <p className="hidden max-w-[280px] text-[14px] leading-[1.3] text-black/70 lg:block lg:max-w-[300px] lg:text-[13px]">
-                We're proud to be one of India's most creative and recognized web design studios, driven by purpose, aesthetics, and bold ideas.
+                We're driven by bold ideas, thoughtful design, and purposeful creativity—creating work that brings clarity, builds connection, and makes a lasting impact
               </p>
 
               {/* ================= CARDS ================= */}

@@ -1,32 +1,31 @@
+import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Plus, ArrowDown, Globe2 } from 'lucide-react';
+import { ArrowDown, Globe2 } from 'lucide-react';
+
 import aboutBG from '@/assets/img/aboutBg.jpeg';
+
 import { AboutValues } from '@/pages/About/sections/AboutValues';
 import HowItWorks from '@/pages/Services/sections/HowItWorks';
 import { Founder } from '@/pages/About/sections/Founder';
-// import ProcessToFounderTransition from '@/pages/About/sections/Transition';
 import DifferentSkills from '@/pages/About/sections/DifferentSkills';
 import AwardsRecognition from './sections/AwardsRecognition';
 import { ClientStories } from '@/components/common/ClientStories';
 import { BrandsSection } from '@/pages/About/sections/BrandsSection';
+
 import { createWordAnimation } from '@/components/animations/wordAnimation';
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
 import { MarqueeSection } from '@/components/common/MarqueeSection';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
-
+import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
+import { MoltenMetalBackground } from '@/components/common/MoltenMetalBackground';
 function AboutHero() {
   const { scrollY } = useScroll();
 
   const scrollIndicatorOpacity = useTransform(scrollY, [0, 180], [1, 0]);
 
   return (
-    <div
-      className="relative flex min-h-[1100px] w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat md:min-h-[1400px]"
-      style={{
-        backgroundImage: `url(${aboutBG})`,
-      }}
-    >
+    <div className="relative flex min-h-[1100px] w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat md:min-h-[1400px]">
       {/* =====================================================
           MAIN HEADING
       ===================================================== */}
@@ -38,9 +37,9 @@ function AboutHero() {
           once: true,
           amount: 0.4,
         }}
-        className="absolute top-[20%] z-20 ml-10 mr-10 w-[calc(90%)] text-center text-[clamp(2.7rem,4vw,4rem)] font-normal leading-[0.9] tracking-[-0.06em] text-[#ffffff] mix-blend-difference md:top-[145px] md:w-[70%] md:text-[clamp(3.8rem,5vw,5rem)] lg:top-[80px]"
+        className="absolute top-[20%] z-20 ml-10 mr-10 w-[calc(90%)] text-center text-[clamp(2.7rem,4vw,4rem)] font-normal leading-[0.9] tracking-[-0.06em] text-[#ffffff] mix-blend-difference md:top-[145px] md:w-[70%] md:text-[clamp(3.8rem,4vw,5rem)] lg:top-[80px]"
       >
-        {createWordAnimation('We are an independent digital studio built on clarity, thoughtful craft, and trust earned worldwide.')}
+        {createWordAnimation('We are an independent creative digital studio built on bold ideas, thoughtful design, meaningful experiences, and lasting partnerships.')}
       </motion.h1>
       {/* =====================================================
           CENTER SMALL TEXT
@@ -62,9 +61,9 @@ function AboutHero() {
           duration: 0.8,
           delay: 0.35,
         }}
-        className="absolute top-[calc(90vh)] z-40 w-[220px] text-center text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white md:top-[450px] md:w-[180px] md:w-[270px] md:text-[15px] lg:top-[360px] lg:w-[250px] lg:text-[14px]"
+        className="absolute top-[calc(89vh)] z-40 w-[220px] text-center text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white md:top-[450px] md:w-[180px] md:w-[270px] md:text-[15px] lg:top-[400px] lg:w-[250px] lg:text-[14px]"
       >
-        AT THE INTERSECTION OF STRATEGY, DESIGN, AND TECHNOLOGY.
+        AT THE INTERSECTION OF CREATIVITY, DESIGN, TECHNOLOGY, AND IMPACT.
       </motion.div>
 
       {/* =====================================================
@@ -88,11 +87,11 @@ function AboutHero() {
         }}
         className="absolute left-[10%] top-[850px] z-30 hidden w-[270px] text-[13px] uppercase leading-[1] tracking-[0.02em] text-white md:block"
       >
-        {createWordAnimation('WE DESIGN AND BUILD DIGITAL')}
+        {createWordAnimation('WE BUILD BRANDS, WEBSITES,')}
         <br />
-        {createWordAnimation('EXPERIENCES THAT SCALE,')}
+        {createWordAnimation('AND DIGITAL EXPERIENCES THAT')}
         <br />
-        {createWordAnimation('PERFORM, AND ENDURE.')}
+        {createWordAnimation('STAND OUT, PERFORM, AND GROW.')}
       </motion.div>
 
       {/* =====================================================
@@ -102,9 +101,9 @@ function AboutHero() {
       <motion.div
         initial="hidden"
         animate="visible"
-        className="absolute right-[1%] z-30 hidden w-[170px] text-[13px] uppercase leading-[1] tracking-[0.02em] text-[#fff] md:top-[580px] md:block xl:top-[calc(100dvh-55px)] 2xl:top-[calc(100dvh-180px)]"
+        className="absolute right-[1%] z-30 hidden w-[170px] text-[13px] uppercase leading-[1] tracking-[0.02em] text-[#fff] md:top-[580px] md:block xl:top-[calc(100dvh-75px)] 2xl:top-[calc(100dvh-80px)]"
       >
-        {createWordAnimation('TURNING COMPLEX IDEAS INTO SIMPLE, INTUITIVE PRODUCTS.')}
+        {createWordAnimation('TURNING BOLD IDEAS INTO CLEAR, CREATIVE, AND MEANINGFUL DIGITAL EXPERIENCES')}
       </motion.div>
 
       {/* =====================================================
@@ -147,7 +146,7 @@ function AboutHero() {
         style={{
           opacity: scrollIndicatorOpacity,
         }}
-        className="pointer-events-none absolute left-[3%] top-[calc(91.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:left-[49%] md:top-[75%] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-32px)] 2xl:top-[47%]"
+        className="pointer-events-none absolute left-[3%] top-[calc(90.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:left-[49%] md:top-[75%] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-42px)] 2xl:top-[calc(100dvh-45px)]"
       >
         <motion.div
           animate={{
@@ -173,6 +172,20 @@ function AboutHero() {
 ========================================================= */
 
 function AboutIntro() {
+  const [contactOpen, setContactOpen] = useState(false);
+
+  // ============================================================
+  // CONTACT
+  // ============================================================
+
+  const handleDiscussProject = () => {
+    setContactOpen(true);
+  };
+
+  const closeContact = () => {
+    setContactOpen(false);
+  };
+
   return (
     <section className="relative w-full overflow-hidden bg-[#eeeeee] text-[#272727]">
       <div className="mx-auto mt-10 h-[600px] w-full max-w-full px-4 md:h-[500px] md:px-1 lg:h-full lg:px-8">
@@ -203,7 +216,8 @@ function AboutIntro() {
             <p className="mb-3 text-[13px] uppercase tracking-[-0.01em] md:mb-2"> {createCharacterAnimation('AT ASHENOX,')}</p>
 
             <p className="max-w-[500px] text-[clamp(1.4rem,1.2vw,2rem)] leading-[0.9] tracking-[-0.07em] md:max-w-[400px] md:text-[clamp(1.4rem,1.2vw,2rem)] md:leading-[0.94]">
-              We build teams around ideas. Each project is led by designers, engineers, and specialists chosen specifically for the challange at hand.
+              We bring the right creative minds together for every project. Designers, developers, content creators, and specialists collaborate to turn ideas into meaningful brands and digital
+              experiences.
             </p>
           </motion.div>
         </div>
@@ -405,16 +419,16 @@ function AboutIntro() {
             className="col-span-12 mx-auto mb-28 mt-10 max-w-[290px] text-center md:col-span-4 md:col-start-7 md:mx-0 md:mt-0 md:max-w-[290px] md:text-left lg:col-span-6 lg:col-start-9"
           >
             <p className="text-[15px] leading-[1.2] tracking-[-0.04em] text-[#666] md:text-[16px]">
-              We&apos;ve grown through experimentation, learning, and refinement, shaping a practice focused on clarity, craft, and long-term impact.
+              We&apos;ve grown through experimentation, creativity, and continuous learning, building a practice grounded in clarity, craft, and meaningful impact.
             </p>
 
             <p className="mt-5 text-[15px] leading-[1.2] tracking-[-0.04em] text-[#666] md:text-[16px]">
-              Today, I work across digital products, platforms, and systems that scale with purpose and endure.
+              Today, Ashenox works across brands, websites, digital experiences, content, and creative solutions—helping businesses turn ideas into work that connects, performs, and lasts.
             </p>
 
             <AnimatedButton
+              onClick={handleDiscussProject}
               variant="animated"
-              href="#contact"
               textColor="#4A4A4A"
               hoverTextColor="#000"
               borderColor="#4A4A4A"
@@ -433,6 +447,7 @@ function AboutIntro() {
           </motion.div>
         </div>
       </div>
+      <ContactFormPanel open={contactOpen} onClose={closeContact} />
     </section>
   );
 }
@@ -443,16 +458,39 @@ function AboutIntro() {
 
 export function About() {
   return (
-    <section id="about" className="relative w-full bg-white text-[#2d2d2d]">
-      <AboutHero />
-      <AboutIntro />
-      <AboutValues />
-      <HowItWorks mobileSticky mobileHeight="200vh" theme="dark" />
-      <Founder />
-      <DifferentSkills />
-      <AwardsRecognition />
-      <BrandsSection />
-      <ClientStories />
-    </section>
+    <main className="overflow-x-clip">
+      <section id="about" className="relative w-full text-[#2d2d2d]">
+        {/* =====================================================
+            FIXED / STICKY BACKGROUND AREA
+        ===================================================== */}
+        <div className="relative">
+          {/* Background stays fixed while Hero + Intro pass over it */}
+          <div className="pointer-events-none sticky top-0 z-0 h-screen w-full">
+            <MoltenMetalBackground />
+          </div>
+
+          {/* =================================================
+              HERO + INTRO CONTENT
+          ================================================= */}
+          <div className="relative z-10 -mt-[100vh]">
+            <AboutHero />
+          </div>
+        </div>
+
+        {/* =====================================================
+            REST OF ABOUT PAGE
+        ===================================================== */}
+        <div className="relative z-20 bg-white">
+          <AboutIntro />
+          <AboutValues />
+          <HowItWorks mobileSticky mobileHeight="200vh" theme="dark" />
+          <Founder />
+          <DifferentSkills />
+          <AwardsRecognition />
+          <BrandsSection />
+          <ClientStories />
+        </div>
+      </section>
+    </main>
   );
 }

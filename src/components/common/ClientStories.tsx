@@ -2,13 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Plus } from 'lucide-react';
-
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
-
 import { CLIENT_STORIES_CONTENT, TESTIMONIALS } from '@/data/clientStories.data';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
+import { usePageTransition } from '@/components/common/PageLoader';
 const AUTOPLAY_DELAY = 6000;
 
 // Reusable carousel navigation button.
@@ -64,6 +62,7 @@ export function ClientStories() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const activeStory = TESTIMONIALS[activeIndex];
+  const go = usePageTransition();
 
   // Automatically advance the active testimonial.
   useEffect(() => {
@@ -306,6 +305,7 @@ export function ClientStories() {
             {/* Desktop CTA */}
             <div className="mt-4 hidden md:flex md:items-center">
               <AnimatedButton
+                onClick={() => go('/contact', 'CONTACT')}
                 variant="animated"
                 textColor="#4A4A4A"
                 hoverTextColor="#000"
@@ -328,6 +328,7 @@ export function ClientStories() {
             <div className="mt-8 flex items-center justify-between md:hidden">
               <div className="flex flex-col">
                 <AnimatedButton
+                  onClick={() => go('/contact', 'CONTACT')}
                   variant="animated"
                   textColor="#4A4A4A"
                   hoverTextColor="#000"

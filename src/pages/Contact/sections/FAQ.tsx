@@ -68,10 +68,11 @@ export function FAQ() {
               once: true,
               amount: 0.2,
             }}
+            className="flex flex-col items-center md:items-start"
           >
-            <CharacterHeading className="mt-1 text-[clamp(3rem,4.5vw,5rem)] font-normal leading-[0.86] tracking-[-0.05em]">Questions</CharacterHeading>
+            <CharacterHeading className="mt-1 text-center text-[clamp(3rem,4.5vw,5rem)] font-normal leading-[0.86] tracking-[-0.05em] md:text-left">Questions</CharacterHeading>
 
-            <p className="mt-6 max-w-[210px] text-[14px] leading-[1.1] tracking-[-0.05em] text-[#5c5c5c] md:mt-8 md:text-[15px]">
+            <p className="mt-6 max-w-[210px] text-center text-[14px] leading-[1.1] tracking-[-0.05em] text-[#5c5c5c] md:mt-8 md:text-left md:text-[15px]">
               {CONTACT_COPY.faqDescription[0]}
               <br />
               {CONTACT_COPY.faqDescription[1]}
@@ -107,7 +108,7 @@ export function FAQ() {
                   className="border-b border-[#c8c8c8]"
                 >
                   <button type="button" onClick={() => setOpenIndex(isOpen ? -1 : index)} className="group flex w-full items-start justify-between gap-8 py-5 text-left" aria-expanded={isOpen}>
-                    <span className="max-w-[820px] text-[clamp(1rem,1.8vw,2rem)] font-normal leading-[1] tracking-[-0.055em] text-[#3e3e3e]">{item.question}</span>
+                    <span className="max-w-[820px] text-[clamp(1.4rem,1.8vw,2.5rem)] font-normal leading-[1] tracking-[-0.055em] text-[#3e3e3e]">{item.question}</span>
 
                     <span className={`mt-1 shrink-0 text-[15px] transition-transform duration-300 ${isOpen ? '-translate-y-[1px]' : ''}`}>{isOpen ? '↑' : '↓'}</span>
                   </button>
