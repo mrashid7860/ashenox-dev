@@ -39,9 +39,9 @@ const SQUARE_SPRING = {
 } as const;
 
 // Layout
-const SQUARE_SIZE = '30vmin';
-const SQUARE_VMIN = 30;
-const PLUS_GAP = 10;
+const SQUARE_SIZE = '29vmin';
+const SQUARE_VMIN = 29;
+const PLUS_GAP = 8;
 
 // Counter
 const DIGIT_H = 20;
@@ -373,7 +373,7 @@ function SquareBorder({ borderProgress }: { borderProgress: MotionValue<number> 
 
 function Tagline({ opacity }: { opacity: MotionValue<number> }) {
   return (
-    <motion.div style={{ opacity }} className="mt-[54px] flex items-center gap-[5px] whitespace-nowrap text-[12px] font-normal tracking-[0.08em] text-[#252525]">
+    <motion.div style={{ opacity }} className="mt-[54.5px] flex items-center gap-[5px] whitespace-nowrap text-[12px] font-normal tracking-[0.08em] text-[#252525]">
       <span>INSPIRE</span>
 
       <span className="text-[#777777]">·</span>
