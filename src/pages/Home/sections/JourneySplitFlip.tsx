@@ -107,7 +107,7 @@ function AwardsCard() {
 
   return (
     <CardWrapper className="h-[350px] bg-black text-white md:h-[365px] lg:h-[365px]">
-      <video autoPlay muted loop playsInline preload="auto" src={MEDIA.awards} className="absolute inset-0 h-full w-full object-cover" />
+      <img src={MEDIA.left} alt="" className="absolute inset-0 h-full w-full object-cover" />
 
       <div className="absolute inset-0 bg-black/10" />
 
@@ -115,14 +115,6 @@ function AwardsCard() {
         <span className="block text-[13px] uppercase tracking-[-0.02em] text-white/90 md:text-[14px]">{content.label}</span>
 
         <div>
-          {/* <div className="relative mb-3 flex h-10 w-[30%] items-end justify-start md:h-12 lg:w-[35%]">
-            <img
-              src={content.logo}
-              alt="The FWA"
-              className="h-full w-auto max-w-[110px] object-contain object-left brightness-0 invert"
-            />
-          </div> */}
-
           <div className="flex items-end justify-between gap-5">
             <p className="max-w-[68%] text-[13px] leading-[1.25] text-white/80 md:text-[14px] lg:max-w-[65%]">{content.description}</p>
 
@@ -179,7 +171,7 @@ function TeamCard() {
         <span className="block text-right text-[13px] uppercase tracking-[-0.02em] md:text-[14px]">{content.label}</span>
 
         <div className="flex flex-1 items-center overflow-hidden rounded-sm py-5 md:py-8">
-          <video autoPlay muted loop playsInline preload="auto" src={MEDIA.team} className="h-full w-full rounded-sm object-cover object-top" />
+          <img src={MEDIA.right} alt="" className="h-full w-full rounded-sm object-cover object-top" />
         </div>
 
         <div className="flex items-end justify-between">
@@ -279,7 +271,7 @@ function DesktopCard({ fact, index, progress }: { fact: KeyFact; index: number; 
 
 function MobileCard({ fact }: { fact: KeyFact }) {
   return (
-    <div className="mt-5 min-h-full w-[76vw] shrink-0">
+    <div className="mt-5 min-h-full w-[76vw] shrink-0 sm:w-[76vw]">
       {fact.type === 'awards' && <AwardsCard />}
 
       {fact.type === 'projects' && <ProjectsCard />}

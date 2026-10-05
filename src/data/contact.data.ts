@@ -94,7 +94,16 @@ export const CONTACT_BUDGETS: ContactBudget[] = [
 
 export const CONTACT_LOCATION = {
   company: 'ASHENOX',
-  address: ['Office No. 216 - 4Plus Complex', 'Sardar nagar main road, Astron Chowk', 'Rajkot 360001, Gujarat, India.'],
+  addresses: [
+    {
+      city: 'Bhubaneswar',
+      address: 'Odisha 751001, India',
+    },
+    {
+      city: 'Gachibowli',
+      address: 'Hyderabad, Telangana 500032, India',
+    },
+  ],
 };
 
 export const CONTACT_EMAILS = {

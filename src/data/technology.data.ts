@@ -9,26 +9,19 @@ export interface Technology {
   title: string;
   columns: TechnologyColumn[];
 }
-
 export const technologyData: Technology[] = [
   {
     id: 1,
     number: '1.',
-    title: 'AI & Intelligent Automation',
+    title: 'AI & Generative Tools',
     columns: [
       {
         heading: 'AI PLATFORMS & APIS',
-        items: ['OpenAI API (GPT models)', 'OpenAI SDK (Node.js / PHP integrations)'],
+        items: ['ChatGPT', 'Claude', 'Google Gemini'],
       },
       {
-        heading: 'AI CAPABILITIES',
-        items: [
-          'AI-powered chatbots & assistants',
-          'Content generation (text, email, CMS content)',
-          'AI-driven search & recommendations',
-          'AI workflow automation with n8n',
-          'AI integrations for websites & web apps',
-        ],
+        heading: 'GENERATIVE TOOLS',
+        items: ['Midjourney', 'Adobe Firefly', 'Runway'],
       },
     ],
   },
@@ -36,23 +29,15 @@ export const technologyData: Technology[] = [
   {
     id: 2,
     number: '2.',
-    title: 'Front-end',
+    title: 'Creative & Design',
     columns: [
       {
-        heading: 'FRAMEWORKS & LIBRARIES',
-        items: ['React.js', 'Next.js', 'JavaScript (ES6+)', 'jQuery'],
+        heading: 'ADOBE CREATIVE CLOUD',
+        items: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe After Effects', 'Adobe Premiere Pro'],
       },
       {
-        heading: 'STYLING & UI',
-        items: ['Bootstrap', 'Tailwind CSS', 'Sass (SCSS)', 'LESS'],
-      },
-      {
-        heading: 'WEB & ANIMATION',
-        items: ['Animated Websites', 'Interactive UI / Motion Design', 'Responsive & Performance-Optimized Frontends'],
-      },
-      {
-        heading: 'ANIMATION & INTERACTIVE EXPERIENCES',
-        items: ['GSAP', 'Framer Motion', 'Three.js', 'WebGL', 'HTML5 Canvas', 'Shaders'],
+        heading: 'DESIGN & COLLABORATION',
+        items: ['Figma', 'Canva'],
       },
     ],
   },
@@ -60,23 +45,15 @@ export const technologyData: Technology[] = [
   {
     id: 3,
     number: '3.',
-    title: 'Back-end',
+    title: 'Web & Development',
     columns: [
       {
-        heading: 'LANGUAGES & RUNTIME',
-        items: ['PHP', 'Node.js'],
+        heading: 'FRAMEWORKS & LANGUAGES',
+        items: ['Next.js', 'React', 'JavaScript', 'TypeScript'],
       },
       {
-        heading: 'FRAMEWORKS',
-        items: ['Express.js'],
-      },
-      {
-        heading: 'PLATFORM & SYSTEMS',
-        items: ['Magento', 'WordPress'],
-      },
-      {
-        heading: 'APIS & INTEGRATIONS',
-        items: ['REST APIs', 'Headless architecture support'],
+        heading: 'STYLING & DEPLOYMENT',
+        items: ['Tailwind CSS', 'Vercel'],
       },
     ],
   },
@@ -84,19 +61,15 @@ export const technologyData: Technology[] = [
   {
     id: 4,
     number: '4.',
-    title: 'Databases & Content Management',
+    title: 'Marketing & Analytics',
     columns: [
       {
-        heading: 'DATABASES',
-        items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis'],
+        heading: 'ANALYTICS & INSIGHTS',
+        items: ['Google Analytics', 'Google Search Console', 'Looker Studio'],
       },
       {
-        heading: 'HEADLESS / CMS',
-        items: ['WordPress CMS', 'HubSpot CMS', 'Contentful', 'Sanity', 'Strapi'],
-      },
-      {
-        heading: 'ECOMMERCE CMS',
-        items: ['WooCommerce', 'Shopify'],
+        heading: 'ADVERTISING & MARKETING',
+        items: ['Meta Ads Manager', 'Google Ads', 'Meta Business Suite'],
       },
     ],
   },
@@ -104,15 +77,15 @@ export const technologyData: Technology[] = [
   {
     id: 5,
     number: '5.',
-    title: 'Cloud Services',
+    title: 'SEO & Growth',
     columns: [
       {
-        heading: 'CLOUD PLATFORMS',
-        items: ['Amazon Web Services (AWS)', 'Google Cloud Platform (GCP)', 'DigitalOcean'],
+        heading: 'SEO PLATFORMS',
+        items: ['Semrush', 'Ahrefs', 'Screaming Frog'],
       },
       {
-        heading: 'CLOUD CAPABILITIES',
-        items: ['Scalable Cloud Hosting', 'Managed Database', 'Cloud-based deployments'],
+        heading: 'KEYWORD & SEARCH RESEARCH',
+        items: ['Google Keyword Planner', 'Google Trends', 'Search Console'],
       },
     ],
   },
@@ -120,19 +93,15 @@ export const technologyData: Technology[] = [
   {
     id: 6,
     number: '6.',
-    title: 'DevOps & Infrastructure',
+    title: 'Automation & Integrations',
     columns: [
       {
-        heading: 'VERSION CONTROL',
-        items: ['GIT', 'GitHub', 'DigitalOcean'],
+        heading: 'AUTOMATION PLATFORMS',
+        items: ['n8n', 'Make', 'Zapier'],
       },
       {
-        heading: 'CI/CD',
-        items: ['GitHub Actions'],
-      },
-      {
-        heading: 'AUTOMATION & WORKFLOWS',
-        items: ['n8n (Workflow Automation)'],
+        heading: 'INTEGRATIONS & APIS',
+        items: ['Webhooks', 'REST APIs', 'CRM Integrations'],
       },
     ],
   },
@@ -140,15 +109,15 @@ export const technologyData: Technology[] = [
   {
     id: 7,
     number: '7.',
-    title: 'Marketing, Email & Integrations',
+    title: 'Social, Email & CRM',
     columns: [
       {
-        heading: 'EMAIL & COMMUNICATION',
-        items: ['HubSpot', 'HubSpot Email Templates', 'SendGrid Email Templates'],
+        heading: 'SOCIAL PLATFORMS',
+        items: ['Instagram', 'Facebook', 'LinkedIn'],
       },
       {
-        heading: 'MARKETING AUTOMATION',
-        items: ['CRM & Email Automation', 'API-driven campaign workflows'],
+        heading: 'EMAIL & CRM',
+        items: ['Mailchimp', 'HubSpot', 'Brevo'],
       },
     ],
   },

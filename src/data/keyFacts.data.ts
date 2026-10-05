@@ -4,8 +4,8 @@ import partner3 from '@/assets/img/Partner/partner3.webp';
 import partner4 from '@/assets/img/Partner/partner4.png';
 import partner5 from '@/assets/img/Partner/partner5.png';
 
-import awardsCardVideo from '@/assets/video/awards-card-video_m.mp4';
-import rushi from '@/assets/video/rushi_m.mp4';
+import our_journey_left from '@/assets//img/our_journey_left.webp';
+import our_journey_right from '@/assets/img/our_journey_right.webp';
 
 // ============================================================
 // PARTNERS
@@ -37,8 +37,8 @@ export const KEY_FACTS = [
 // ============================================================
 
 export const MEDIA = {
-  awards: awardsCardVideo,
-  team: rushi,
+  left: our_journey_left,
+  right: our_journey_right,
 };
 
 // ============================================================

@@ -391,13 +391,13 @@ function Tagline({ opacity }: { opacity: MotionValue<number> }) {
       style={{
         opacity,
       }}
-      className="mt-[54px] flex items-center gap-[5px] whitespace-nowrap text-[12px] font-normal tracking-[0.08em] text-[#252525]"
+      className="mt-[54px] flex items-center gap-[2px] whitespace-nowrap text-[10px] font-normal tracking-[0.08em] text-[#252525] md:gap-[4px] md:text-[12px]"
     >
-      <span>INSPIRE</span>
+      <span>CREATE</span>
 
       <span className="text-[#777777]">·</span>
 
-      <span>INNOVATE</span>
+      <span>INSPIRE</span>
 
       <span className="text-[#777777]">·</span>
 

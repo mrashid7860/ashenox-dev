@@ -46,6 +46,7 @@ export function LocationJoin() {
       <div className="mx-auto flex w-full max-w-[1220px] justify-center">
         <div className="grid w-full grid-cols-1 gap-20 text-center md:grid-cols-3 md:items-center md:justify-items-center md:gap-5">
           {/* LOCATION */}
+          {/* LOCATION */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -58,14 +59,16 @@ export function LocationJoin() {
           >
             <CharacterHeading className="m-0 text-[clamp(3rem,4.5vw,5rem)] font-normal leading-[0.88] tracking-[-0.05em]">Location</CharacterHeading>
 
-            <div className="mt-12 max-w-[340px] text-[14px] leading-[1.1] tracking-[-0.05em] text-[#575757] md:mt-8 md:text-[15px]">
-              <p className="m-0 font-medium text-[#4c4c4c]">{CONTACT_LOCATION.company}</p>
+            <div className="mt-12 max-w-[340px] text-center text-[14px] leading-[1.1] tracking-[-0.05em] text-[#575757] md:mt-8 md:text-[15px]">
+              <div className="space-y-4">
+                {CONTACT_LOCATION.addresses.map((location) => (
+                  <div key={location.city}>
+                    <p className="m-0 font-medium text-[#4c4c4c]">{location.city}</p>
 
-              {CONTACT_LOCATION.address.map((line) => (
-                <p key={line} className="m-0">
-                  {line}
-                </p>
-              ))}
+                    <p className="m-0 mt-0">{location.address}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
 

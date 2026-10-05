@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, Globe2 } from 'lucide-react';
-
-import aboutBG from '@/assets/img/aboutBg.jpeg';
-
 import { AboutValues } from '@/pages/About/sections/AboutValues';
 import HowItWorks from '@/pages/Services/sections/HowItWorks';
 import { Founder } from '@/pages/About/sections/Founder';
@@ -40,6 +37,7 @@ function AboutHero() {
         className="absolute top-[20%] z-20 ml-10 mr-10 w-[calc(90%)] text-center text-[clamp(2.7rem,4vw,4rem)] font-normal leading-[0.9] tracking-[-0.06em] text-[#ffffff] mix-blend-difference md:top-[145px] md:w-[70%] md:text-[clamp(3.8rem,4vw,5rem)] lg:top-[80px]"
       >
         {createWordAnimation('We are an independent creative digital studio built on bold ideas, thoughtful design, meaningful experiences, and lasting partnerships.')}
+        {/* <AnimatedWords text={'We are an independent creative digital studio built on bold ideas, thoughtful design, meaningful experiences, and lasting partnerships.'} /> */}
       </motion.h1>
       {/* =====================================================
           CENTER SMALL TEXT
@@ -61,7 +59,7 @@ function AboutHero() {
           duration: 0.8,
           delay: 0.35,
         }}
-        className="absolute top-[calc(89vh)] z-40 w-[220px] text-center text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white md:top-[450px] md:w-[180px] md:w-[270px] md:text-[15px] lg:top-[400px] lg:w-[250px] lg:text-[14px]"
+        className="absolute top-[calc(87vh)] z-40 w-[220px] text-center text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white md:top-[450px] md:w-[180px] md:w-[270px] md:text-[15px] lg:top-[400px] lg:w-[250px] lg:text-[14px]"
       >
         AT THE INTERSECTION OF CREATIVITY, DESIGN, TECHNOLOGY, AND IMPACT.
       </motion.div>
@@ -146,7 +144,7 @@ function AboutHero() {
         style={{
           opacity: scrollIndicatorOpacity,
         }}
-        className="pointer-events-none absolute left-[3%] top-[calc(90.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:left-[49%] md:top-[75%] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-42px)] 2xl:top-[calc(100dvh-45px)]"
+        className="pointer-events-none absolute left-[3%] top-[calc(88.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:left-[49%] md:top-[75%] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-42px)] 2xl:top-[calc(100dvh-45px)]"
       >
         <motion.div
           animate={{
@@ -216,8 +214,7 @@ function AboutIntro() {
             <p className="mb-3 text-[13px] uppercase tracking-[-0.01em] md:mb-2"> {createCharacterAnimation('AT ASHENOX,')}</p>
 
             <p className="max-w-[500px] text-[clamp(1.4rem,1.2vw,2rem)] leading-[0.9] tracking-[-0.07em] md:max-w-[400px] md:text-[clamp(1.4rem,1.2vw,2rem)] md:leading-[0.94]">
-              We bring the right creative minds together for every project. Designers, developers, content creators, and specialists collaborate to turn ideas into meaningful brands and digital
-              experiences.
+              the right creative minds together for every project. Designers, developers, content creators, and specialists collaborate to turn ideas into meaningful brands and digital experiences.
             </p>
           </motion.div>
         </div>

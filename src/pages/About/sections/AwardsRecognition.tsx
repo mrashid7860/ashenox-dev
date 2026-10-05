@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import awardVideo from '@/assets/video/awards-video.mp4';
+import awardVideo from '@/assets/video/about-video.mp4';
 import { createWordAnimation } from '@/components/animations/wordAnimation';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
+import { usePageTransition } from '@/components/common/PageLoader';
 function AwardsRecognition() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -204,6 +205,7 @@ function AwardsRecognition() {
    * =========================================================
    */
   const marqueeY = useTransform(scrollYProgress, [0, 0.96, 0.97, 1], ['0vh', '0vh', '-5vh', '-115vh']);
+  const go = usePageTransition();
 
   return (
     <section
@@ -305,17 +307,17 @@ function AwardsRecognition() {
         </motion.div>
 
         <AnimatedButton
+          onClick={() => go('/services', 'SERVICES')}
           variant="animated"
-          href="#contact"
           colorMode="blend"
           icon="up-right"
           charShift={57}
           charStagger={0.025}
           charDuration={0.75}
           widthClassName="w-[150px] sm:w-[150px] md:w-[150px] lg:w-[150px]"
-          className="absolute left-[58%] top-[88vh] z-30 flex w-[140px] items-center justify-between font-mono uppercase md:left-[79%] md:top-[95vh] lg:left-[87%] lg:top-[17vh] xl:left-[86%] xl:top-[17vh] 2xl:left-[88%] 2xl:top-[17vh]"
+          className="absolute left-[58%] top-[88vh] z-30 flex w-[140px] items-center justify-between font-mono uppercase sm:left-[72%] md:left-[79%] md:top-[95vh] lg:left-[87%] lg:top-[17vh] xl:left-[86%] xl:top-[17vh] 2xl:left-[88%] 2xl:top-[17vh]"
         >
-          WIN AN AWARD?
+          VIEW SERVICES
         </AnimatedButton>
 
         {/* ===================================================
@@ -374,13 +376,19 @@ function AwardsRecognition() {
 function MarqueeGroup() {
   return (
     <div className="flex shrink-0 items-center">
-      <h2 className="m-0 whitespace-nowrap text-[clamp(5rem,8vw,9rem)] font-light leading-none tracking-[-0.085em]">AWARDS</h2>
+      <h2 className="m-0 whitespace-nowrap text-[clamp(5rem,8vw,9rem)] font-light leading-none tracking-[-0.085em]">CREATE</h2>
 
       <div className="mx-[5vw] flex h-[60px] w-[60px] shrink-0 items-center justify-center">
         <Plus size={60} strokeWidth={0.4} />
       </div>
 
-      <h2 className="m-0 whitespace-nowrap text-[clamp(5rem,8vw,9rem)] font-light leading-none tracking-[-0.085em]">RECOGNITION</h2>
+      <h2 className="m-0 whitespace-nowrap text-[clamp(5rem,8vw,9rem)] font-light leading-none tracking-[-0.085em]">INSPIRE</h2>
+
+      <div className="mx-[5vw] flex h-[60px] w-[60px] shrink-0 items-center justify-center">
+        <Plus size={60} strokeWidth={0.4} />
+      </div>
+
+      <h2 className="m-0 whitespace-nowrap text-[clamp(5rem,8vw,9rem)] font-light leading-none tracking-[-0.085em]">IMPACT</h2>
 
       <div className="mx-[5vw] flex h-[60px] w-[60px] shrink-0 items-center justify-center">
         <Plus size={60} strokeWidth={0.4} />

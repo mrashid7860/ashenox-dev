@@ -373,12 +373,12 @@ function SquareBorder({ borderProgress }: { borderProgress: MotionValue<number> 
 
 function Tagline({ opacity }: { opacity: MotionValue<number> }) {
   return (
-    <motion.div style={{ opacity }} className="mt-[54.5px] flex items-center gap-[5px] whitespace-nowrap text-[12px] font-normal tracking-[0.08em] text-[#252525]">
-      <span>INSPIRE</span>
+    <motion.div style={{ opacity }} className="mt-[54.5px] flex items-center gap-[4px] whitespace-nowrap text-[10px] tracking-[0.08em] text-[#252525] md:text-[12px]">
+      <span>CREATE</span>
 
       <span className="text-[#777777]">·</span>
 
-      <span>INNOVATE</span>
+      <span>INSPIRE</span>
 
       <span className="text-[#777777]">·</span>
 

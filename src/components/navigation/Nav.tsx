@@ -236,7 +236,7 @@ export function Nav() {
           duration: 0.7,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="fixed left-0 top-0 z-[100] w-full px-3 pt-5 sm:px-12 sm:pt-6 md:px-6"
+        className="fixed left-0 top-0 z-[100] w-full px-3 pt-5 sm:px-6 sm:pt-6 md:px-6"
         style={{
           mixBlendMode: 'difference',
         }}

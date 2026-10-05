@@ -8,7 +8,7 @@ export const wordVariants = {
   hidden: {
     opacity: 0,
     y: 35,
-    filter: 'blur(140px)',
+    filter: 'blur(100px)',
   },
 
   visible: {
@@ -161,7 +161,7 @@ export const createWordAnimation = (text: string) => {
      * Increase 0.22 → slower
      * Decrease 0.12 → faster
      */
-    const delay = position * 0.22 + randomOffset;
+    const delay = position * 0.18 + randomOffset;
 
     return (
       <motion.span

@@ -2,13 +2,13 @@ import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { createWordAnimation } from '@/components/animations/wordAnimation';
 
-import credible from '@/assets/img/Partner/credible.png';
-import luxury from '@/assets/img/Partner/luxury-presence.png';
-import ockto from '@/assets/img/Partner/ockto.png';
-import technis from '@/assets/img/Partner/technis.png';
-import ubiqu from '@/assets/img/Partner/ubiqu.png';
-import yellow from '@/assets/img/Partner/yellowtail.png';
-import myWork from '@/assets/img/Partner/my-worker-ai.png';
+import pc_secure from '@/assets/img/Partner/pc_secure.webp';
+import coco from '@/assets/img/Partner/coco.webp';
+import fitanaz from '@/assets/img/Partner/fitanaz.webp';
+import kao from '@/assets/img/Partner/kao.webp';
+import korra from '@/assets/img/Partner/korra.webp';
+import bytewise from '@/assets/img/Partner/bytewise.webp';
+import purple_mars from '@/assets/img/Partner/purple_mars.webp';
 import criss from '@/assets/img/Partner/criss-cross.png';
 
 interface BrandItem {
@@ -19,28 +19,28 @@ interface BrandItem {
 
 const BRANDS: BrandItem[] = [
   {
-    label: 'Luxury Presence',
-    image: luxury,
+    label: 'PC Secure',
+    image: pc_secure,
     rotate: -6,
   },
   {
-    label: 'Credible',
-    image: credible,
+    label: 'COCO',
+    image: coco,
     rotate: 5,
   },
   {
-    label: 'Yellowtail',
-    image: yellow,
+    label: 'FitAnaz',
+    image: fitanaz,
     rotate: -4,
   },
   {
-    label: 'My Worker',
-    image: myWork,
+    label: 'Kao',
+    image: kao,
     rotate: 7,
   },
   {
-    label: 'Ockto',
-    image: ockto,
+    label: 'Korra',
+    image: korra,
     rotate: -8,
   },
   {
@@ -49,13 +49,13 @@ const BRANDS: BrandItem[] = [
     rotate: 4,
   },
   {
-    label: 'Technish',
-    image: technis,
+    label: 'Bytewise',
+    image: bytewise,
     rotate: -5,
   },
   {
-    label: 'Ubiqu',
-    image: ubiqu,
+    label: 'Purple Mars',
+    image: purple_mars,
     rotate: 6,
   },
 ];
@@ -108,7 +108,7 @@ export function BrandsSection() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full bg-white py-32 md:px-6">
+    <section ref={containerRef} className="relative w-full bg-white py-32 sm:px-4 md:px-6">
       {/* =========================================
           TITLE
       ========================================= */}
@@ -175,7 +175,7 @@ export function BrandsSection() {
       {/* =========================================
           BRANDS
       ========================================= */}
-      <p className="mx-auto pt-1 text-center text-[30px] leading-[1.15] md:max-w-4xl md:pt-16 md:text-[60px] 2xl:max-w-3xl">
+      <p className="mx-auto pt-1 text-center text-[30px] leading-[1.15] sm:text-[50px] md:max-w-4xl md:pt-16 md:text-[60px] 2xl:max-w-3xl">
         {BRANDS.map((brand, index) => (
           <span key={brand.label}>
             <span

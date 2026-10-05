@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import footerVideo from '@/assets/video/form-background-video.mp4';
 
@@ -10,6 +9,7 @@ import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { SplitTextHover } from '@/components/animations/SplitTextHover';
 import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
 import { usePageTransition } from '@/components/common/PageLoader';
+
 const ease = [0.16, 1, 0.3, 1] as const;
 
 // ============================================================
@@ -98,6 +98,7 @@ export function Footer() {
   // ============================================================
 
   const go = usePageTransition();
+
   return (
     <>
       <footer id="contact" className="relative min-h-[420px] overflow-hidden bg-[#050609] text-[#eeeeee] lg:min-h-screen">
@@ -108,10 +109,8 @@ export function Footer() {
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <video src={footerVideo} autoPlay muted loop playsInline preload="auto" controls={false} className="h-full w-full select-none object-cover" />
 
-          {/* Dark overlay */}
           <div className="absolute inset-0 bg-[#050609]/70" />
 
-          {/* Vignette */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.45)_100%)]" />
         </div>
 
@@ -119,7 +118,7 @@ export function Footer() {
             CONTENT
         ====================================================== */}
 
-        <div className="relative z-10 mx-auto mt-5 flex w-full max-w-[1920px] flex-col px-4 pb-0 pt-5 sm:px-5 md:mt-20 md:min-h-0 md:px-7 lg:min-h-screen lg:px-[25px]">
+        <div className="relative z-10 mx-auto mt-5 flex w-full max-w-[1920px] flex-col px-4 pb-0 pt-5 sm:mt-20 sm:min-h-0 sm:px-5 sm:pt-5 md:mt-20 md:min-h-0 md:px-7 lg:min-h-screen lg:px-[25px]">
           {/* ====================================================
               TOP BAR
           ==================================================== */}
@@ -135,7 +134,7 @@ export function Footer() {
           ==================================================== */}
 
           <div className="mt-[20px] sm:mt-[30px] md:mt-[15px] lg:mt-[10px]">
-            <div className="grid grid-cols-1 gap-9 md:grid-cols-[minmax(0,1fr)_400px] md:gap-10 lg:grid-cols-[minmax(0,1fr)_500px] lg:gap-20">
+            <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 sm:gap-0 md:grid-cols-[minmax(0,1fr)_400px] md:gap-10 lg:grid-cols-[minmax(0,1fr)_500px] lg:gap-20">
               {/* ==================================================
                   TITLE
               ================================================== */}
@@ -170,11 +169,9 @@ export function Footer() {
                   CTA
               ================================================== */}
 
-              <div className="w-[190px] pt-0 md:w-full md:pt-[60px] lg:w-full lg:pt-[125px]">
-                <div className="flex flex-col gap-7 md:grid md:grid-cols-2 md:gap-x-[40px] lg:grid lg:grid-cols-2 lg:gap-x-[28px]">
-                  {/* ==================================================
-                      DISCUSS PROJECT
-                  ================================================== */}
+              <div className="w-[190px] pt-0 sm:ml-auto sm:w-[180px] sm:pt-0 md:ml-0 md:w-full md:pt-[60px] lg:w-full lg:pt-[125px]">
+                <div className="flex flex-col items-end gap-7 md:grid md:grid-cols-2 md:gap-x-[40px] lg:grid lg:grid-cols-2 lg:gap-x-[28px]">
+                  {/* DISCUSS PROJECT */}
 
                   <AnimatedButton
                     variant="animated"
@@ -189,9 +186,7 @@ export function Footer() {
                     DISCUSS YOUR PROJECT
                   </AnimatedButton>
 
-                  {/* ==================================================
-                      VIEW PROJECTS
-                  ================================================== */}
+                  {/* VIEW PROJECTS */}
 
                   <AnimatedButton
                     variant="animated"
@@ -213,19 +208,19 @@ export function Footer() {
                 INFORMATION
             ================================================== */}
 
-            <div className="mt-[25px] grid grid-cols-1 gap-5 md:mt-[70px] md:grid-cols-[minmax(0,1fr)_400px] md:gap-10 lg:mt-[65px] lg:grid-cols-[minmax(0,1fr)_500px] lg:gap-20">
+            <div className="mt-[25px] grid grid-cols-1 gap-5 sm:mt-[70px] sm:grid-cols-[minmax(0,1fr)_400px] sm:gap-10 md:mt-[70px] md:grid-cols-[minmax(0,1fr)_400px] md:gap-10 lg:mt-[65px] lg:grid-cols-[minmax(0,1fr)_500px] lg:gap-20">
               {/* ==================================================
                   LEFT AREA
               ================================================== */}
 
-              <div className="flex flex-col gap-8 md:gap-[40px] lg:gap-[55px]">
+              <div className="flex flex-col gap-8 sm:gap-[30px] md:gap-[40px] lg:gap-[55px]">
                 {/* COPYRIGHT */}
 
                 <p className="order-2 hidden text-[12px] uppercase tracking-[-0.01em] text-white/35 sm:block sm:text-[10px] md:order-1 md:text-[14px] lg:text-[14px]">©ASHENOX® 2026</p>
 
                 {/* SOUND */}
 
-                <div className="order-3 hidden items-center gap-2 text-[12px] uppercase tracking-[0.02em] text-white/70 sm:text-[9px] md:order-2 md:flex lg:text-[9px]">
+                <div className="order-3 hidden items-center gap-2 text-[12px] uppercase tracking-[0.02em] text-white/70 sm:block sm:text-[9px] md:order-2 md:flex lg:text-[9px]">
                   <span>TOUCH THE WORK. FEEL IT.</span>
                 </div>
               </div>
@@ -273,7 +268,7 @@ export function Footer() {
                       <SplitTextHover text="Linkedin" />
                     </a>
 
-                    <a href="https://www.instagram.com/ashenox.creative/" className="transition-colors hover:text-white" target="_blank" rel="noreferrer">
+                    <a href="https://www.instagram.com/ashenox.creative/" className="text-right transition-colors hover:text-white" target="_blank" rel="noreferrer">
                       <SplitTextHover text="Instagram" />
                     </a>
 
@@ -281,7 +276,7 @@ export function Footer() {
                       <SplitTextHover text="Behance" />
                     </a>
 
-                    <a href="https://www.youtube.com/@Ashenox07" className="transition-colors hover:text-white" target="_blank" rel="noreferrer">
+                    <a href="https://www.youtube.com/@Ashenox07" className="text-right transition-colors hover:text-white" target="_blank" rel="noreferrer">
                       <SplitTextHover text="YouTube" />
                     </a>
                   </div>
@@ -294,12 +289,12 @@ export function Footer() {
               ASHENOX SCANLINE LOGO
           ============================================================ */}
 
-          <div className="relative h-[98px] w-full overflow-hidden sm:mt-[30px] sm:h-[185px] md:mt-[35px] md:h-[180px] lg:mt-auto lg:h-[400px] xl:h-[320px]">
+          <div className="relative mt-[5px] h-[88px] w-full overflow-hidden sm:mt-[30px] sm:h-[105px] md:mt-[35px] md:h-[180px] lg:mt-auto lg:h-[400px] xl:h-[320px]">
             <div className="absolute bottom-0 left-0 flex w-full select-none items-end justify-center overflow-visible">
               {'ASHENOX'.split('').map((char, index) => (
                 <span
                   key={`${char}-${index}`}
-                  className="inline-block shrink-0 text-[25.5vw] font-black font-semibold leading-[0.7] tracking-[-0.1em] text-transparent sm:text-[18vw] sm:tracking-[-0.15em] md:text-[26vw] md:tracking-[-0.1em] lg:text-[25vw] lg:tracking-[-0.08em] xl:text-[26vw]"
+                  className="inline-block shrink-0 text-[25.5vw] font-black font-semibold leading-[0.7] tracking-[-0.1em] text-transparent sm:text-[26vw] sm:tracking-[-0.1em] md:text-[26vw] md:tracking-[-0.1em] lg:text-[25vw] lg:tracking-[-0.08em] xl:text-[26vw]"
                   style={{
                     WebkitTextStroke: '0px transparent',
 

@@ -168,7 +168,7 @@ export function Hero() {
             style={{
               opacity: scrollIndicatorOpacity,
             }}
-            className="pointer-events-none absolute left-[1.5%] top-[calc(93.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white/35 md:top-[75%] lg:top-[41%] xl:top-[51%] 2xl:top-[67%]"
+            className="pointer-events-none absolute left-[1.5%] top-[calc(93.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white/35 sm:left-[50%] sm:top-[calc(0vh)] md:left-[1.5%] md:top-[75%] lg:top-[41%] xl:top-[150%] 2xl:top-[147%]"
           >
             <motion.div
               animate={{
@@ -185,7 +185,7 @@ export function Hero() {
               <ArrowDown size={10} strokeWidth={1.2} className="shrink-0 text-white/35" />
             </motion.div>
           </motion.div>
-          {/* CENTER: HOLD TO BLAST */}
+          {/* TAP ONCE ✦ SEE */}
           <motion.div
             initial={{
               opacity: 0,
@@ -200,7 +200,7 @@ export function Hero() {
               duration: 1,
               ease: HERO_EASE,
             }}
-            className="pointer-events-none absolute inset-x-4 bottom-0 z-30 flex h-10 w-full items-center justify-start text-left md:justify-center md:text-center"
+            className="pointer-events-none absolute inset-x-4 bottom-0 z-30 flex h-10 w-full items-center justify-start text-left sm:bottom-5 md:bottom-0 md:justify-center md:text-center xl:top-[85%]"
           >
             <p className="text-[11px] uppercase leading-[1.4] text-white/35 md:mt-8">
               <span className="md:hidden">
@@ -226,7 +226,7 @@ export function Hero() {
             transition={{
               delay: HERO_CONFIG.experience.fadeInDelay,
             }}
-            className="absolute bottom-0 right-[8px] flex w-[190px] flex-col items-end px-1 md:right-[20px]"
+            className="absolute bottom-0 right-[8px] flex w-[190px] flex-col items-end px-1 sm:bottom-5 md:bottom-0 md:right-[20px] xl:bottom-[-35px]"
           >
             {/* EXPERIENCE BOX */}
             <div className="flex w-full overflow-hidden border border-white/10">

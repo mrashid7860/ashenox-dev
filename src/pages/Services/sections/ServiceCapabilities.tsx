@@ -28,18 +28,23 @@ function cn(...classes: Array<string | false | null | undefined>) {
 function ServiceVisual({ service }: { service: Service }) {
   return (
     <div className={cn('relative flex h-full w-full items-center justify-center overflow-hidden', service.theme === 'dark' ? 'bg-[#050609]' : 'bg-[#fff]')}>
-      <div className={cn('absolute left-1/2 top-[18%] z-20 w-[70%] -translate-x-1/2 text-center md:top-[21%] md:w-[70%]', service.theme === 'dark' ? 'text-white/80' : 'text-black/70')}>
+      <div
+        className={cn(
+          'absolute left-1/2 top-[15%] z-20 w-[70%] -translate-x-1/2 text-center sm:top-[8%] sm:w-[70%] md:top-[21%] md:w-[70%]',
+          service.theme === 'dark' ? 'text-white/80' : 'text-black/70'
+        )}
+      >
         <motion.p
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
-          className="mx-auto max-w-[180px] text-[11px] font-medium uppercase leading-[1.15] tracking-[-0.02em] sm:text-[13px] md:max-w-[220px]"
+          className="mx-auto max-w-[190px] text-[11px] font-medium uppercase leading-[1.15] tracking-[-0.02em] sm:max-w-[260px] sm:text-[13px] md:max-w-[220px]"
         >
           {createWordAnimation(service.visualText) || createWordAnimation('INTEGRATED SEAMLESSLY INTO EXISTING PLATFORMS.')}
         </motion.p>
       </div>
 
-      <div className="relative top-[10%] z-10 w-[90%] overflow-hidden rounded-[8px] md:top-[5%] md:w-[90%] lg:w-[70%]">
+      <div className="relative top-[13%] z-10 w-[90%] overflow-hidden rounded-[8px] sm:top-[8%] sm:w-[70%] md:top-[5%] md:w-[90%] lg:w-[70%]">
         <img
           src={service.image}
           alt={service.title}
@@ -307,11 +312,11 @@ export function ServiceCapabilities() {
               <div className="service-visual-pin relative h-screen w-1/2 overflow-hidden">
                 <ServiceVisual service={service} />
 
-                <div className="absolute bottom-8 left-6 z-40 sm:left-10">
+                {/* <div className="absolute bottom-8 left-6 z-40 sm:left-10">
                   <div className={cn('text-[11px] uppercase', service.theme === 'dark' ? 'text-white/40' : 'text-black/40')}>
                     {String(index + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* ==================================================
@@ -424,7 +429,7 @@ export function ServiceCapabilities() {
               </div> */}
             </motion.div>
 
-            <div className="px-5 pb-20 pt-6">
+            <div className="px-6 pb-20 pt-6">
               <motion.h2
                 initial={{
                   opacity: 0,
