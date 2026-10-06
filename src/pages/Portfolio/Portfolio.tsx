@@ -44,8 +44,8 @@ export function Portfolio() {
           PHASE 1
       ====================================================== */}
 
-      <section ref={sectionRef} id="work" className="relative z-10 h-[320vh] w-full overflow-x-hidden bg-[#030405] text-white">
-        <div className="sticky top-0 z-20 h-screen min-h-[650px] w-full overflow-hidden overflow-x-hidden">
+      <section ref={sectionRef} id="work" className="relative z-10 h-[320vh] w-full bg-[#030405] text-white">
+        <div className="sticky top-0 z-20 h-screen min-h-[650px] w-full overflow-hidden">
           {/* ==================================================
               DESKTOP FLOATING FIELD
           ================================================== */}
