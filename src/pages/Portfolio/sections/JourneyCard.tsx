@@ -1026,7 +1026,8 @@ export function JourneyCard({ project, revealProgress, journeyProgress }: Journe
         <div className="flex shrink-0 items-center gap-12 pb-1.5 text-[14px] uppercase tracking-[-0.02em] text-white/80 [word-spacing:5px]">
           <AnimatedButton
             variant="animated"
-            href={`/portfolio/${project.slug}`}
+            // href={`/portfolio/${project.slug}`}
+            href="#"
             borderColor="rgba(255, 255, 255, 0.8)"
             icon="right"
             charShift={37}

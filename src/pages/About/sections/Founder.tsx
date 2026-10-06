@@ -261,8 +261,8 @@ export function Founder() {
                 {splitChars('Bridging creativity and technology to build brands that stand out.', 'awards-desktop')}
               </span>
 
-              <span className="title block w-[110px] text-right text-sm uppercase md:hidden">{splitChars('Awwwards', 'awards-mobile')}</span>
-              <span className="title -mt-3 block w-[110px] text-right text-sm uppercase md:hidden">{splitChars('Jury', 'awards-mobile')}</span>
+              <span className="title block w-[110px] text-right text-[10px] uppercase leading-[1] md:hidden">{splitChars('Digital', 'awards-mobile')}</span>
+              <span className="title -mt-3 block w-[110px] text-right text-[10px] uppercase leading-[2.3] md:hidden">{splitChars('Craft', 'awards-mobile')}</span>
             </div>
           </div>
         </div>

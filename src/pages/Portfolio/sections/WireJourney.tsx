@@ -7,9 +7,9 @@ import { JOURNEY_HEIGHT_VH, JOURNEY_OVERLAP_VH, WIRE_ORIGIN, getConnectionPoint 
 
 import { JOURNEY_POINTS } from '@/data/journey.data';
 
-import { WireSegment } from './WireSegment';
-import { JourneyConnectionPoint } from './JourneyConnectionPoint';
-import { JourneyCard } from './JourneyCard';
+import { WireSegment } from '@/pages/Portfolio/sections/WireSegment';
+import { JourneyConnectionPoint } from '@/pages/Portfolio/sections/JourneyConnectionPoint';
+import { JourneyCard } from '@/pages/Portfolio/sections/JourneyCard';
 
 /* ============================================================
    MOBILE CARD POSITIONS

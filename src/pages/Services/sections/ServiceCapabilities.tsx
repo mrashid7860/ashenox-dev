@@ -30,7 +30,7 @@ function ServiceVisual({ service }: { service: Service }) {
     <div className={cn('relative flex h-full w-full items-center justify-center overflow-hidden', service.theme === 'dark' ? 'bg-[#050609]' : 'bg-[#fff]')}>
       <div
         className={cn(
-          'absolute left-1/2 top-[15%] z-20 w-[70%] -translate-x-1/2 text-center sm:top-[8%] sm:w-[70%] md:top-[21%] md:w-[70%]',
+          'absolute left-1/2 top-[17%] z-20 w-[70%] -translate-x-1/2 text-center sm:top-[8%] sm:w-[70%] md:top-[21%] md:w-[70%]',
           service.theme === 'dark' ? 'text-white/80' : 'text-black/70'
         )}
       >
@@ -38,13 +38,13 @@ function ServiceVisual({ service }: { service: Service }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
-          className="mx-auto max-w-[190px] text-[11px] font-medium uppercase leading-[1.15] tracking-[-0.02em] sm:max-w-[260px] sm:text-[13px] md:max-w-[220px]"
+          className="mx-auto max-w-[290px] text-[11px] font-medium uppercase leading-[1.15] tracking-[-0.02em] sm:max-w-[260px] sm:text-[13px] md:max-w-[220px]"
         >
           {createWordAnimation(service.visualText) || createWordAnimation('INTEGRATED SEAMLESSLY INTO EXISTING PLATFORMS.')}
         </motion.p>
       </div>
 
-      <div className="relative top-[13%] z-10 w-[90%] overflow-hidden rounded-[8px] sm:top-[8%] sm:w-[70%] md:top-[5%] md:w-[90%] lg:w-[70%]">
+      <div className="relative top-[12%] z-10 w-[90%] overflow-hidden rounded-[8px] sm:top-[8%] sm:w-[70%] md:top-[5%] md:w-[90%] lg:w-[70%]">
         <img
           src={service.image}
           alt={service.title}
@@ -71,8 +71,8 @@ function Capabilities({ items, variant = 'desktop' }: CapabilitiesProps) {
   const isMobile = variant === 'mobile';
 
   return (
-    <div className={isMobile ? 'mt-10' : 'mt-6 sm:mt-10'}>
-      <p className={isMobile ? 'mb-3 text-[13px] uppercase opacity-40' : 'mb-4 mt-16 text-[14px] uppercase tracking-[-0.01em] text-black/40 sm:text-[13px]'}>OUR CORE CAPABILITIES</p>
+    <div className={isMobile ? 'mt-5' : 'mt-6 sm:mt-10'}>
+      <p className={isMobile ? 'mb-1 text-[13px] uppercase opacity-40' : 'mb-4 mt-16 text-[14px] uppercase tracking-[-0.01em] text-black/40 sm:text-[13px]'}>OUR CORE CAPABILITIES</p>
 
       <div>
         {items.map((item, index) => (
@@ -97,7 +97,7 @@ function Capabilities({ items, variant = 'desktop' }: CapabilitiesProps) {
             }}
             className={
               isMobile
-                ? 'border-current/20 flex min-h-[38px] w-full items-center border-b text-[14px] tracking-[-0.02em]'
+                ? 'border-current/20 flex min-h-[32px] w-full items-center border-b text-[14px] tracking-[-0.02em]'
                 : 'group flex min-h-[42px] w-full max-w-[330px] items-center border-b border-black/80 text-[15px] tracking-[-0.03em] sm:text-[16px]'
             }
           >
@@ -294,7 +294,6 @@ export function ServiceCapabilities() {
       {/* ========================================================
           DESKTOP
       ======================================================== */}
-
       <div className="hidden md:block">
         {services.map((service, index) => (
           <article
@@ -393,14 +392,23 @@ export function ServiceCapabilities() {
           </article>
         ))}
       </div>
-
       {/* ========================================================
           MOBILE
       ======================================================== */}
 
       <div className="md:hidden">
-        {services.map((service) => (
-          <article key={service.id} className="relative overflow-hidden bg-white text-[#111318]">
+        {services.map((service, index) => (
+          <article
+            key={service.id}
+            className="service-mobile-card sticky top-0 flex h-[100svh] w-full flex-col overflow-hidden bg-white text-[#111318]"
+            style={{
+              zIndex: index + 1,
+            }}
+          >
+            {/* ==================================================
+                VISUAL
+            ================================================== */}
+
             <motion.div
               initial={{
                 opacity: 0,
@@ -418,18 +426,29 @@ export function ServiceCapabilities() {
                 duration: 0.75,
                 ease,
               }}
-              className="relative h-[400px] w-full overflow-hidden"
+              className="relative h-[42svh] min-h-[330px] w-full shrink-0 overflow-hidden"
             >
               <ServiceVisual service={service} />
 
               {/* <div className="absolute bottom-5 left-6 z-40">
-                <div className={cn('text-[10px] uppercase', service.theme === 'dark' ? 'text-white/40' : 'text-black/40')}>
+                <div
+                  className={cn(
+                    'text-[10px] uppercase',
+                    service.theme === 'dark'
+                      ? 'text-white/40'
+                      : 'text-black/40'
+                  )}
+                >
                   {service.number} / {String(services.length).padStart(2, '0')}
                 </div>
               </div> */}
             </motion.div>
 
-            <div className="px-6 pb-20 pt-6">
+            {/* ==================================================
+                CONTENT
+            ================================================== */}
+
+            <div className="min-h-0 flex-1 overflow-y-auto px-6 pb-10 pt-3">
               <motion.h2
                 initial={{
                   opacity: 0,
@@ -470,7 +489,7 @@ export function ServiceCapabilities() {
                   delay: 0.08,
                   ease,
                 }}
-                className="mt-4 max-w-[310px] text-[14px] leading-[1.35] opacity-65"
+                className="mt-2 text-[14px] leading-[1.35] opacity-65 sm:max-w-[310px]"
               >
                 {service.description}
               </motion.p>

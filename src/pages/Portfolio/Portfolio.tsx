@@ -2,13 +2,14 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { ArrowDown } from 'lucide-react';
 import { PROJECT_IMAGES } from '@/data/projects.data';
 import { WireJourney } from '@/pages/Portfolio/sections/WireJourney';
 import AshenoxLogo from '@/components/common/AshenoxLogo';
 import FloatingProjectCard from '@/pages/Portfolio/sections/FloatingProjectCard';
 import { TOTAL_CARDS, MOBILE_CARD_COUNT } from '@/utils/floatingMotion';
 import { createCharacterAnimation } from '@/components/animations/CharAnimation';
-import { ArrowDown } from 'lucide-react';
+
 export function Portfolio() {
   const sectionRef = useRef<HTMLElement | null>(null);
 

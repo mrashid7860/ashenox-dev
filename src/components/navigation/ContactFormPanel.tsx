@@ -7,17 +7,9 @@ import { ChevronDown, X, Loader2, ArrowRight } from 'lucide-react';
 
 import { SplitTextHover } from '@/components/animations/SplitTextHover';
 import { ContactStatusPopup } from '@/components/common/ContactStatusPopup';
-
-// ============================================================
-// ANIMATION
-// ============================================================
+import { CONTACT_SERVICES, CONTACT_EMAILS } from '@/data/contact.data';
 
 const ease = [0.16, 1, 0.3, 1] as const;
-
-// ============================================================
-// TYPES
-// ============================================================
-
 interface ContactFormPanelProps {
   open: boolean;
   onClose: () => void;
@@ -40,14 +32,6 @@ const INITIAL_FORM: FormState = {
   message: '',
   budget: '',
 };
-
-// ============================================================
-// OPTIONS
-// ============================================================
-
-const SERVICE_OPTIONS = ['Web Design', 'Web Development', 'Branding', 'Product Design', 'Other'];
-
-const CONTACT_EMAIL = 'info@ashenox.com';
 
 // ============================================================
 // SHARED INPUT STYLING
@@ -339,9 +323,9 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
                       Select a service
                     </option>
 
-                    {SERVICE_OPTIONS.map((service) => (
-                      <option key={service} value={service} className="text-black">
-                        {service}
+                    {CONTACT_SERVICES.map((service) => (
+                      <option key={service.value} value={service.value} className="text-black">
+                        {service.label}
                       </option>
                     ))}
                   </select>
@@ -407,8 +391,8 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
                 className="mt-4 text-center text-sm text-black/45"
               >
                 Prefer email?{' '}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-black underline underline-offset-2">
-                  <SplitTextHover text={CONTACT_EMAIL} />
+                <a href={`mailto:${CONTACT_EMAILS.general}`} className="text-black underline underline-offset-2">
+                  <SplitTextHover text={CONTACT_EMAILS.general} />
                 </a>
               </motion.p>
             </div>

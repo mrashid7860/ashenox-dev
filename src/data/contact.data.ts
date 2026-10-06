@@ -53,19 +53,27 @@ export const CONTACT_FAQ: FAQItem[] = [
 export const CONTACT_SERVICES: ContactService[] = [
   {
     value: 'branding',
-    label: 'Branding',
+    label: 'Brand & Identity',
   },
   {
-    value: 'website',
-    label: 'Website',
+    value: 'video-motion',
+    label: 'Video & Motion',
   },
   {
-    value: 'digital-product',
-    label: 'Digital Product',
+    value: 'graphic-design',
+    label: 'Graphic Design',
   },
   {
-    value: 'development',
-    label: 'Development',
+    value: 'web-design-development',
+    label: 'Web Design & Development',
+  },
+  {
+    value: 'ugc-model-content',
+    label: 'UGC & Model Content',
+  },
+  {
+    value: 'digital-marketing',
+    label: 'Digital Marketing',
   },
   {
     value: 'other',
@@ -73,24 +81,24 @@ export const CONTACT_SERVICES: ContactService[] = [
   },
 ];
 
-export const CONTACT_BUDGETS: ContactBudget[] = [
-  {
-    value: 'under-5k',
-    label: 'Under $5K',
-  },
-  {
-    value: '5-10k',
-    label: '$5K – $10K',
-  },
-  {
-    value: '10-25k',
-    label: '$10K – $25K',
-  },
-  {
-    value: '25k-plus',
-    label: '$25K+',
-  },
-];
+// export const CONTACT_BUDGETS: ContactBudget[] = [
+//   {
+//     value: 'under-5k',
+//     label: 'Under $5K',
+//   },
+//   {
+//     value: '5-10k',
+//     label: '$5K – $10K',
+//   },
+//   {
+//     value: '10-25k',
+//     label: '$10K – $25K',
+//   },
+//   {
+//     value: '25k-plus',
+//     label: '$25K+',
+//   },
+// ];
 
 export const CONTACT_LOCATION = {
   company: 'ASHENOX',

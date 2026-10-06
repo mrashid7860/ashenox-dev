@@ -702,7 +702,7 @@ type JourneyCardProps = {
   journeyProgress: any;
 };
 
-export function JourneyCard({ project, revealProgress, journeyProgress }: JourneyCardProps) {
+export function JourneyCardCopy({ project, revealProgress, journeyProgress }: JourneyCardProps) {
   const visible = useTransform(journeyProgress, (progress) => (progress >= revealProgress ? 1 : 0));
 
   const scale = useTransform(journeyProgress, (progress) => (progress >= revealProgress ? 1 : 0.985));

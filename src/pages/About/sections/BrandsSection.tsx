@@ -24,7 +24,7 @@ const BRANDS: BrandItem[] = [
     rotate: -6,
   },
   {
-    label: 'COCO',
+    label: 'COC',
     image: coco,
     rotate: 5,
   },
@@ -67,8 +67,8 @@ const PARTNER_COLUMNS = [
   ['Vendep Oy', 'SoundBoard AI', 'Mizuno CGI', 'Joonko', 'Many more...'],
 ];
 
-const CARD_WIDTH = 190;
-const GAP_ABOVE_TEXT = 130;
+const CARD_WIDTH = 180;
+const GAP_ABOVE_TEXT = 110;
 
 export function BrandsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -175,7 +175,7 @@ export function BrandsSection() {
       {/* =========================================
           BRANDS
       ========================================= */}
-      <p className="mx-auto pt-1 text-center text-[30px] leading-[1.15] sm:text-[50px] md:max-w-4xl md:pt-16 md:text-[60px] 2xl:max-w-3xl">
+      <p className="mx-auto pt-1 text-center text-[30px] leading-[1.15] sm:text-[50px] md:max-w-4xl md:pt-16 md:text-[60px] xl:text-[65px] 2xl:max-w-3xl 2xl:text-[60px]">
         {BRANDS.map((brand, index) => (
           <span key={brand.label}>
             <span

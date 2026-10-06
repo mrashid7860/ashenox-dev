@@ -101,7 +101,7 @@ export function Footer() {
 
   return (
     <>
-      <footer id="contact" className="relative min-h-[420px] overflow-hidden bg-[#050609] text-[#eeeeee] lg:min-h-screen">
+      <footer id="contact" className="relative min-h-[420px] overflow-hidden bg-[#050609] text-[#eeeeee] 2xl:min-h-screen">
         {/* ======================================================
             VIDEO BACKGROUND
         ====================================================== */}
@@ -118,7 +118,7 @@ export function Footer() {
             CONTENT
         ====================================================== */}
 
-        <div className="relative z-10 mx-auto mt-5 flex w-full max-w-[1920px] flex-col px-4 pb-0 pt-5 sm:mt-20 sm:min-h-0 sm:px-5 sm:pt-5 md:mt-20 md:min-h-0 md:px-7 lg:min-h-screen lg:px-[25px]">
+        <div className="relative z-10 mx-auto mt-5 flex w-full max-w-[1920px] flex-col px-4 pb-0 pt-5 sm:mt-20 sm:min-h-0 sm:px-5 sm:pt-5 md:mt-20 md:min-h-0 md:px-7 lg:px-[25px] 2xl:min-h-screen">
           {/* ====================================================
               TOP BAR
           ==================================================== */}
@@ -289,7 +289,7 @@ export function Footer() {
               ASHENOX SCANLINE LOGO
           ============================================================ */}
 
-          <div className="relative mt-[5px] h-[88px] w-full overflow-hidden sm:mt-[30px] sm:h-[105px] md:mt-[35px] md:h-[180px] lg:mt-auto lg:h-[400px] xl:h-[320px]">
+          <div className="relative mt-[5px] h-[88px] w-full overflow-hidden sm:mt-[30px] sm:h-[105px] md:mt-[35px] md:h-[180px] lg:h-[400px] xl:h-[220px] 2xl:mt-auto 2xl:h-[320px]">
             <div className="absolute bottom-0 left-0 flex w-full select-none items-end justify-center overflow-visible">
               {'ASHENOX'.split('').map((char, index) => (
                 <span

@@ -32,7 +32,7 @@ function ExpertiseHero() {
       </div>
 
       {/* Bottom Description */}
-      <div className="absolute inset-x-0 bottom-[clamp(1.5rem,6svh,4rem)] z-10 mx-auto w-[min(270px,80vw)] text-center text-[11px] uppercase leading-[1.3] tracking-[0.02em] text-white/35 md:w-[400px] md:text-[12px]">
+      <div className="absolute inset-x-0 bottom-[clamp(1.5rem,1svh,4rem)] z-10 mx-auto w-[min(270px,80vw)] text-center text-[11px] uppercase leading-[1.3] tracking-[0.02em] text-white/35 md:w-[400px] md:text-[12px]">
         <div>AI &amp; INTELLIGENT AUTOMATION WEB DEVELOPMENT &nbsp; PRODUCT DESIGN WEBSITE &amp; MOBILE DESIGN &nbsp; WORDPRESS DEVELOPMENT BRANDING</div>
       </div>
     </section>

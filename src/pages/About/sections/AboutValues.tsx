@@ -116,7 +116,7 @@ export function AboutValues() {
         <div className="relative col-span-12 md:col-span-10 md:col-start-2">
           <div className="relative col-span-12 md:col-span-10 md:col-start-2">
             <div className="">
-              <div className="relative px-4 md:hidden">
+              <div className="relative mt-16 px-4 md:hidden">
                 <LinePlusBlock
                   lineColor="#4A4A4A"
                   lineOpacity={0.35}
