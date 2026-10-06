@@ -107,11 +107,11 @@ export function Hero() {
   const handleContactClick = () => {
     setContactOpen(true);
   };
+
   return (
     <>
       <section id="hero" className="relative h-screen w-full overflow-hidden">
         <div className="noise-overlay absolute inset-0 z-[6]" />
-
         {/* Main content */}
         <div className="relative z-10 mt-10 h-full flex-col justify-center px-3 py-10 sm:px-6 lg:px-6">
           <div className="mt-0 w-full">
@@ -148,9 +148,9 @@ export function Hero() {
             </motion.div>
           </div>
         </div>
-
         {/* Bottom controls */}
-        <div className="absolute bottom-16 left-0 right-0 z-20 px-6">
+        <div className="absolute inset-x-0 bottom-[2svh] z-20 grid grid-cols-2 items-end px-4 sm:grid-cols-3 sm:px-6">
+          {/* LEFT — SCROLL INDICATOR */}
           <motion.div
             initial={{
               opacity: 0,
@@ -163,12 +163,12 @@ export function Hero() {
             transition={{
               duration: 1.2,
               delay: 1,
-              ease: HERO_EASE,
+              ease: [0.16, 1, 0.3, 1],
             }}
             style={{
               opacity: scrollIndicatorOpacity,
             }}
-            className="pointer-events-none absolute left-[1.5%] top-[calc(93.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white/35 sm:left-[50%] sm:top-[calc(0vh)] md:left-[1.5%] md:top-[75%] lg:top-[41%] xl:top-[150%] 2xl:top-[147%]"
+            className="pointer-events-none absolute left-[3%] z-40 hidden h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white sm:flex lg:left-[2%]"
           >
             <motion.div
               animate={{
@@ -180,11 +180,12 @@ export function Hero() {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute left-[3px] flex items-center justify-center"
+              className="absolute left-[2px] flex items-center justify-center"
             >
-              <ArrowDown size={10} strokeWidth={1.2} className="shrink-0 text-white/35" />
+              <ArrowDown size={10} strokeWidth={1.2} className="shrink-0 text-white" stroke="white" />
             </motion.div>
           </motion.div>
+
           {/* TAP ONCE ✦ SEE */}
           <motion.div
             initial={{
@@ -200,9 +201,9 @@ export function Hero() {
               duration: 1,
               ease: HERO_EASE,
             }}
-            className="pointer-events-none absolute inset-x-4 bottom-0 z-30 flex h-10 w-full items-center justify-start text-left sm:bottom-5 md:bottom-0 md:justify-center md:text-center xl:top-[85%]"
+            className="col-start-1 flex items-center justify-start text-left sm:col-start-2 sm:justify-center sm:text-center"
           >
-            <p className="text-[11px] uppercase leading-[1.4] text-white/35 md:mt-8">
+            <p className="text-[11px] uppercase leading-[1.4] text-white/35">
               <span className="md:hidden">
                 TAP ONCE ✦ SEE
                 <br />
@@ -226,18 +227,15 @@ export function Hero() {
             transition={{
               delay: HERO_CONFIG.experience.fadeInDelay,
             }}
-            className="absolute bottom-0 right-[8px] flex w-[190px] flex-col items-end px-1 sm:bottom-5 md:bottom-0 md:right-[20px] xl:bottom-[-35px]"
+            className="col-start-2 ml-auto flex w-[190px] shrink-0 flex-col items-end px-1 sm:col-start-3"
           >
             {/* EXPERIENCE BOX */}
             <div className="flex w-full overflow-hidden border border-white/10">
               <div className="flex h-[60px] w-[70px] shrink-0 flex-col items-center justify-center border-r border-white/10">
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" className="text-white/80">
                   <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.2" />
-
                   <path d="M4 12H20" stroke="currentColor" strokeWidth="1.2" />
-
                   <path d="M12 4C9.5 6.5 9.5 17.5 12 20" stroke="currentColor" strokeWidth="1.2" />
-
                   <path d="M12 4C14.5 6.5 14.5 17.5 12 20" stroke="currentColor" strokeWidth="1.2" />
                 </svg>
 
@@ -254,10 +252,9 @@ export function Hero() {
               <p className="text-[11px] leading-[1.2] text-white/80 [word-spacing:2px] md:leading-[1.1]">{hero.experience.description}</p>
             </div>
           </motion.div>
-
-          <div className="h-10 w-10" />
         </div>
       </section>
+
       <ContactFormPanel open={contactOpen} onClose={closeContact} />
     </>
   );

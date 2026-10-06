@@ -44,8 +44,8 @@ export function Portfolio() {
           PHASE 1
       ====================================================== */}
 
-      <section ref={sectionRef} id="work" className="relative z-10 h-[320vh] w-full bg-[#030405] text-white">
-        <div className="sticky top-0 z-20 h-screen min-h-[650px] w-full overflow-hidden">
+      <section ref={sectionRef} id="work" className="relative z-10 h-[320vh] w-full overflow-x-hidden bg-[#030405] text-white">
+        <div className="sticky top-0 z-20 h-screen min-h-[650px] w-full overflow-hidden overflow-x-hidden">
           {/* ==================================================
               DESKTOP FLOATING FIELD
           ================================================== */}
@@ -158,7 +158,7 @@ export function Portfolio() {
             style={{
               opacity: scrollIndicatorOpacity,
             }}
-            className="pointer-events-none absolute bottom-7 left-1/2 z-40 flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white"
+            className="pointer-events-none absolute left-1/2 top-[calc(100dvh-32px)] z-40 flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white"
           >
             <motion.div
               animate={{

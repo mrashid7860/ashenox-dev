@@ -16,13 +16,14 @@ import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
 import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
 import { MoltenMetalBackground } from '@/components/common/MoltenMetalBackground';
+
 function AboutHero() {
   const { scrollY } = useScroll();
 
   const scrollIndicatorOpacity = useTransform(scrollY, [0, 180], [1, 0]);
 
   return (
-    <div className="relative flex min-h-[1100px] w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat md:min-h-[1400px]">
+    <div className="relative flex min-h-[calc(100dvh+500px)] w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat sm:min-h-[calc(100dvh+550px)] md:min-h-[1400px]">
       {/* =====================================================
           MAIN HEADING
       ===================================================== */}
@@ -37,8 +38,8 @@ function AboutHero() {
         className="absolute top-[20%] z-20 ml-10 mr-10 w-[calc(90%)] text-center text-[clamp(2.7rem,4vw,4rem)] font-normal leading-[0.9] tracking-[-0.06em] text-[#ffffff] mix-blend-difference md:top-[145px] md:w-[70%] md:text-[clamp(3.8rem,4vw,5rem)] lg:top-[80px]"
       >
         {createWordAnimation('We are an independent creative digital studio built on bold ideas, thoughtful design, meaningful experiences, and lasting partnerships.')}
-        {/* <AnimatedWords text={'We are an independent creative digital studio built on bold ideas, thoughtful design, meaningful experiences, and lasting partnerships.'} /> */}
       </motion.h1>
+
       {/* =====================================================
           CENTER SMALL TEXT
       ===================================================== */}
@@ -59,7 +60,7 @@ function AboutHero() {
           duration: 0.8,
           delay: 0.35,
         }}
-        className="absolute top-[calc(87vh)] z-40 w-[220px] text-center text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white md:top-[450px] md:w-[180px] md:w-[270px] md:text-[15px] lg:top-[400px] lg:w-[250px] lg:text-[14px]"
+        className="absolute right-[5%] top-[calc(100dvh-46px)] z-40 w-[220px] -translate-y-1/2 text-right text-[13px] font-medium uppercase leading-[1.25] tracking-[-0.01em] text-white sm:right-[5%] sm:w-[240px] md:right-[5%] md:top-[calc(100dvh-46px)] md:w-[270px] md:translate-y-0 md:text-right md:text-[15px] lg:right-auto lg:top-[400px] lg:w-[250px] lg:text-center lg:text-[14px]"
       >
         AT THE INTERSECTION OF CREATIVITY, DESIGN, TECHNOLOGY, AND IMPACT.
       </motion.div>
@@ -67,14 +68,6 @@ function AboutHero() {
       {/* =====================================================
           LEFT DESCRIPTION
       ===================================================== */}
-
-      {/* <div className="absolute left-[10%] top-[850px] z-30 hidden w-[270px] text-[13px] uppercase leading-[1] tracking-[0.02em] text-white md:block">
-        {createWordAnimation('WE DESIGN AND BUILD DIGITAL')}
-        <br />
-        {createWordAnimation('EXPERIENCES THAT SCALE,')}
-        <br />
-        {createWordAnimation('PERFORM, AND ENDURE.')}
-      </div> */}
 
       <motion.div
         initial="hidden"
@@ -108,17 +101,15 @@ function AboutHero() {
           MOVING TEXT
       ===================================================== */}
 
-      <div className="pointer-events-none absolute left-0 top-[calc(122vh)] z-40 w-full overflow-hidden md:top-[1150px] lg:top-[1100px]">
+      <div className="pointer-events-none absolute left-0 top-[calc(122vh)] z-40 w-full overflow-hidden md:top-[1150px] md:mt-20 lg:top-[1100px] lg:mt-0">
         <MarqueeSection
           words={['CREATE', 'INNOVATE', 'IMPACT']}
           heightClass="h-[220px]"
-          // topClass="top-[calc(112vh)] md:top-[1150px] lg:top-[1000px]"
           textSizeClass="text-[clamp(5.5rem,9vw,10rem)]"
           duration={20}
           translateX="-30%"
           plusSizeClass="md:h-[80px] h-[40px] md:w-[80px] w-[40px]"
           plusSpacingClass="mx-10"
-          // plusColorClass="text-[#e8e8e8]"
           plusMarginTopClass="mt-0"
         />
       </div>
@@ -144,7 +135,7 @@ function AboutHero() {
         style={{
           opacity: scrollIndicatorOpacity,
         }}
-        className="pointer-events-none absolute left-[3%] top-[calc(88.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:left-[49%] md:top-[75%] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-42px)] 2xl:top-[calc(100dvh-45px)]"
+        className="pointer-events-none absolute left-[3%] top-[calc(100dvh-32px)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white sm:left-[3%] sm:top-[calc(100dvh-32px)] md:left-[3%] md:top-[calc(100dvh-32px)] lg:left-[2%] lg:top-[41%] xl:top-[calc(100dvh-42px)] 2xl:top-[calc(100dvh-45px)]"
       >
         <motion.div
           animate={{
@@ -214,7 +205,7 @@ function AboutIntro() {
             <p className="mb-3 text-[13px] uppercase tracking-[-0.01em] md:mb-2"> {createCharacterAnimation('AT ASHENOX,')}</p>
 
             <p className="max-w-[500px] text-[clamp(1.4rem,1.2vw,2rem)] leading-[0.9] tracking-[-0.07em] md:max-w-[400px] md:text-[clamp(1.4rem,1.2vw,2rem)] md:leading-[0.94]">
-              the right creative minds together for every project. Designers, developers, content creators, and specialists collaborate to turn ideas into meaningful brands and digital experiences.
+              The right creative minds together for every project. Designers, developers, content creators, and specialists collaborate to turn ideas into meaningful brands and digital experiences.
             </p>
           </motion.div>
         </div>
