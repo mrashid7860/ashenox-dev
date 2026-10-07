@@ -149,7 +149,7 @@ export function Hero() {
           </div>
         </div>
         {/* Bottom controls */}
-        <div className="absolute inset-x-0 bottom-[2svh] z-20 grid grid-cols-2 items-end px-4 sm:grid-cols-3 sm:px-6">
+        <div className="absolute inset-x-0 top-[calc(100dvh-120px)] z-20 grid grid-cols-2 items-end px-4 sm:grid-cols-3 sm:px-6">
           {/* LEFT — SCROLL INDICATOR */}
           <motion.div
             initial={{

@@ -30,7 +30,7 @@ function ServiceVisual({ service }: { service: Service }) {
     <div className={cn('relative flex h-full w-full items-center justify-center overflow-hidden', service.theme === 'dark' ? 'bg-[#050609]' : 'bg-[#fff]')}>
       <div
         className={cn(
-          'absolute left-1/2 top-[17%] z-20 w-[70%] -translate-x-1/2 text-center sm:top-[8%] sm:w-[70%] md:top-[21%] md:w-[70%]',
+          'absolute left-1/2 top-[17%] z-20 w-[70%] -translate-x-1/2 text-center sm:top-[5%] sm:w-[70%] md:top-[21%] md:w-[70%]',
           service.theme === 'dark' ? 'text-white/80' : 'text-black/70'
         )}
       >
@@ -44,7 +44,7 @@ function ServiceVisual({ service }: { service: Service }) {
         </motion.p>
       </div>
 
-      <div className="relative top-[12%] z-10 w-[90%] overflow-hidden rounded-[8px] sm:top-[8%] sm:w-[70%] md:top-[5%] md:w-[90%] lg:w-[70%]">
+      <div className="relative top-[12%] z-10 w-[90%] overflow-hidden rounded-[8px] sm:top-[10%] sm:w-[70%] md:top-[5%] md:w-[90%] lg:w-[70%]">
         <img
           src={service.image}
           alt={service.title}
@@ -97,7 +97,7 @@ function Capabilities({ items, variant = 'desktop' }: CapabilitiesProps) {
             }}
             className={
               isMobile
-                ? 'border-current/20 flex min-h-[32px] w-full items-center border-b text-[14px] tracking-[-0.02em]'
+                ? 'border-current/20 flex min-h-[35px] w-full items-center border-b text-[14px] tracking-[-0.02em]'
                 : 'group flex min-h-[42px] w-full max-w-[330px] items-center border-b border-black/80 text-[15px] tracking-[-0.03em] sm:text-[16px]'
             }
           >
@@ -395,100 +395,44 @@ export function ServiceCapabilities() {
       {/* ========================================================
           MOBILE
       ======================================================== */}
-
       <div className="md:hidden">
         {services.map((service, index) => (
           <article
             key={service.id}
-            className="service-mobile-card sticky top-0 flex h-[100svh] w-full flex-col overflow-hidden bg-white text-[#111318]"
-            style={{
-              zIndex: index + 1,
-            }}
+            className={`service-mobile-card sticky top-0 flex h-[100svh] w-full flex-col overflow-hidden ${service.theme === 'dark' ? 'bg-[#050609]' : 'bg-white'}`}
+            style={{ zIndex: index + 1 }}
           >
-            {/* ==================================================
-                VISUAL
-            ================================================== */}
+            {/* TOP FILL — same color as visual, runs to top edge */}
+            <div className={`${service.theme === 'dark' ? 'bg-[#050609]' : 'bg-white'} min-h-0 flex-1`} />
 
+            {/* VISUAL */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 25,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.15,
-              }}
-              transition={{
-                duration: 0.75,
-                ease,
-              }}
-              className="relative h-[42svh] min-h-[330px] w-full shrink-0 overflow-hidden"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.75, ease }}
+              className="relative h-[42svh] min-h-[330px] w-full shrink-0 overflow-hidden bg-[#050609] sm:h-[52svh] sm:min-h-[330px]"
             >
               <ServiceVisual service={service} />
-
-              {/* <div className="absolute bottom-5 left-6 z-40">
-                <div
-                  className={cn(
-                    'text-[10px] uppercase',
-                    service.theme === 'dark'
-                      ? 'text-white/40'
-                      : 'text-black/40'
-                  )}
-                >
-                  {service.number} / {String(services.length).padStart(2, '0')}
-                </div>
-              </div> */}
             </motion.div>
 
-            {/* ==================================================
-                CONTENT
-            ================================================== */}
-
-            <div className="min-h-0 flex-1 overflow-y-auto px-6 pb-10 pt-3">
+            {/* CONTENT */}
+            <div className="flex shrink-0 flex-col bg-[#fff] px-6 py-5 text-[#111318]">
               <motion.h2
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.3,
-                }}
-                transition={{
-                  duration: 0.7,
-                  ease,
-                }}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease }}
                 className="text-[clamp(1.7rem,1vw,2rem)] font-light leading-[0.9] tracking-[-0.07em]"
               >
                 {service.title}
               </motion.h2>
 
               <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.3,
-                }}
-                transition={{
-                  duration: 0.65,
-                  delay: 0.08,
-                  ease,
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.65, delay: 0.08, ease }}
                 className="mt-2 text-[14px] leading-[1.35] opacity-65 sm:max-w-[310px]"
               >
                 {service.description}
@@ -496,6 +440,9 @@ export function ServiceCapabilities() {
 
               <Capabilities items={service.capabilities} variant="mobile" />
             </div>
+
+            {/* BOTTOM FILL — same color as content, runs to bottom edge */}
+            <div className="min-h-0 flex-1 bg-[#fff]" />
           </article>
         ))}
       </div>

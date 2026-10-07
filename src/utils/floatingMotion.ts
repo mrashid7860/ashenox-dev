@@ -107,10 +107,10 @@ export const MOBILE_FLOATING_CONFIG: FloatingMotionConfig = {
   // Full mobile viewport
   // Allows cards to travel from far left
   // to far right and slightly outside screen.
-  POSITION_RANGE_X: [78, -48],
+  POSITION_RANGE_X: [-48, 28],
 
   // Full viewport height
-  POSITION_RANGE_Y: [-48, 88],
+  POSITION_RANGE_Y: [-48, 100],
 
   TILT_RANGE: [-17, 7],
 
