@@ -4,7 +4,7 @@
 
 export const TOTAL_CARDS = 21;
 
-export const MOBILE_CARD_COUNT = 11;
+export const MOBILE_CARD_COUNT = 19;
 
 /* ============================================================
    DESKTOP BATCHES
@@ -103,29 +103,23 @@ export const MOBILE_FLOATING_CONFIG: FloatingMotionConfig = {
 
   // Movement during each appearance
   DRIFT_RANGE: [-18, 18],
-
-  // Full mobile viewport
-  // Allows cards to travel from far left
-  // to far right and slightly outside screen.
-  POSITION_RANGE_X: [-48, 28],
-
-  // Full viewport height
-  POSITION_RANGE_Y: [-48, 100],
+  POSITION_RANGE_X: [58, -58],
+  POSITION_RANGE_Y: [-48, 85], // was [-48, 120]
 
   TILT_RANGE: [-17, 7],
 
-  SCALE_RANGE: [0.52, 0.8],
+  SCALE_RANGE: [0.42, 0.9],
 
   // Responsive width is calculated in FloatingProjectCard
-  CARD_WIDTH_RANGE: [95, 155],
+  CARD_WIDTH_RANGE: [85, 145],
 
   CARD_ASPECT_RANGE: [1.15, 1.75],
 
   BLINK_COUNT_MIN: 2,
   BLINK_COUNT_MAX: 4,
 
-  DURATION_MIN: 4,
-  DURATION_MAX: 11,
+  DURATION_MIN: 5,
+  DURATION_MAX: 21,
 
   INITIAL_HOLD_SECONDS: 3.5,
 };
@@ -149,7 +143,7 @@ export function randomBetween(seed: number, min: number, max: number) {
 ============================================================ */
 
 export function getBatchIndex(cardIndex: number, batchSizes: number[] = BATCH_SIZES) {
-  let count = 0;
+  let count = 1;
 
   for (let batch = 0; batch < batchSizes.length; batch++) {
     count += batchSizes[batch];

@@ -160,7 +160,7 @@ export function WireJourney() {
   return (
     <section
       ref={journeyRef}
-      className="relative z-10 w-full overflow-visible bg-transparent"
+      className="relative z-10 w-full overflow-visible bg-transparent max-md:overflow-x-clip"
       style={{
         height: `${journeyHeight}vh`,
         marginTop: `-${JOURNEY_OVERLAP_VH}vh`,

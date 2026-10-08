@@ -41,7 +41,7 @@ const SQUARE_SPRING = {
 // Layout
 const SQUARE_SIZE = '29vmin';
 const SQUARE_VMIN = 29;
-const PLUS_GAP = 8;
+const PLUS_GAP = 7;
 
 // Counter
 const DIGIT_H = 20;
