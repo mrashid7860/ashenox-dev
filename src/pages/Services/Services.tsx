@@ -11,7 +11,7 @@ import { MarqueeSection } from '@/components/common/MarqueeSection';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { AeroBackground } from '@/components/common/AeroBackground';
 import { usePageTransition } from '@/components/common/PageLoader';
-import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
+import { ContactFormPanel } from '@/components/common/ContactFormPanel';
 
 // ============================================================
 // AREA OF EXPERTISE

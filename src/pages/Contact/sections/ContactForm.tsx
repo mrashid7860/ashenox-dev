@@ -126,6 +126,7 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [validationError, setValidationError] = useState('');
 
   /*
    * ============================================================
@@ -138,137 +139,101 @@ export function ContactForm() {
 
     if (isSubmitting) return;
 
+    setValidationError('');
+    setSubmitStatus('idle');
+
     const form = event.currentTarget;
-
-    /*
-     * Browser validation
-     */
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
     const formData = new FormData(form);
 
-    /*
-     * Get and clean values
-     */
-    const name = String(formData.get('name') || '').trim();
-    const email = String(formData.get('email') || '').trim();
-    const company = String(formData.get('company') || '').trim();
-    const message = String(formData.get('message') || '').trim();
+    // ============================================================
+    // CLEAN VALUES
+    // ============================================================
 
     const data = {
-      name,
-      email,
-      company,
+      name: String(formData.get('name') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
+      company: String(formData.get('company') || '').trim(),
       service: service.trim(),
       budget: budget.trim(),
-      message,
+      message: String(formData.get('message') || '').trim(),
     };
 
-    /*
-     * ========================================================
-     * VALIDATION
-     * ========================================================
-     */
+    // ============================================================
+    // REQUIRED FIELDS
+    // ============================================================
 
-    // Required fields
     if (!data.name || !data.email || !data.company || !data.service || !data.budget) {
+      setValidationError('Please fill in all required fields.');
       setSubmitStatus('error');
       return;
     }
 
-    /*
-     * Email validation
-     *
-     * Example valid:
-     * hello@gmail.com
-     * john.doe@company.com
-     *
-     * Example invalid:
-     * hello@
-     * hello.com
-     * @gmail.com
-     */
+    // ============================================================
+    // NAME VALIDATION
+    // ============================================================
+
+    if (data.name.length < 2) {
+      setValidationError('Name must be at least 2 characters.');
+      setSubmitStatus('error');
+      return;
+    }
+
+    // ============================================================
+    // COMPANY VALIDATION
+    // ============================================================
+
+    if (data.company.length < 2) {
+      setValidationError('Company name must be at least 2 characters.');
+      setSubmitStatus('error');
+      return;
+    }
+
+    // ============================================================
+    // EMAIL VALIDATION
+    // ============================================================
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(data.email)) {
+      setValidationError('Email address is not correct.');
       setSubmitStatus('error');
       return;
     }
 
-    /*
-     * Prevent extremely short names
-     */
-    if (data.name.length < 2) {
-      setSubmitStatus('error');
-      return;
-    }
+    // ============================================================
+    // SUBMIT
+    // ============================================================
 
-    /*
-     * Prevent extremely short company name
-     */
-    if (data.company.length < 2) {
-      setSubmitStatus('error');
-      return;
-    }
+    setIsSubmitting(true);
 
     try {
-      setIsSubmitting(true);
-      setSubmitStatus('idle');
-
-      /*
-       * ======================================================
-       * API REQUEST
-       * ======================================================
-       */
-
       const response = await fetch('/api/contact', {
         method: 'POST',
-
         headers: {
           'Content-Type': 'application/json',
         },
-
         body: JSON.stringify(data),
       });
 
-      /*
-       * Try to read API response safely
-       */
       const result = await response.json();
 
-      /*
-       * API returned an error
-       */
       if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Failed to send inquiry');
+        throw new Error(result.message || 'Failed to send your inquiry. Please try again.');
       }
 
-      /*
-       * ======================================================
-       * SUCCESS
-       * ======================================================
-       */
+      // ============================================================
+      // SUCCESS
+      // ============================================================
 
-      setSubmitStatus('success');
-
-      /*
-       * Reset form
-       */
       form.reset();
 
       setService('');
       setBudget('');
+      setSubmitStatus('success');
     } catch (error) {
       console.error('Contact form error:', error);
 
-      /*
-       * ======================================================
-       * ERROR
-       * ======================================================
-       */
+      setValidationError(error instanceof Error ? error.message : 'Failed to send your inquiry. Please try again.');
 
       setSubmitStatus('error');
     } finally {
@@ -278,22 +243,6 @@ export function ContactForm() {
 
   return (
     <section id="contact-form" className="relative overflow-hidden px-4 py-20 text-white md:px-10 md:py-28">
-      {/* ==================================================
-          BACKGROUND VIDEO
-      ================================================== */}
-      {/* 
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <video src={formBackgroundVideo} autoPlay muted loop playsInline preload="auto" controls={false} className="h-full w-full object-cover" />
-
-        <div className="absolute inset-0 bg-black/65" />
-
-        <div className="absolute left-1/2 top-[35%] h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-white/[0.025] blur-[130px]" />
-      </div> */}
-
-      {/* ==================================================
-          CONTENT
-      ================================================== */}
-
       <div className="relative z-10 mx-auto max-w-[1050px]">
         {/* ==================================================
             EYEBROW
@@ -352,6 +301,7 @@ export function ContactForm() {
         ================================================== */}
 
         <motion.form
+          noValidate
           initial={{
             opacity: 0,
             y: 40,
@@ -416,7 +366,7 @@ export function ContactForm() {
               name="budget"
               value={budget}
               onChange={(event) => setBudget(event.target.value)}
-              placeholder="Estimated budget"
+              placeholder="Estimated budget e.g. ₹50,000 - ₹1,00,000"
               required
               className="h-[52px] w-full rounded border border-white/[0.18] bg-transparent px-4 text-[13px] text-white outline-none placeholder:text-white/50 focus:border-white/40 md:h-[40px] md:text-[14px]"
             />
@@ -464,7 +414,16 @@ export function ContactForm() {
           STATUS POPUP
       ================================================== */}
 
-      {submitStatus !== 'idle' && <ContactStatusPopup status={submitStatus} onClose={() => setSubmitStatus('idle')} />}
+      {submitStatus !== 'idle' && (
+        <ContactStatusPopup
+          status={submitStatus}
+          message={validationError}
+          onClose={() => {
+            setSubmitStatus('idle');
+            setValidationError('');
+          }}
+        />
+      )}
     </section>
   );
 }

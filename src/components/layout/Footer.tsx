@@ -7,7 +7,7 @@ import footerVideo from '@/assets/video/form-background-video.mp4';
 
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { SplitTextHover } from '@/components/animations/SplitTextHover';
-import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
+import { ContactFormPanel } from '@/components/common/ContactFormPanel';
 import { usePageTransition } from '@/components/common/PageLoader';
 
 const ease = [0.16, 1, 0.3, 1] as const;

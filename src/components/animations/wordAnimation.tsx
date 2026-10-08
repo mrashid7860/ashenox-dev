@@ -36,17 +36,18 @@ function shuffle<T>(array: T[]) {
 
 /* ============================================================
    CREATE WORD ANIMATION
+
+   delayStep:
+   Controls the delay between random reveal positions.
+
+   Default = 0.18
 ============================================================ */
 
-export const createWordAnimation = (text: string) => {
+export const createWordAnimation = (text: string, delayStep: number = 0.18) => {
   const words = text.trim().split(/\s+/);
 
   /* ==========================================================
      HOW MANY WORDS SHOULD ANIMATE
-     
-     12 words → around 9–10
-     20 words → around 15–17
-     30 words → around 23–26
   ========================================================== */
 
   let animatedCount: number;
@@ -56,9 +57,6 @@ export const createWordAnimation = (text: string) => {
   } else if (words.length <= 10) {
     animatedCount = Math.random() < 0.5 ? Math.floor(words.length * 0.7) : Math.ceil(words.length * 0.8);
   } else {
-    /*
-     * Keep roughly 80–85% animated.
-     */
     animatedCount = Math.random() < 0.5 ? Math.floor(words.length * 0.8) : Math.ceil(words.length * 0.85);
   }
 
@@ -66,46 +64,20 @@ export const createWordAnimation = (text: string) => {
 
   /* ==========================================================
      CREATE RANDOM WORD ORDER
-     
-     Example:
-     [0,1,2,3,4,5,6,7,8,9,10,11]
-
-     becomes:
-
-     [10,2,7,0,11,4,8,1,6,3,9,5]
   ========================================================== */
 
   const allIndexes = Array.from({ length: words.length }, (_, index) => index);
 
   const shuffledIndexes = shuffle(allIndexes);
 
-  /*
-   * Select random words that should animate.
-   */
   const animatedIndexes = new Set(shuffledIndexes.slice(0, animatedCount));
 
-  /*
-   * IMPORTANT:
-   *
-   * Create a RANDOM REVEAL ORDER only for
-   * the selected animated words.
-   *
-   * This is what prevents:
-   *
-   * 1 → 2 → 3 → 4 → 5
-   *
-   * and creates:
-   *
-   * 11 → 3 → 8 → 1 → 6 → 12 ...
-   */
+  /* ==========================================================
+     RANDOM REVEAL ORDER
+  ========================================================== */
 
   const revealOrder = shuffle(Array.from(animatedIndexes));
 
-  /*
-   * Map:
-   *
-   * word index → random animation position
-   */
   const revealPosition = new Map<number, number>();
 
   revealOrder.forEach((wordIndex, position) => {
@@ -134,34 +106,16 @@ export const createWordAnimation = (text: string) => {
 
     /* ========================================================
        RANDOM DELAY
-       
-       Delay is based on RANDOM REVEAL POSITION,
-       NOT original word index.
-       
-       Therefore animation is NOT:
-       
-       1 → 2 → 3 → 4 → 5
-       
-       Instead:
-       
-       11 → 3 → 8 → 12 → 4 → 1 ...
     ======================================================== */
 
     const position = revealPosition.get(index) ?? 0;
 
     /*
-     * Small random variation so even two consecutive
-     * words don't feel mechanically timed.
+     * Small random variation.
      */
-    const randomOffset = Math.random() * 0.18;
+    const randomOffset = Math.random() * 0.2;
 
-    /*
-     * Slow overall reveal.
-     *
-     * Increase 0.22 → slower
-     * Decrease 0.12 → faster
-     */
-    const delay = position * 0.18 + randomOffset;
+    const delay = position * delayStep + randomOffset;
 
     return (
       <motion.span
@@ -169,19 +123,8 @@ export const createWordAnimation = (text: string) => {
         className="words relative inline-block"
         variants={wordVariants}
         transition={{
-          /*
-           * VERY SLOW BLUR REVEAL
-           */
           duration: 1.8,
-
-          /*
-           * RANDOM REVEAL ORDER
-           */
           delay,
-
-          /*
-           * Smooth cinematic movement
-           */
           ease: [0.16, 1, 0.3, 1],
         }}
         aria-hidden="true"

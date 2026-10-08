@@ -12,7 +12,7 @@ import { scrollToId } from '@/utils/lenis';
 import { NAV_CONFIG } from '@/data/navigation.data';
 
 import { MenuPanel } from '@/components/navigation/MenuPanel';
-import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
+import { ContactFormPanel } from '@/components/common/ContactFormPanel';
 import { SplitTextHover } from '@/components/animations/SplitTextHover';
 
 // ============================================================

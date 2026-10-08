@@ -14,7 +14,7 @@ import { createCharacterAnimation } from '@/components/animations/CharAnimation'
 import { MarqueeSection } from '@/components/common/MarqueeSection';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { LinePlusBlock } from '@/components/common/LinePlusBlock';
-import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
+import { ContactFormPanel } from '@/components/common/ContactFormPanel';
 import { MoltenMetalBackground } from '@/components/common/MoltenMetalBackground';
 
 function AboutHero() {
@@ -37,7 +37,7 @@ function AboutHero() {
         }}
         className="absolute top-[20%] z-20 ml-10 mr-10 w-[calc(90%)] text-center text-[clamp(2.7rem,4vw,4rem)] font-normal leading-[0.9] tracking-[-0.06em] text-[#ffffff] mix-blend-difference md:top-[145px] md:w-[70%] md:text-[clamp(3.8rem,4vw,5rem)] lg:top-[80px]"
       >
-        {createWordAnimation('We are an independent creative digital studio built on bold ideas, thoughtful design, meaningful experiences, and lasting partnerships.')}
+        {createWordAnimation('We are an independent creative digital studio built on bold ideas, thoughtful design, meaningful experiences, and lasting partnerships.', 0.1)}
       </motion.h1>
 
       {/* =====================================================

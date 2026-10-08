@@ -3,7 +3,7 @@ import serviceAI from '@/assets/img/service-AI.webp';
 import serviceWebsiteMobileDesign from '@/assets/img/service-website-mobile-design.webp';
 import serviceWebDevelopment from '@/assets/img/service-web-development.webp';
 import serviceProductDesign from '@/assets/img/service-product-design.webp';
-
+import serviceWordpressDevelopment from '@/assets/img/service-wordpress-development.webp';
 export interface Service {
   id: string;
   number: string;
@@ -54,7 +54,7 @@ export const services: Service[] = [
     title: 'Motion & Visual Experiences',
     eyebrow: 'MOTION',
     description: 'We bring ideas to life through movement, cinematic storytelling and immersive visual experiences.',
-    image: serviceAI,
+    image: serviceWebDevelopment,
     theme: 'light',
     visualText: 'BROUGHT TO LIFE THROUGH MOVEMENT, CINEMATIC STORYTELLING AND IMMERSIVE VISUALS.',
     capabilities: ['Films & brand videos', 'Reels & short-form content', 'Motion graphics', '3D design & animation', 'Visual effects', 'Title sequences & transitions'],
@@ -66,7 +66,7 @@ export const services: Service[] = [
     title: 'Digital Experiences',
     eyebrow: 'DIGITAL',
     description: 'We design and build digital experiences that turn attention into interaction and ideas into meaningful experiences.',
-    image: serviceWebDevelopment,
+    image: serviceWordpressDevelopment,
     theme: 'dark',
     visualText: 'DESIGNED TO TURN ATTENTION INTO INTERACTION AND IDEAS INTO MEANINGFUL EXPERIENCES.',
     capabilities: ['Websites & landing pages', 'UI/UX design', 'Web applications', 'Interactive experiences', 'Digital product design', 'Creative development'],

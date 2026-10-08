@@ -1,93 +1,168 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const ADMIN_EMAIL = 'ashenox7@gmail.com';
-
 const FROM_EMAIL = 'Ashenox <info@ashenox.com>';
 
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
 export default async function handler(req, res) {
+  // ============================================================
+  // 1. METHOD VALIDATION
+  // ============================================================
+
   if (req.method !== 'POST') {
     return res.status(405).json({
       success: false,
-      message: 'Method not allowed',
+      message: 'Method not allowed.',
     });
   }
 
   try {
-    const { name, email, company, service, budget, message } = req.body || {};
+    // ============================================================
+    // 2. CHECK SERVER CONFIGURATION
+    // ============================================================
 
-    // --------------------------------------------------
-    // 1. VALIDATE FORM
-    // --------------------------------------------------
+    if (!process.env.RESEND_API_KEY) {
+      console.error('Contact API: RESEND_API_KEY is missing.');
 
-    if (!name || !email || !company || !service || !budget) {
-      return res.status(400).json({
+      return res.status(500).json({
         success: false,
-        message: 'Name, email and message are required.',
+        message: 'Our email service is temporarily unavailable. Please try again later.',
       });
     }
 
-    // --------------------------------------------------
-    // 2. GOOGLE SHEETS
-    // --------------------------------------------------
+    if (!process.env.GOOGLE_SHEET_WEBHOOK_URL) {
+      console.error('Contact API: GOOGLE_SHEET_WEBHOOK_URL is missing.');
+    }
+
+    // ============================================================
+    // 3. READ FORM DATA
+    // ============================================================
+
+    const { name, email, company, service, budget, message } = req.body || {};
+
+    const cleanName = String(name || '').trim();
+    const cleanEmail = String(email || '').trim();
+    const cleanCompany = String(company || '').trim();
+    const cleanService = String(service || '').trim();
+    const cleanBudget = String(budget || '').trim();
+    const cleanMessage = String(message || '').trim();
+
+    // ============================================================
+    // 4. VALIDATE REQUIRED FIELDS
+    // ============================================================
+
+    if (!cleanName || !cleanEmail || !cleanCompany || !cleanService || !cleanBudget) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please fill in all required fields.',
+      });
+    }
+
+    // ============================================================
+    // 5. VALIDATE NAME
+    // ============================================================
+
+    if (cleanName.length < 2) {
+      return res.status(400).json({
+        success: false,
+        message: 'Name must be at least 2 characters.',
+      });
+    }
+
+    // ============================================================
+    // 6. VALIDATE COMPANY
+    // ============================================================
+
+    if (cleanCompany.length < 2) {
+      return res.status(400).json({
+        success: false,
+        message: 'Company name must be at least 2 characters.',
+      });
+    }
+
+    // ============================================================
+    // 7. VALIDATE EMAIL
+    // ============================================================
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(cleanEmail)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email address is not correct.',
+      });
+    }
+
+    // ============================================================
+    // 8. GOOGLE SHEETS
+    // ============================================================
 
     let googleSheetSuccess = false;
     let googleSheetError = null;
 
-    try {
-      const sheetResponse = await fetch(process.env.GOOGLE_SHEET_WEBHOOK_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          company,
-          service,
-          budget,
-          message,
-        }),
-      });
-
-      const responseText = await sheetResponse.text();
-
-      console.log('Google Sheets status:', sheetResponse.status);
-      console.log('Google Sheets response:', responseText);
-
-      let sheetResult;
-
+    if (!process.env.GOOGLE_SHEET_WEBHOOK_URL) {
+      googleSheetError = 'Google Sheets webhook URL is not configured.';
+      console.error('Google Sheets:', googleSheetError);
+    } else {
       try {
-        sheetResult = JSON.parse(responseText);
-      } catch {
-        throw new Error(`Google Sheets returned non-JSON response: ${responseText.slice(0, 300)}`);
+        const sheetResponse = await fetch(process.env.GOOGLE_SHEET_WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: cleanName,
+            email: cleanEmail,
+            company: cleanCompany,
+            service: cleanService,
+            budget: cleanBudget,
+            message: cleanMessage,
+          }),
+        });
+
+        const responseText = await sheetResponse.text();
+
+        console.log('Google Sheets status:', sheetResponse.status);
+
+        console.log('Google Sheets response:', responseText);
+
+        let sheetResult;
+
+        try {
+          sheetResult = JSON.parse(responseText);
+        } catch {
+          throw new Error(`Google Sheets returned non-JSON response: ${responseText.slice(0, 300)}`);
+        }
+
+        if (!sheetResponse.ok) {
+          throw new Error(sheetResult?.message || `Google Sheets request failed with status ${sheetResponse.status}.`);
+        }
+
+        if (!sheetResult?.success) {
+          throw new Error(sheetResult?.message || 'Google Sheets update failed.');
+        }
+
+        googleSheetSuccess = true;
+      } catch (error) {
+        googleSheetError = error instanceof Error ? error.message : 'Unknown Google Sheets error.';
+
+        console.error('Google Sheets error:', googleSheetError);
+
+        // IMPORTANT:
+        // Google Sheets failure does NOT stop the inquiry.
       }
-
-      if (!sheetResponse.ok) {
-        throw new Error(sheetResult.message || `Google Sheets request failed with status ${sheetResponse.status}.`);
-      }
-
-      if (!sheetResult.success) {
-        throw new Error(sheetResult.message || 'Google Sheets update failed.');
-      }
-
-      googleSheetSuccess = true;
-    } catch (error) {
-      googleSheetError = error?.message || 'Unknown Google Sheets error.';
-
-      console.error('Google Sheets error:', googleSheetError);
     }
 
-    // --------------------------------------------------
-    // 3. AUTO-GENERATED TIMESTAMP
-    // --------------------------------------------------
+    // ============================================================
+    // 9. GENERATED TIMESTAMP
+    // ============================================================
 
     const generatedAt = formatGeneratedDate();
 
-    // --------------------------------------------------
-    // 4. GOOGLE SHEETS STATUS FOR ADMIN EMAIL
-    // --------------------------------------------------
+    // ============================================================
+    // 10. GOOGLE SHEETS STATUS FOR ADMIN EMAIL
+    // ============================================================
 
     let sheetStatusHtml = '';
 
@@ -119,15 +194,15 @@ export default async function handler(req, res) {
             font-size:13px;
             line-height:1.6;
           ">
-            ${escapeHtml(googleSheetError)}
+            ${escapeHtml(googleSheetError || 'The inquiry could not be saved to Google Sheets.')}
           </div>
         </div>
       `;
     }
 
-    // --------------------------------------------------
-    // 5. ADMIN EMAIL
-    // --------------------------------------------------
+    // ============================================================
+    // 11. ADMIN EMAIL HTML
+    // ============================================================
 
     const adminEmailHtml = `
       <!DOCTYPE html>
@@ -162,21 +237,13 @@ export default async function handler(req, res) {
             overflow:hidden;
           ">
 
-            <!-- HEADER -->
-
             <div style="
               padding:30px;
               background:#050505;
             ">
 
-              <table
-                width="100%"
-                cellpadding="0"
-                cellspacing="0"
-                border="0"
-              >
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-
                   <td>
                     <div style="
                       color:#ffffff;
@@ -198,10 +265,7 @@ export default async function handler(req, res) {
                     </div>
                   </td>
 
-                  <td
-                    align="right"
-                    valign="top"
-                  >
+                  <td align="right" valign="top">
                     <div style="
                       display:inline-block;
                       padding:7px 10px;
@@ -215,18 +279,12 @@ export default async function handler(req, res) {
                       New Inquiry
                     </div>
                   </td>
-
                 </tr>
               </table>
 
             </div>
 
-
-            <!-- INTRO -->
-
-            <div style="
-              padding:34px 30px 24px;
-            ">
+            <div style="padding:34px 30px 24px;">
 
               <div style="
                 color:#999994;
@@ -246,7 +304,7 @@ export default async function handler(req, res) {
                 letter-spacing:-1.2px;
                 line-height:1.05;
               ">
-                ${escapeHtml(name)}
+                ${escapeHtml(cleanName)}
                 <span style="color:#a0a09b;">
                   sent an inquiry.
                 </span>
@@ -264,12 +322,7 @@ export default async function handler(req, res) {
 
             </div>
 
-
-            <!-- CONTACT DETAILS -->
-
-            <div style="
-              padding:8px 30px 0;
-            ">
+            <div style="padding:8px 30px 0;">
 
               <table
                 width="100%"
@@ -278,8 +331,6 @@ export default async function handler(req, res) {
                 border="0"
                 style="border-collapse:collapse;"
               >
-
-                <!-- ROW 1 -->
 
                 <tr>
 
@@ -308,11 +359,10 @@ export default async function handler(req, res) {
                       font-size:14px;
                       line-height:1.5;
                     ">
-                      ${escapeHtml(name)}
+                      ${escapeHtml(cleanName)}
                     </div>
 
                   </td>
-
 
                   <td
                     width="50%"
@@ -340,15 +390,12 @@ export default async function handler(req, res) {
                       line-height:1.5;
                       word-break:break-word;
                     ">
-                      ${escapeHtml(email)}
+                      ${escapeHtml(cleanEmail)}
                     </div>
 
                   </td>
 
                 </tr>
-
-
-                <!-- ROW 2 -->
 
                 <tr>
 
@@ -377,11 +424,10 @@ export default async function handler(req, res) {
                       font-size:14px;
                       line-height:1.5;
                     ">
-                      ${escapeHtml(company || 'Not provided')}
+                      ${escapeHtml(cleanCompany)}
                     </div>
 
                   </td>
-
 
                   <td
                     width="50%"
@@ -408,15 +454,12 @@ export default async function handler(req, res) {
                       font-size:14px;
                       line-height:1.5;
                     ">
-                      ${escapeHtml(service || 'Not provided')}
+                      ${escapeHtml(cleanService)}
                     </div>
 
                   </td>
 
                 </tr>
-
-
-                <!-- ROW 3 -->
 
                 <tr>
 
@@ -444,20 +487,12 @@ export default async function handler(req, res) {
                       font-size:14px;
                       line-height:1.5;
                     ">
-                      ${escapeHtml(budget || 'Not provided')}
+                      ${escapeHtml(cleanBudget)}
                     </div>
 
                   </td>
 
-
-                  <td
-                    width="50%"
-                    valign="top"
-                    style="
-                      padding:16px 0 16px 14px;
-                    "
-                  >
-                  </td>
+                  <td width="50%"></td>
 
                 </tr>
 
@@ -465,12 +500,7 @@ export default async function handler(req, res) {
 
             </div>
 
-
-            <!-- MESSAGE -->
-
-            <div style="
-              padding:16px 30px 0;
-            ">
+            <div style="padding:16px 30px 0;">
 
               <div style="
                 margin-bottom:9px;
@@ -492,25 +522,17 @@ export default async function handler(req, res) {
                 line-height:1.7;
                 white-space:pre-wrap;
               ">
-                ${escapeHtml(message)}
+                ${escapeHtml(cleanMessage || 'No message provided.')}
               </div>
 
             </div>
 
-
-            <!-- GOOGLE SHEETS FAILURE -->
-
             ${sheetStatusHtml}
 
-
-            <!-- REPLY BUTTON -->
-
-            <div style="
-              padding:28px 30px 32px;
-            ">
+            <div style="padding:28px 30px 32px;">
 
               <a
-                href="${createReplyLink(email)}"
+                href="${createReplyLink(cleanEmail)}"
                 style="
                   display:inline-block;
                   padding:14px 20px;
@@ -527,9 +549,6 @@ export default async function handler(req, res) {
               </a>
 
             </div>
-
-
-            <!-- FOOTER -->
 
             <div style="
               padding:22px 30px 24px;
@@ -567,29 +586,49 @@ export default async function handler(req, res) {
       </html>
     `;
 
-    // --------------------------------------------------
-    // 6. SEND EMAIL TO ADMIN
-    // --------------------------------------------------
+    // ============================================================
+    // 12. SEND ADMIN EMAIL
+    // ============================================================
 
     let adminEmailSuccess = false;
+    let adminEmailError = null;
 
     try {
-      await resend.emails.send({
+      const adminResult = await resend.emails.send({
         from: FROM_EMAIL,
         to: ADMIN_EMAIL,
-        replyTo: email,
-        subject: `New Ashenox Inquiry — ${name}`,
+        replyTo: cleanEmail,
+        subject: `New Ashenox Inquiry — ${cleanName}`,
         html: adminEmailHtml,
       });
 
+      if (adminResult?.error) {
+        throw new Error(adminResult.error.message || 'Admin email failed.');
+      }
+
       adminEmailSuccess = true;
     } catch (error) {
-      console.error('Admin email error:', error?.message || error);
+      adminEmailError = error instanceof Error ? error.message : 'Unknown admin email error.';
+
+      console.error('Admin email error:', adminEmailError);
     }
 
-    // --------------------------------------------------
-    // 7. CUSTOMER THANK-YOU EMAIL
-    // --------------------------------------------------
+    // ============================================================
+    // 13. ADMIN EMAIL IS CRITICAL
+    // ============================================================
+
+    if (!adminEmailSuccess) {
+      return res.status(500).json({
+        success: false,
+        message: 'We could not send your inquiry right now. Please try again in a few moments or contact us by email.',
+        googleSheetSuccess,
+        adminEmailSuccess: false,
+      });
+    }
+
+    // ============================================================
+    // 14. CUSTOMER THANK-YOU EMAIL
+    // ============================================================
 
     const customerEmailHtml = `
       <!DOCTYPE html>
@@ -628,34 +667,20 @@ export default async function handler(req, res) {
             overflow:hidden;
           ">
 
-
-            <!-- HEADER -->
-
             <div style="
               padding:36px 30px;
               background:#050505;
               text-align:center;
             ">
 
-              <!--
-                Replace this image URL with your actual
-                Ashenox logo URL once you have one.
-              -->
-
-              <img
-                src="https://aashushrink.com/wp-content/uploads/2025/12/Aashu-Shrink-Logo-Tagline-1024x312.png"
-                alt="Ashenox"
-                width="100"
-                height="50"
-                style="
-                  display:block;
-                  width:100px;
-                  height:50px;
-                  object-fit:contain;
-                  margin:0 auto;
-                  border:0;
-                "
-              >
+              <div style="
+                color:#ffffff;
+                font-size:24px;
+                font-weight:700;
+                letter-spacing:-1px;
+              ">
+                ASHENOX
+              </div>
 
               <div style="
                 margin-top:10px;
@@ -669,15 +694,10 @@ export default async function handler(req, res) {
 
             </div>
 
-
-            <!-- BODY -->
-
             <div style="
               padding:48px 30px 42px;
               text-align:center;
             ">
-
-              <!-- CHECK ICON -->
 
               <div style="
                 width:52px;
@@ -693,9 +713,6 @@ export default async function handler(req, res) {
                 ✓
               </div>
 
-
-              <!-- GREETING -->
-
               <div style="
                 margin-top:28px;
                 color:#111111;
@@ -704,11 +721,8 @@ export default async function handler(req, res) {
                 letter-spacing:-1.5px;
                 line-height:1;
               ">
-                Thanks, ${escapeHtml(name)}.
+                Thanks, ${escapeHtml(cleanName)}.
               </div>
-
-
-              <!-- MESSAGE 1 -->
 
               <div style="
                 max-width:440px;
@@ -723,9 +737,6 @@ export default async function handler(req, res) {
                 about your project.
               </div>
 
-
-              <!-- MESSAGE 2 -->
-
               <div style="
                 max-width:430px;
                 margin:14px auto 0;
@@ -738,18 +749,12 @@ export default async function handler(req, res) {
                 as soon as possible.
               </div>
 
-
-              <!-- DIVIDER -->
-
               <div style="
                 width:42px;
                 height:1px;
                 margin:32px auto;
                 background:#d8d8d3;
               "></div>
-
-
-              <!-- MESSAGE 3 -->
 
               <div style="
                 max-width:400px;
@@ -762,9 +767,6 @@ export default async function handler(req, res) {
                 vision and exploring what we can create
                 together.
               </div>
-
-
-              <!-- TALK SOON -->
 
               <div style="
                 margin-top:28px;
@@ -779,15 +781,13 @@ export default async function handler(req, res) {
 
             </div>
 
-
-            <!-- FOOTER -->
-
             <div style="
               padding:26px 30px 28px;
               background:#fafaf8;
               border-top:1px solid #eeeeea;
               text-align:center;
             ">
+
               <div style="
                 color:#999994;
                 font-size:10px;
@@ -807,48 +807,62 @@ export default async function handler(req, res) {
       </html>
     `;
 
-    // --------------------------------------------------
-    // 8. SEND THANK-YOU EMAIL TO CUSTOMER
-    // --------------------------------------------------
+    // ============================================================
+    // 15. SEND CUSTOMER EMAIL
+    // ============================================================
 
     let customerEmailSuccess = false;
+    let customerEmailError = null;
 
     try {
-      await resend.emails.send({
+      const customerResult = await resend.emails.send({
         from: FROM_EMAIL,
-        to: email,
+        to: cleanEmail,
         subject: 'Thanks for contacting Ashenox',
         html: customerEmailHtml,
       });
 
+      if (customerResult?.error) {
+        throw new Error(customerResult.error.message || 'Customer email failed.');
+      }
+
       customerEmailSuccess = true;
     } catch (error) {
-      console.error('Customer email error:', error?.message || error);
+      customerEmailError = error instanceof Error ? error.message : 'Unknown customer email error.';
+
+      console.error('Customer email error:', customerEmailError);
+
+      // Customer email failure does NOT invalidate the inquiry.
     }
 
-    // --------------------------------------------------
-    // 9. FINAL RESPONSE
-    // --------------------------------------------------
+    // ============================================================
+    // 16. FINAL SUCCESS RESPONSE
+    // ============================================================
 
     return res.status(200).json({
       success: true,
+      message: 'Your inquiry has been received successfully.',
       googleSheetSuccess,
       adminEmailSuccess,
       customerEmailSuccess,
     });
   } catch (error) {
-    console.error('Contact API error:', error?.message || error);
+    // ============================================================
+    // 17. GLOBAL FALLBACK
+    // ============================================================
+
+    console.error('Contact API error:', error instanceof Error ? error.message : error);
 
     return res.status(500).json({
       success: false,
-      message: 'Something went wrong while submitting the form.',
+      message: 'Something went wrong while submitting the form. Please try again later.',
     });
   }
 }
 
-// ======================================================
+// ============================================================
 // HELPERS
-// ======================================================
+// ============================================================
 
 function escapeHtml(value = '') {
   return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');

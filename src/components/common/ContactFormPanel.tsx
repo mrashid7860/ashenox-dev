@@ -51,6 +51,7 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [validationError, setValidationError] = useState('');
 
   // ============================================================
   // PORTAL MOUNT
@@ -69,6 +70,8 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
       ...prev,
       [field]: e.target.value,
     }));
+
+    setValidationError('');
   };
 
   // ============================================================
@@ -80,16 +83,8 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
 
     if (isSubmitting) return;
 
-    // ----------------------------------------------------------
-    // Browser validation
-    // ----------------------------------------------------------
-
-    const formElement = e.currentTarget;
-
-    if (!formElement.checkValidity()) {
-      formElement.reportValidity();
-      return;
-    }
+    setValidationError('');
+    setSubmitStatus('idle');
 
     // ----------------------------------------------------------
     // Clean values
@@ -106,11 +101,10 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
 
     // ----------------------------------------------------------
     // Required fields
-    // Company, service and budget are required.
-    // Message is optional.
     // ----------------------------------------------------------
 
     if (!data.name || !data.email || !data.company || !data.service || !data.budget) {
+      setValidationError('Please fill in all required fields.');
       setSubmitStatus('error');
       return;
     }
@@ -120,6 +114,7 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
     // ----------------------------------------------------------
 
     if (data.name.length < 2) {
+      setValidationError('Name must be at least 2 characters.');
       setSubmitStatus('error');
       return;
     }
@@ -129,6 +124,7 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
     // ----------------------------------------------------------
 
     if (data.company.length < 2) {
+      setValidationError('Company name must be at least 2 characters.');
       setSubmitStatus('error');
       return;
     }
@@ -140,6 +136,7 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(data.email)) {
+      setValidationError('Email address is not correct.');
       setSubmitStatus('error');
       return;
     }
@@ -149,7 +146,6 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
     // ----------------------------------------------------------
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
       const response = await fetch('/api/contact', {
@@ -163,7 +159,7 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
       const result = await response.json();
 
       if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Failed to send inquiry.');
+        throw new Error(result.message || 'Failed to send your inquiry. Please try again.');
       }
 
       // --------------------------------------------------------
@@ -175,9 +171,7 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
     } catch (error) {
       console.error('Contact form error:', error);
 
-      // --------------------------------------------------------
-      // ERROR
-      // --------------------------------------------------------
+      setValidationError(error instanceof Error ? error.message : 'Failed to send your inquiry. Please try again.');
 
       setSubmitStatus('error');
     } finally {
@@ -270,6 +264,7 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
               ================================================== */}
 
               <motion.form
+                noValidate
                 initial={{
                   opacity: 0,
                   y: 14,
@@ -347,7 +342,16 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
 
                 {/* BUDGET */}
 
-                <input type="text" name="budget" placeholder="Estimated budget" value={form.budget} onChange={update('budget')} required disabled={isSubmitting} className={inputClasses} />
+                <input
+                  type="text"
+                  name="budget"
+                  placeholder="Estimated budget e.g. ₹50,000 - ₹1,00,000"
+                  value={form.budget}
+                  onChange={update('budget')}
+                  required
+                  disabled={isSubmitting}
+                  className={inputClasses}
+                />
 
                 {/* ==================================================
                     SUBMIT
@@ -422,7 +426,18 @@ export function ContactFormPanel({ open, onClose }: ContactFormPanelProps) {
           clip-path / stacking context.
       ======================================================== */}
 
-      {submitStatus !== 'idle' && createPortal(<ContactStatusPopup status={submitStatus} onClose={() => setSubmitStatus('idle')} />, document.body)}
+      {submitStatus !== 'idle' &&
+        createPortal(
+          <ContactStatusPopup
+            status={submitStatus}
+            message={validationError}
+            onClose={() => {
+              setSubmitStatus('idle');
+              setValidationError('');
+            }}
+          />,
+          document.body
+        )}
     </>
   );
 }

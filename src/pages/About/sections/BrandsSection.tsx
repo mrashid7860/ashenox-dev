@@ -261,9 +261,9 @@ export function BrandsSection() {
       {/* =========================================
           BOTTOM TEXT
       ========================================= */}
-      {/* <p className="mt-16 w-full text-center text-[13px]">✦ PARTNERSHIPS BUILT ON TRUST, CRAFT, AND RESULTS.</p> */}
+      <p className="mt-16 w-full text-center text-[13px]">✦ PARTNERSHIPS BUILT ON TRUST, CRAFT, AND RESULTS.</p>
 
-      <motion.p
+      {/* <motion.p
         initial="hidden"
         whileInView="visible"
         viewport={{
@@ -273,7 +273,7 @@ export function BrandsSection() {
         className="mt-16 w-full text-center text-[13px]"
       >
         {createWordAnimation('✦ PARTNERSHIPS BUILT ON TRUST, CRAFT, AND RESULTS.')}
-      </motion.p>
+      </motion.p> */}
     </section>
   );
 }

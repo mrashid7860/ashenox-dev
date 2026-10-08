@@ -6,7 +6,7 @@ import { ArrowDown } from 'lucide-react';
 import { createCharacterAnimation, useAnimatedWord } from '@/components/animations/CharAnimation';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
 import { homeData } from '@/data/home.data';
-import { ContactFormPanel } from '@/components/navigation/ContactFormPanel';
+import { ContactFormPanel } from '@/components/common/ContactFormPanel';
 
 export const HERO_EASE = [0.16, 1, 0.3, 1] as const;
 export const HERO_CONFIG = {

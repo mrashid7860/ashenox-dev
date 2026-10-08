@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import type { JourneyPoint } from '@/data/journey.data';
 import { AnimatedButton } from '@/components/animations/AnimatedButton';
+import { usePageTransition } from '@/components/common/PageLoader';
 
 /* ============================================================
    WAVE IMAGE
@@ -868,6 +869,7 @@ export function JourneyCard({ project, revealProgress, journeyProgress }: Journe
   };
 
   const mobileY = getMobileY();
+  const go = usePageTransition();
 
   /* ==========================================================
      CONTACT
@@ -895,7 +897,7 @@ export function JourneyCard({ project, revealProgress, journeyProgress }: Journe
       >
         <AnimatedButton
           variant="animated"
-          href="mailto:info@ashenox.com"
+          onClick={() => go('/contact', 'CONTACT')}
           borderColor="rgba(255, 255, 255, 0.8)"
           icon="right"
           charShift={78}

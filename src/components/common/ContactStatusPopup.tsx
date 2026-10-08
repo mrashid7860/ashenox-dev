@@ -5,10 +5,11 @@ import { X } from 'lucide-react';
 
 interface ContactStatusPopupProps {
   status: 'success' | 'error';
+  message?: string;
   onClose: () => void;
 }
 
-export function ContactStatusPopup({ status, onClose }: ContactStatusPopupProps) {
+export function ContactStatusPopup({ status, message, onClose }: ContactStatusPopupProps) {
   const isSuccess = status === 'success';
 
   return (
@@ -72,7 +73,7 @@ export function ContactStatusPopup({ status, onClose }: ContactStatusPopupProps)
         <p className="mx-auto mt-4 max-w-[330px] text-[14px] leading-[1.4] tracking-[-0.02em] text-black/55">
           {isSuccess
             ? "Thanks for reaching out to Ashenox. We've received your inquiry and will get back to you as soon as possible."
-            : 'We could not send your inquiry. Please check your details and try again.'}
+            : message || 'We could not send your inquiry. Please check your details and try again.'}
         </p>
 
         {/* BUTTON */}
