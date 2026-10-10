@@ -14,6 +14,8 @@ import { Service } from '@/pages/Services/Services';
 import { Portfolio } from '@/pages/Portfolio/Portfolio';
 import { Contact } from '@/pages/Contact/Contact';
 import ProjectDetailPage from './pages/Portfolio/ProjectDetailPage';
+import NotFound from '@/pages/NotFound';
+import NetworkStatus from '@/components/common/NetworkStatus';
 
 function Layout() {
   return (
@@ -36,10 +38,12 @@ function App() {
 
   return (
     <PageTransitionProvider>
+      <NetworkStatus />
       <Loader onComplete={() => setLoaded(true)} />
 
       {loaded && (
         <Routes>
+          {/* Pages with navigation and footer */}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -48,6 +52,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
           </Route>
+
+          {/* 404 page without navigation and footer */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       )}
     </PageTransitionProvider>

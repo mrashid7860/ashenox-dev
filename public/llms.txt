@@ -1,0 +1,20 @@
+
+# ASHENOX
+
+ASHENOX is an independent creative studio
+focused on premium websites, digital products,
+and brand experiences.
+
+## Services
+- Brand & Identity
+- Web Experiences
+- Product Design
+- 3D & Motion
+- Creative Direction
+- Content & Film
+
+## Pages
+- https://ashenox-dev.vercel.app/
+- https://ashenox-dev.vercel.app/services
+- https://ashenox-dev.vercel.app/work
+- https://ashenox-dev.vercel.app/contact
