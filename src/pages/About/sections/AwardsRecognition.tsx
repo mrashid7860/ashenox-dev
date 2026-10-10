@@ -51,17 +51,18 @@ function AwardsRecognition() {
   /*
    * MOBILE
    */
+
   const mobileClipPath = [
-    'inset(22.5% 7.8% 22.5% 7.8% round 999px)',
-    'inset(22.5% 7.8% 22.5% 7.8% round 999px)',
-    'inset(20% 7% 20% 7% round 999px)',
-    'inset(17% 6% 17% 6% round 700px)',
-    'inset(14% 5% 14% 5% round 600px)',
-    'inset(10% 4% 10% 4% round 450px)',
-    'inset(7% 3% 7% 3% round 300px)',
-    'inset(4% 2% 4% 2% round 180px)',
-    'inset(2% 1% 2% 1% round 100px)',
-    'inset(0.5% 0.5% 0.5% 0.5% round 20px)',
+    'inset(27% 15% 17% 15% round 700px)',
+    'inset(24% 15% 15% 15% round 700px)',
+    'inset(21% 14% 14% 14% round 700px)',
+    'inset(18% 12% 12% 12% round 650px)',
+    'inset(15% 10% 10% 10% round 600px)',
+    'inset(12% 8% 8% 8% round 500px)',
+    'inset(9% 6% 6% 6% round 400px)',
+    'inset(6% 4% 4% 4% round 300px)',
+    'inset(3% 2% 2% 2% round 150px)',
+    'inset(1% 0.5% 0.5% 0.5% round 20px)',
     'inset(0% 0% 0% 0% round 0px)',
   ];
 
@@ -161,7 +162,7 @@ function AwardsRecognition() {
   /*
    * TABLET VIDEO Y
    */
-  const tabletVideoY = useTransform(scrollYProgress, [0, 0.1, 0.22, 0.36, 0.48, 0.59, 0.69, 0.78, 0.88, 0.94, 0.96, 1], [220, 190, 180, 107, 100, 80, 5, 2, -2, -3, 0, 0]);
+  const tabletVideoY = useTransform(scrollYProgress, [0, 0.1, 0.22, 0.36, 0.48, 0.59, 0.69, 0.78, 0.88, 0.94, 0.96, 1], [140, 130, 150, 107, 100, 80, 5, 2, -2, -3, 0, 0]);
 
   /*
    * DESKTOP = NO MOVEMENT
@@ -235,20 +236,6 @@ function AwardsRecognition() {
             WebkitClipPath: videoClipPath,
           }}
         >
-          {/* =================================================
-              ACTUAL VIDEO
-
-              The video itself moves WITH the clip.
-
-              Desktop:
-                x = 0
-                y = 0
-
-              Mobile/tablet:
-                video follows the clip movement
-                and returns to 0 at the end.
-              ================================================= */}
-
           <motion.video
             className="absolute inset-0 h-full w-full object-cover"
             style={{
@@ -282,7 +269,7 @@ function AwardsRecognition() {
             =================================================== */}
 
         <motion.div
-          className="absolute top-[12vh] z-30 max-w-[220px] px-4 md:left-[3.3vw] md:top-[15vh] xl:left-[0.5vw] xl:top-[16vh] 2xl:left-[0.5vw] 2xl:top-[16dvh]"
+          className="absolute left-1/2 top-[12vh] z-30 w-max max-w-[220px] -translate-x-1/2 px-4 text-center md:left-[3.3vw] md:top-[15vh] md:w-auto md:translate-x-0 md:text-left xl:left-[0.5vw] xl:top-[16vh] 2xl:left-[0.5vw] 2xl:top-[16dvh]"
           style={{
             mixBlendMode: 'difference',
             color: '#ffffff',
@@ -314,8 +301,8 @@ function AwardsRecognition() {
           charShift={57}
           charStagger={0.025}
           charDuration={0.75}
-          widthClassName="w-[150px] sm:w-[150px] md:w-[150px] lg:w-[150px]"
-          className="absolute left-[58%] top-[88vh] z-30 flex w-[140px] items-center justify-between font-mono uppercase sm:left-[72%] md:left-[79%] md:top-[95vh] lg:left-[87%] lg:top-[17vh] xl:left-[86%] xl:top-[17vh] 2xl:left-[88%] 2xl:top-[17vh]"
+          widthClassName="w-[150px]"
+          className="absolute left-1/2 top-[calc(100dvh-45px)] z-30 flex w-[150px] -translate-x-1/2 items-center justify-between font-mono uppercase md:left-[76%] md:top-[calc(100dvh-51px)] md:translate-x-0 lg:left-[87%] xl:left-[86%] 2xl:left-[88%]"
         >
           VIEW SERVICES
         </AnimatedButton>

@@ -175,7 +175,7 @@ export function BrandsSection() {
       {/* =========================================
           BRANDS
       ========================================= */}
-      <p className="mx-auto pt-1 text-center text-[30px] leading-[1.15] sm:text-[50px] md:max-w-4xl md:pt-16 md:text-[60px] xl:text-[65px] 2xl:max-w-3xl 2xl:text-[60px]">
+      <p className="mx-auto px-6 pt-1 text-center text-[30px] leading-[1.15] sm:text-[50px] md:max-w-4xl md:pt-16 md:text-[60px] xl:text-[65px] 2xl:max-w-3xl 2xl:text-[60px]">
         {BRANDS.map((brand, index) => (
           <span key={brand.label}>
             <span

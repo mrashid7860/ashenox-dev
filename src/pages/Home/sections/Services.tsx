@@ -72,7 +72,7 @@ type Side = 'left' | 'right';
 
 function ServicesVisual({ mobile = false }: { mobile?: boolean }) {
   return (
-    <div className={mobile ? 'pointer-events-none absolute left-0 right-0 top-0 z-0 h-dvh overflow-hidden' : 'pointer-events-none absolute inset-0 z-0 overflow-hidden'}>
+    <div className={mobile ? 'pointer-events-none absolute left-0 right-0 top-0 z-0 h-[100svh] overflow-hidden' : 'pointer-events-none absolute inset-0 z-0 overflow-hidden'}>
       {/* ======================================================
           WHITE OVERLAY
       ====================================================== */}
@@ -119,14 +119,8 @@ function ServicesVisual({ mobile = false }: { mobile?: boolean }) {
           willChange: 'opacity, transform',
         }}
       />
-      <div
-        data-services-copy="true"
-        className="absolute left-1/2 top-[610px] z-[20] -translate-x-1/2 whitespace-nowrap"
-        style={{
-          mixBlendMode: 'difference',
-        }}
-      >
-        <h2 className="whitespace-nowrap text-center text-[14px] font-light uppercase leading-none tracking-[-0.02em] text-white md:m-0 md:mt-[250px] xl:mt-[calc(30px_-_((100vw_-_1580px)_/_8))] 2xl:mt-0">
+      <div data-services-copy="true" className="absolute inset-x-0 top-[calc(100dvh-60px)] z-[20] whitespace-nowrap md:bottom-auto md:top-[610px]" style={{ mixBlendMode: 'difference' }}>
+        <h2 className="text-center text-[14px] font-light uppercase leading-none tracking-[-0.02em] md:mt-[250px] xl:mt-[calc(30px_-_((100vw_-_1580px)_/_8))] 2xl:mt-0">
           Different disciplines. One standard of craft.
         </h2>
       </div>
@@ -258,66 +252,67 @@ function MobileServices() {
 
   const [scrollDistance, setScrollDistance] = useState(0);
 
-  // Cards container ki actual height aur available viewport space
-  // measure karke pata karo ki kitna "internal scroll" chahiye
   useLayoutEffect(() => {
     const measure = () => {
       if (!cardsWrapperRef.current) return;
 
-      const cardsHeight = cardsWrapperRef.current.scrollHeight;
+      // Match the actual visible viewport.
       const viewportHeight = window.innerHeight;
+      const cardsHeight = cardsWrapperRef.current.scrollHeight;
 
-      // approx space jo header/bottom text lete hain, apni value adjust karo
       const reservedSpace = 250;
       const availableForCards = viewportHeight - reservedSpace;
 
       const distance = Math.max(cardsHeight - availableForCards, 0);
+
       setScrollDistance(distance);
     };
 
     measure();
+
     window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
+    window.addEventListener('orientationchange', measure);
+
+    return () => {
+      window.removeEventListener('resize', measure);
+      window.removeEventListener('orientationchange', measure);
+    };
   }, []);
 
-  // Section ka scroll progress track karo (0 = section top touch hua, 1 = section fully scroll ho chuka)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end end'],
   });
 
-  // Jab tak section pinned hai, cards is progress ke hisaab se upar slide honge
   const y = useTransform(scrollYProgress, [0, 1], [0, -scrollDistance]);
 
   return (
-    <section ref={sectionRef} id="services-mobile" className="relative block w-full md:hidden" style={{ height: `calc(100vh + ${scrollDistance}px)` }}>
-      <div className="sticky top-0 h-screen overflow-hidden px-[15px] py-[20px]">
-        {/* ======================================================
-          SERVICES VISUAL 
-      ====================================================== */}
-
+    <section
+      ref={sectionRef}
+      id="services-mobile"
+      className="relative block w-full md:hidden"
+      style={{
+        height: `calc(100dvh + ${scrollDistance}px)`,
+      }}
+    >
+      <div className="sticky top-0 h-[100dvh] overflow-hidden px-[15px] py-[20px]">
         <ServicesVisual mobile />
 
-        {/* Content */}
-
         <div className="relative z-10 flex h-full flex-col">
-          {/* Header — static, scroll nahi karega */}
-
+          {/* Header */}
           <div className="mb-[55px] text-center">
             <h2 className="mx-auto mt-10 max-w-[330px] text-[42px] font-light leading-[0.9] tracking-[-0.07em] text-white">What we do.</h2>
           </div>
 
-          {/* Cards — yeh wala part hi internally scroll karega */}
-
+          {/* Animated cards */}
           <motion.div ref={cardsWrapperRef} style={{ y }} className="flex flex-col gap-16">
             {SERVICES.map((service, index) => (
               <MobileServiceCard key={service.title} service={service} index={index} />
             ))}
           </motion.div>
 
-          {/* Bottom — static rahega */}
-
-          <div className="mt-auto pt-[30px]">
+          {/* Bottom text */}
+          <div className="top-[calc(100dvh-120px)] mt-auto">
             <p className="text-center text-[8px] uppercase tracking-[0.08em] text-white/45">✦ DESIGN WITH INTENT. BUILT TO WORK.</p>
           </div>
         </div>

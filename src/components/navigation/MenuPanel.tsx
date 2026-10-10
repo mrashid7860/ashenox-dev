@@ -65,19 +65,19 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed right-0 top-0 z-[90] flex h-dvh w-full flex-col bg-black text-black shadow-[0_0_50px_rgba(0,0,0,0.1)] sm:w-[420px] md:right-3 md:top-3 md:h-[calc(100dvh-24px)] md:w-[400px] md:rounded-[7px] md:bg-white lg:right-3 lg:top-3 lg:h-[calc(100dvh-24px)] lg:w-[340px] xl:right-3 xl:top-3 xl:h-[calc(100dvh-18px)] xl:w-[340px]"
+            className="fixed right-0 top-0 z-[90] flex h-dvh w-full flex-col justify-center bg-black text-black shadow-[0_0_50px_rgba(0,0,0,0.1)] sm:w-[420px] md:right-3 md:top-3 md:h-[calc(100dvh-24px)] md:w-[400px] md:justify-start md:rounded-[7px] md:bg-white lg:right-3 lg:top-3 lg:h-[calc(100dvh-24px)] lg:w-[340px] xl:right-3 xl:top-3 xl:h-[calc(100dvh-18px)] xl:w-[340px]"
           >
             {/* ==================================================
                 TOP SPACER
             ================================================== */}
 
-            <div className="h-28 w-full shrink-0" />
+            <div className="hidden h-28 w-full shrink-0 md:block" />
 
             {/* ==================================================
                 NAVIGATION LINKS
             ================================================== */}
 
-            <nav className="flex flex-col px-6 md:mt-40 lg:mt-10" onMouseLeave={() => setHoveredIndex(null)}>
+            <nav className="mt-10 flex flex-col px-6 lg:mt-10" onMouseLeave={() => setHoveredIndex(null)}>
               {NAV_ITEMS.map((item, index) => {
                 const isDimmed = hoveredIndex !== null && hoveredIndex !== index;
 
@@ -141,7 +141,7 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
                 MOBILE SEPARATOR
             ================================================== */}
 
-            <div className="relative my-6 mt-16 flex items-center md:hidden">
+            <div className="relative my-2 mt-14 flex items-center md:hidden">
               <div className="h-px flex-1 bg-white/20" />
 
               <span className="mx-4 text-lg font-light text-white/60">+</span>

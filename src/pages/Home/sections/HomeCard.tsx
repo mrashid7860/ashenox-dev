@@ -910,27 +910,31 @@ function IntroText({ introProgress, bp }: { introProgress: MotionValue<number>; 
       >
         {INTRO.subtitle}
       </motion.p>
-      <motion.p className="pointer-events-none absolute left-1/2 top-[11%] w-[280px] -translate-x-1/2 px-6 text-center text-[15px] leading-[1.1] tracking-[-0.02em] text-[#444] md:left-auto md:top-[90%] md:w-[270px] md:translate-x-0 md:text-left lg:top-[85%]">
+
+      <motion.p className="pointer-events-none absolute left-1/2 top-[7%] w-[280px] -translate-x-1/2 px-6 text-center text-[15px] leading-[1.1] tracking-[-0.02em] text-[#444] sm:top-[5%] sm:w-[350px] md:bottom-9 md:left-auto md:top-auto md:w-[270px] md:translate-x-0 md:text-left lg:bottom-11 2xl:bottom-10">
         Concepts, explorations, and interface experiments shared openly as part of our creative process.
       </motion.p>
-      <AnimatedButton
-        onClick={() => go('/portfolio', 'WORK')}
-        variant="animated"
-        textColor="#4A4A4A"
-        hoverTextColor="#000"
-        borderColor="#4A4A4A"
-        hoverBorderColor="#000"
-        iconColor="#4A4A4A"
-        icon="up-right"
-        hoverIconColor="#000"
-        charShift={38}
-        charStagger={0.025}
-        charDuration={0.75}
-        widthClassName="w-[160px] sm:w-[160px] md:w-[160px] lg:w-[160px]"
-        className="group absolute left-1/2 top-[80%] mt-12 flex -translate-x-1/2 items-center font-mono uppercase md:left-[76%] md:top-[85%] md:translate-x-0 lg:left-[87.5%] lg:top-[80%] xl:left-[calc(100vw-3vw-160px)] xl:translate-x-0 2xl:left-[87.5%]"
-      >
-        VIEW ALL PROJECTS
-      </AnimatedButton>
+
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 sm:bottom-8 md:bottom-10 md:left-auto md:right-7 md:top-auto md:translate-x-0">
+        <AnimatedButton
+          onClick={() => go('/portfolio', 'WORK')}
+          variant="animated"
+          textColor="#4A4A4A"
+          hoverTextColor="#000"
+          borderColor="#4A4A4A"
+          hoverBorderColor="#000"
+          iconColor="#4A4A4A"
+          icon="up-right"
+          hoverIconColor="#000"
+          charShift={38}
+          charStagger={0.025}
+          charDuration={0.75}
+          widthClassName="w-[160px]"
+          className="group flex items-center font-mono uppercase"
+        >
+          VIEW ALL PROJECTS
+        </AnimatedButton>
+      </div>
     </>
   );
 }
@@ -998,7 +1002,13 @@ export default function HomeCard() {
   }));
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[linear-gradient(180deg,#D2D2D2_0%,#FFFFFF_100%)]" style={{ height: `${cfg.sectionVh}vh` }}>
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-[linear-gradient(180deg,#D2D2D2_0%,#FFFFFF_100%)]"
+      style={{
+        height: `${cfg.sectionVh}vh`,
+      }}
+    >
       <div className="translate-y-8 px-7 sm:translate-y-8 md:translate-y-10 lg:translate-y-[10px]">
         {/* Tablet */}
         <div className="hidden translate-y-10 md:block lg:hidden">
@@ -1084,16 +1094,23 @@ export default function HomeCard() {
           />
         </div>
       </div>
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <IntroText introProgress={introProgress} bp={layout.bp} />
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden md:h-screen">
+        <div
+          className="absolute inset-0 mt-16 sm:mt-6 md:mt-0"
+          style={{
+            transform: 'translateY(0px)',
+          }}
+        >
+          <IntroText introProgress={introProgress} bp={layout.bp} />
 
-        {lines.map((l, i) => (
-          <GrowLine key={`${layout.bp}-${i}`} progress={progress} range={l.range} y={l.y} bp={layout.bp} />
-        ))}
+          {lines.map((l, i) => (
+            <GrowLine key={`${layout.bp}-${i}`} progress={progress} range={l.range} y={l.y} bp={layout.bp} />
+          ))}
 
-        {cards.map((card, index) => (
-          <RevealCard key={card.id} card={card} index={index} progress={progress} layout={layout} layoutRef={layoutRef} />
-        ))}
+          {cards.map((card, index) => (
+            <RevealCard key={card.id} card={card} index={index} progress={progress} layout={layout} layoutRef={layoutRef} />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -466,6 +466,7 @@ export function SelectedWork() {
         </div>
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* Services background */}
+
           <motion.div
             style={{
               opacity: servicesOpacity,
@@ -476,34 +477,34 @@ export function SelectedWork() {
           >
             <div className="relative flex h-full w-full flex-col items-center justify-center text-black">
               <p className="absolute top-[12%] text-[13px] font-bold uppercase tracking-[-0.05em]">OUR SERVICES</p>
-
-              <div className="flex flex-col items-center leading-[0.74] lg:tracking-[-0.7em]">
-                <h2 className="md:text-[12vw] lg:text-[8vw]">A.I.</h2>
-                <h2 className="-mt-2 md:text-[12vw] lg:text-[8vw]">DESIGN</h2>
-                <h2 className="-mt-3 md:text-[12vw] lg:text-[8vw]">DEVELOPMENT</h2>
-                <h2 className="-mt-2 md:text-[12vw] lg:text-[8vw]">BRANDING</h2>
+              <div className="flex flex-col items-center leading-[0.74] md:leading-[0.8] md:tracking-[-0.6em] lg:leading-[0.74] lg:tracking-[-0.7em]">
+                <h2 className="text-[12vw] lg:text-[8vw]">A.I.</h2>
+                <h2 className="-mt-2 text-[12vw] lg:text-[8vw]">DESIGN</h2>
+                <h2 className="-mt-3 text-[12vw] lg:text-[8vw]">DEVELOPMENT</h2>
+                <h2 className="-mt-2 text-[12vw] lg:text-[8vw]">BRANDING</h2>
               </div>
+              <p className="absolute bottom-9 text-[13px] font-bold tracking-[-0.01em] md:left-10 lg:left-auto xl:bottom-11 2xl:bottom-10">DESIGN WITH INTENT. BUILT TO WORK.</p>
 
-              <p className="absolute bottom-14 text-[13px] font-bold tracking-[-0.01em] md:left-10 lg:left-auto">DESIGN WITH INTENT. BUILT TO WORK.</p>
-
-              <AnimatedButton
-                onClick={() => go('/services', 'SERVICES')}
-                variant="animated"
-                textColor="#4A4A4A"
-                hoverTextColor="#000"
-                borderColor="#4A4A4A"
-                hoverBorderColor="#000"
-                iconColor="#4A4A4A"
-                icon="up-right"
-                hoverIconColor="#000"
-                charShift={66}
-                charStagger={0.025}
-                charDuration={0.75}
-                widthClassName="w-[160px] sm:w-[160px] md:w-[160px] lg:w-[160px]"
-                className="group absolute flex items-center gap-4 font-mono text-[10px] font-bold md:left-[calc(60vw_-_195px)] md:top-[345px] lg:left-[clamp(0px,42vw,900px)] lg:top-[110px]"
-              >
-                VIEW SERVICES
-              </AnimatedButton>
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-10 md:left-auto md:right-7 md:top-auto md:translate-x-0">
+                <AnimatedButton
+                  onClick={() => go('/services', 'SERVICES')}
+                  variant="animated"
+                  textColor="#4A4A4A"
+                  hoverTextColor="#000"
+                  borderColor="#4A4A4A"
+                  hoverBorderColor="#000"
+                  iconColor="#4A4A4A"
+                  icon="up-right"
+                  hoverIconColor="#000"
+                  charShift={66}
+                  charStagger={0.025}
+                  charDuration={0.75}
+                  widthClassName="w-[160px]"
+                  className="group flex items-center gap-4 font-mono text-[10px] font-bold"
+                >
+                  VIEW SERVICES
+                </AnimatedButton>
+              </div>
             </div>
           </motion.div>
 

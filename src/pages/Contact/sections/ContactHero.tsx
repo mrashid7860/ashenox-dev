@@ -43,7 +43,7 @@ export function ContactHero() {
     <section className="relative min-h-screen overflow-hidden text-[#454545]">
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1500px] flex-col items-center justify-center px-5 pb-16 pt-0 text-center md:px-10">
         {/* TITLE */}
-        <CharacterHeading as="h1" className="relative z-20 max-w-[1100px] text-[clamp(2.5rem,5.2vw,5rem)] font-normal leading-[0.9] tracking-[-0.075em] text-[#fff]">
+        <CharacterHeading as="h1" className="relative z-20 max-w-[1100px] text-[clamp(2.5rem,8.2vw,5rem)] font-normal leading-[0.9] tracking-[-0.075em] text-[#fff]">
           {CONTACT_COPY.heroTitle}
         </CharacterHeading>
 
@@ -91,7 +91,7 @@ export function ContactHero() {
           style={{
             opacity: scrollIndicatorOpacity,
           }}
-          className="pointer-events-none absolute left-1/2 top-[calc(91.5vh)] flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white md:top-[calc(92vh)] lg:top-[41%] xl:top-[calc(100dvh-32px)] 2xl:top-[calc(100dvh-45px)]"
+          className="pointer-events-none absolute left-1/2 top-[calc(100dvh-32px)] z-40 flex h-4 w-4 -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white"
         >
           <motion.div
             animate={{
@@ -103,7 +103,7 @@ export function ContactHero() {
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="absolute left-[2px] flex items-center justify-center"
+            className="absolute left-[2.5px] flex -translate-x-1/2 items-center justify-center"
           >
             <ArrowDown size={10} strokeWidth={1.2} className="shrink-0 text-white" />
           </motion.div>
